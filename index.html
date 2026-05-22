@@ -91,12 +91,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
   display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px}
 .nav-logo span{font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-.5px}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s}
-.nav-links a:hover{color:#fff}
+.nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+.nav-links>li>a{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s;padding:6px 12px;border-radius:6px;display:block}
+.nav-links>li>a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:16px}
 .nav-login{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s}
 .nav-login:hover{color:#fff}
+/* DROPDOWN SEGMENTOS */
+.nav-drop{position:relative}
+.nav-drop-btn{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;font-family:inherit;transition:color .2s}
+.nav-drop-btn:hover,.nav-drop-btn.open{color:#fff}
+.nav-drop-btn svg{transition:transform .2s}
+.nav-drop-btn.open svg{transform:rotate(180deg)}
+.nav-drop-menu{position:absolute;top:calc(100% + 14px);left:0;background:#fff;border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,.2);padding:8px;min-width:290px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:400}
+.nav-drop-menu.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+.ndm-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;text-decoration:none;transition:background .15s}
+.ndm-item:hover{background:#f5f5f5}
+.ndm-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.ndm-icon.ind{background:rgba(135,189,36,.1)}
+.ndm-icon.dis{background:rgba(234,83,58,.1)}
+.ndm-icon.rep{background:rgba(54,132,153,.1)}
+.ndm-title{font-size:.85rem;font-weight:800;color:#3D3D3B;line-height:1.2}
+.ndm-desc{font-size:.72rem;color:#666;line-height:1.4;margin-top:2px}
+@media(max-width:768px){.nav-links{display:none}}
 
 /* ── HERO ── */
 .hero{background:var(--dark);min-height:100vh;display:flex;align-items:center;
@@ -358,8 +375,26 @@ footer{background:#252523;padding:60px 0 28px}
     </a>
     <ul class="nav-links">
       <li><a href="#funcionalidades">Funcionalidades</a></li>
-      <li><a href="/industrias">Indústrias</a></li>
-      <li><a href="/representantes">Representantes</a></li>
+      <li class="nav-drop">
+        <button class="nav-drop-btn" onclick="toggleDrop(this)">
+          Segmentos
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-drop-menu">
+          <a href="/industrias" class="ndm-item">
+            <div class="ndm-icon ind">🏭</div>
+            <div><div class="ndm-title">Indústrias</div><div class="ndm-desc">Automatize vendas, conecte ao ERP e escale seu negócio com inteligência</div></div>
+          </a>
+          <a href="/distribuidoras" class="ndm-item">
+            <div class="ndm-icon dis">🏘️</div>
+            <div><div class="ndm-title">Distribuidoras</div><div class="ndm-desc">Gerencie clientes e pedidos, vendas automatizadas e integração total</div></div>
+          </a>
+          <a href="/representantes" class="ndm-item">
+            <div class="ndm-icon rep">💼</div>
+            <div><div class="ndm-title">Representantes</div><div class="ndm-desc">Crie e gerencie políticas comerciais para cada cliente e representada</div></div>
+          </a>
+        </div>
+      </li>
       <li><a href="/integracoes">Integrações</a></li>
       <li><a href="/docs">Docs</a></li>
     </ul>
@@ -868,12 +903,12 @@ footer{background:#252523;padding:60px 0 28px}
         <p>O app de força de vendas que conecta sua equipe ao ERP. Para indústrias, comércios e atacados que querem vender mais e controlar melhor.</p>
       </div>
       <div class="foot-col">
-        <h4>Soluções</h4>
+        <h4>Segmentos</h4>
         <ul>
-          <li><a href="/industrias">🏭 Para Indústrias</a></li>
-          <li><a href="/representantes">💼 Para Representantes</a></li>
+          <li><a href="/industrias">🏭 Indústrias</a></li>
+          <li><a href="/distribuidoras">🏘️ Distribuidoras</a></li>
+          <li><a href="/representantes">💼 Representantes</a></li>
           <li><a href="/integracoes">Integrações ERP</a></li>
-          <li><a href="/docs">Documentação</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -898,6 +933,7 @@ footer{background:#252523;padding:60px 0 28px}
     <div class="foot-bottom">
       <p>© 2026 Rellav. Todos os direitos reservados. ·
         <a href="/industrias" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Indústrias</a> ·
+        <a href="/distribuidoras" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Distribuidoras</a> ·
         <a href="/representantes" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Representantes</a> ·
         <a href="/docs" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Docs</a> ·
         <a href="/integracoes" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Integrações</a> ·
@@ -921,6 +957,20 @@ footer{background:#252523;padding:60px 0 28px}
 </footer>
 
 <script>
+// ── DROPDOWN SEGMENTOS ──
+function toggleDrop(btn){
+  const menu=btn.nextElementSibling;
+  const open=menu.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  if(open){
+    setTimeout(()=>document.addEventListener('click',function h(e){
+      if(!btn.closest('.nav-drop').contains(e.target)){
+        menu.classList.remove('open');btn.classList.remove('open');
+        document.removeEventListener('click',h);
+      }
+    }),0);
+  }
+}
 // ── RELLAV MOTION — IntersectionObserver ──
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {

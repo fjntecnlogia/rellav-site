@@ -187,8 +187,26 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
     </a>
     <div class="tn-links">
       <a href="/">Início</a>
-      <a href="/industrias">Indústrias</a>
-      <a href="/representantes" class="active">Representantes</a>
+      <div class="tn-drop">
+        <button class="tn-drop-btn" onclick="toggleDrop(this)">
+          Segmentos
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tn-menu">
+          <a href="/industrias" class="tn-menu-item">
+            <div class="tn-mi-icon ind">🏭</div>
+            <div><div class="tn-mi-title">Indústrias</div><div class="tn-mi-desc">Automatize vendas, conecte ao ERP e escale seu negócio com inteligência</div></div>
+          </a>
+          <a href="/distribuidoras" class="tn-menu-item">
+            <div class="tn-mi-icon dis">🏘️</div>
+            <div><div class="tn-mi-title">Distribuidoras</div><div class="tn-mi-desc">Gerencie clientes e pedidos, vendas automatizadas e integração total</div></div>
+          </a>
+          <a href="/representantes" class="tn-menu-item active-seg">
+            <div class="tn-mi-icon rep">💼</div>
+            <div><div class="tn-mi-title">Representantes</div><div class="tn-mi-desc">Crie e gerencie políticas comerciais para cada cliente e representada</div></div>
+          </a>
+        </div>
+      </div>
       <a href="/integracoes">Integrações</a>
       <a href="/docs">Docs</a>
     </div>
@@ -577,6 +595,12 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
 </footer>
 
 <script>
+function toggleDrop(btn){
+  const menu=btn.nextElementSibling;
+  const open=menu.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  if(open){setTimeout(()=>document.addEventListener('click',function h(e){if(!btn.closest('.tn-drop').contains(e.target)){menu.classList.remove('open');btn.classList.remove('open');document.removeEventListener('click',h);}}),0);}
+}
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:0.1});
