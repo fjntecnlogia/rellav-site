@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrações ERP — Rellav</title>
+<meta name="description" content="Rellav integra com os principais ERPs do Brasil: TOTVS, Sankhya, Omie, Bling, SAP e mais. Conecte sua equipe de vendas ao seu sistema em tempo real.">
+<meta property="og:title" content="Integrações ERP — Rellav Força de Vendas">
+<meta property="og:description" content="Conecte o Rellav ao seu ERP e tenha pedidos, estoque e clientes sincronizados em tempo real. Sem planilhas, sem retrabalho.">
+<meta property="og:image" content="https://rellav.com.br/telas/IMG_1737.JPG">
+<meta property="og:url" content="https://rellav.com.br/integracoes">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://rellav.com.br/integracoes">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --g:#87BD24;--o:#EA533A;--t:#368499;--p:#E41D4A;--d:#3D3D3B;
+  --gray:#666;--light:#f7f8fa;--border:#e8e8e8;--white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+.topnav{background:var(--d);border-bottom:3px solid var(--g);position:sticky;top:0;z-index:200}
+.topnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tn-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.tn-logo{width:32px;height:32px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:var(--d)}
+.tn-brand span{font-size:1rem;font-weight:900;color:#fff}
+.tn-links{display:flex;gap:20px}
+.tn-links a{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:color .15s}
+.tn-links a:hover,.tn-links a.active{color:#fff}
+.tn-links a.active{color:var(--g)}
+.tn-cta{background:var(--g);color:var(--d);font-size:.78rem;font-weight:800;padding:8px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.tn-cta:hover{opacity:.85}
+.tn-menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;color:#fff;font-size:1.3rem}
+@media(max-width:768px){
+  .tn-links{display:none}.tn-menu-toggle{display:block}
+}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--d) 0%,#1e2820 60%,#0f1a0a 100%);padding:90px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(135,189,36,.12),transparent)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:800px;height:120px;background:radial-gradient(ellipse,rgba(135,189,36,.06),transparent 70%)}
+.hero-tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);background:rgba(135,189,36,.1);border:1px solid rgba(135,189,36,.2);padding:6px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero p{color:rgba(255,255,255,.55);font-size:1.05rem;max-width:580px;margin:0 auto 36px;line-height:1.8}
+.hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:36px}
+.hero-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:8px 18px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7)}
+.hero-badge span{font-size:.9rem}
+.hero-ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--g);color:var(--d);font-size:.88rem;font-weight:800;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.7);font-size:.88rem;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,.2);transition:all .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
+
+/* ERP GRID DE LOGOS */
+.erp-logos{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 24px}
+.erp-logos-inner{max-width:1100px;margin:0 auto}
+.erp-logos p{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bbb;margin-bottom:20px}
+.erp-logos-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.erp-chip{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 20px;font-size:.8rem;font-weight:800;color:var(--d);display:flex;align-items:center;gap:8px;transition:all .2s}
+.erp-chip:hover{border-color:var(--g);color:var(--g)}
+.erp-chip .dot{width:8px;height:8px;border-radius:50%}
+.erp-chip.totvs .dot{background:#d9251c}
+.erp-chip.sankhya .dot{background:#003f8a}
+.erp-chip.omie .dot{background:#ff8c00}
+.erp-chip.bling .dot{background:#009cde}
+.erp-chip.sap .dot{background:#0077b8}
+.erp-chip.netsuite .dot{background:#fa8c00}
+.erp-chip.tinyerp .dot{background:#00a651}
+.erp-chip.winthor .dot{background:#7b2d8b}
+.erp-chip.microsiga .dot{background:#c00}
+.erp-chip.protheus .dot{background:#c00}
+.erp-chip.custom .dot{background:var(--g)}
+
+/* SECTION */
+section{padding:80px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{font-size:.62rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--d);line-height:1.2;margin-bottom:12px}
+.section-title em{color:var(--g);font-style:normal}
+.section-sub{color:var(--gray);font-size:.95rem;line-height:1.8;max-width:600px;margin-bottom:40px}
+
+/* COMO FUNCIONA */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
+.how-step{padding:32px 28px;position:relative}
+.how-step:not(:last-child){border-right:1px solid var(--border)}
+@media(max-width:768px){.how-grid{grid-template-columns:1fr}.how-step:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}}
+.how-num{font-size:2.5rem;font-weight:900;color:rgba(135,189,36,.12);line-height:1;margin-bottom:14px}
+.how-icon{font-size:1.6rem;margin-bottom:12px}
+.how-step h3{font-size:.95rem;font-weight:800;color:var(--d);margin-bottom:8px}
+.how-step p{font-size:.82rem;color:var(--gray);line-height:1.7}
+.how-step.highlight{background:var(--g)}
+.how-step.highlight .how-num{color:rgba(61,61,59,.12)}
+.how-step.highlight h3{color:var(--d)}
+.how-step.highlight p{color:rgba(61,61,59,.7)}
+
+/* CARDS ERP */
+.erp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.erp-card{border:1.5px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;cursor:pointer}
+.erp-card:hover{border-color:var(--g);box-shadow:0 8px 32px rgba(135,189,36,.1);transform:translateY(-2px)}
+.erp-card-head{padding:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px}
+.erp-logo-block{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;flex-shrink:0}
+.erp-card-head-info h3{font-size:1rem;font-weight:800;color:var(--d);margin-bottom:4px}
+.erp-card-head-info p{font-size:.75rem;color:var(--gray)}
+.erp-status{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:100px;margin-top:6px}
+.erp-status.live{background:rgba(135,189,36,.12);color:var(--g)}
+.erp-status.live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);display:inline-block}
+.erp-status.coming{background:rgba(54,132,153,.12);color:var(--t)}
+.erp-status.coming::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--t);display:inline-block}
+.erp-card-body{padding:20px 24px}
+.erp-features{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.erp-feat{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--gray)}
+.erp-feat::before{content:'✓';color:var(--g);font-weight:900;font-size:.85rem;flex-shrink:0}
+.erp-feat.disabled{color:#ccc}
+.erp-feat.disabled::before{content:'○';color:#ccc}
+.erp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.erp-tag{font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:6px;background:var(--light);color:var(--gray)}
+.erp-tag.tech{background:rgba(54,132,153,.08);color:var(--t)}
+
+/* DETALHE TÉCNICO */
+.tech-section{background:var(--d);color:#fff}
+.tech-section .section-tag{color:var(--g)}
+.tech-section .section-title{color:#fff}
+.tech-section .section-sub{color:rgba(255,255,255,.5)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tech-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px;transition:border-color .2s}
+.tech-card:hover{border-color:rgba(135,189,36,.3)}
+.tech-card-icon{font-size:1.8rem;margin-bottom:16px}
+.tech-card h3{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:10px}
+.tech-card p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:16px}
+.code-snippet{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;font-family:monospace;font-size:.75rem;color:rgba(255,255,255,.6);line-height:1.8;overflow-x:auto}
+.code-snippet .kw{color:#87BD24}.code-snippet .str{color:#EA533A}.code-snippet .cm{color:#555}
+
+/* TABELA COMPARATIVA */
+.comp-table-wrap{overflow-x:auto;margin-top:32px;border-radius:16px;border:1.5px solid var(--border)}
+.comp-table{width:100%;border-collapse:collapse;min-width:640px}
+.comp-table th{background:var(--d);color:#fff;padding:16px 20px;font-size:.78rem;font-weight:800;text-align:left;white-space:nowrap}
+.comp-table th:first-child{border-radius:0}
+.comp-table th.rellav-col{background:var(--g);color:var(--d)}
+.comp-table td{padding:14px 20px;font-size:.82rem;border-bottom:1px solid var(--border);color:var(--gray)}
+.comp-table td:first-child{font-weight:700;color:var(--d)}
+.comp-table td.rellav-col{background:rgba(135,189,36,.04);font-weight:700;color:var(--g)}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table .check{color:var(--g);font-weight:900}
+.comp-table .cross{color:#ddd}
+.comp-table .partial{color:var(--o);font-weight:700}
+
+/* PROCESSO */
+.process-row{display:flex;gap:0;flex-wrap:wrap;margin-top:32px;border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
+.process-step{flex:1;min-width:180px;padding:28px 24px;position:relative}
+.process-step:not(:last-child){border-right:1px solid var(--border)}
+@media(max-width:640px){.process-step{border-right:none!important;border-bottom:1px solid var(--border)}.process-row{flex-direction:column}}
+.process-step:last-child::before{display:none}
+.ps-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-size:.85rem;font-weight:900;margin-bottom:14px;color:var(--d);background:var(--g)}
+.process-step h4{font-size:.88rem;font-weight:800;color:var(--d);margin-bottom:8px}
+.process-step p{font-size:.78rem;color:var(--gray);line-height:1.7}
+.ps-time{font-size:.68rem;font-weight:700;color:var(--t);margin-top:10px}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.faq-item{border:1.5px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--g)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;gap:12px;font-size:.9rem;font-weight:700;color:var(--d);user-select:none}
+.faq-q:hover{color:var(--g)}
+.faq-q .faq-arrow{font-size:1.1rem;transition:transform .2s;flex-shrink:0;color:var(--g)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 22px 18px;font-size:.85rem;color:var(--gray);line-height:1.85}
+.faq-item.open .faq-a{display:block}
+
+/* CTA FINAL */
+.cta-final{background:linear-gradient(135deg,#1a2f0e,var(--d));padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(135,189,36,.08),transparent)}
+.cta-final h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.2}
+.cta-final h2 em{color:var(--g);font-style:normal}
+.cta-final p{color:rgba(255,255,255,.5);font-size:.95rem;max-width:500px;margin:0 auto 32px;line-height:1.8}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--d);padding:32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:.78rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--g)}
+footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
+
+/* FLUTUANTE */
+.float-nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:100}
+.float-dot{width:10px;height:10px;border-radius:50%;background:rgba(135,189,36,.2);border:2px solid transparent;cursor:pointer;transition:all .2s;position:relative}
+.float-dot::after{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);background:var(--d);color:#fff;font-size:.65rem;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.float-dot:hover::after{opacity:1}
+.float-dot.active{background:var(--g);border-color:var(--g);transform:scale(1.3)}
+@media(max-width:900px){.float-nav{display:none}}
+
+/* UTILS */
+.txt-center{text-align:center}
+.txt-center .section-sub{margin-left:auto;margin-right:auto}
+.highlight-box{background:rgba(135,189,36,.06);border:1.5px solid rgba(135,189,36,.15);border-radius:14px;padding:20px 24px;margin:20px 0}
+.highlight-box p{font-size:.85rem;color:var(--d);line-height:1.8;margin:0}
+.highlight-box strong{color:var(--g)}
+
+/* ANIMATE */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+/* PILLS HEADER */
+.pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.pill{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;font-size:.75rem;font-weight:700;border:1.5px solid}
+.pill.green{color:var(--g);border-color:rgba(135,189,36,.3);background:rgba(135,189,36,.06)}
+.pill.blue{color:var(--t);border-color:rgba(54,132,153,.3);background:rgba(54,132,153,.06)}
+.pill.orange{color:var(--o);border-color:rgba(234,83,58,.3);background:rgba(234,83,58,.06)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="tn-brand">
+      <div class="tn-logo">R</div>
+      <span>Rellav</span>
+    </a>
+    <div class="tn-links">
+      <a href="/">Início</a>
+      <a href="/docs">Documentação</a>
+      <a href="/integracoes" class="active">Integrações</a>
+      <a href="/privacidade">Privacidade</a>
+    </div>
+    <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Quero%20saber%20sobre%20integra%C3%A7%C3%B5es%20do%20Rellav." class="tn-cta" target="_blank">Falar com Especialista</a>
+  </div>
+</nav>
+
+<!-- DOTS NAV -->
+<div class="float-nav">
+  <div class="float-dot active" data-label="Início" onclick="scrollToSection('hero')"></div>
+  <div class="float-dot" data-label="Como funciona" onclick="scrollToSection('como-funciona')"></div>
+  <div class="float-dot" data-label="ERPs disponíveis" onclick="scrollToSection('erps')"></div>
+  <div class="float-dot" data-label="Técnico" onclick="scrollToSection('tecnico')"></div>
+  <div class="float-dot" data-label="Comparativo" onclick="scrollToSection('comparativo')"></div>
+  <div class="float-dot" data-label="Processo" onclick="scrollToSection('processo')"></div>
+  <div class="float-dot" data-label="FAQ" onclick="scrollToSection('faq')"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-tag">⚡ Integrações ERP</div>
+  <h1>Seu ERP conectado<br>à <em>força de vendas</em></h1>
+  <p>O Rellav sincroniza pedidos, estoque, clientes e comissões com os principais ERPs do Brasil — sem planilhas, sem retrabalho, sem atraso.</p>
+  <div class="hero-badges">
+    <div class="hero-badge"><span>🔗</span> API REST nativa</div>
+    <div class="hero-badge"><span>🔄</span> Sincronização em tempo real</div>
+    <div class="hero-badge"><span>🔒</span> Dados criptografados</div>
+    <div class="hero-badge"><span>🧩</span> Customizável por empresa</div>
+  </div>
+  <div class="hero-ctas">
+    <a href="https://wa.me/5565999999999?text=Quero%20integrar%20o%20Rellav%20ao%20meu%20ERP" class="btn-primary" target="_blank">Solicitar Integração</a>
+    <a href="#erps" class="btn-ghost">Ver ERPs disponíveis</a>
+  </div>
+</section>
+
+<!-- LOGOS ERP -->
+<div class="erp-logos">
+  <div class="erp-logos-inner">
+    <p>Compatible com os principais sistemas do mercado</p>
+    <div class="erp-logos-row">
+      <div class="erp-chip totvs"><span class="dot"></span>TOTVS / Protheus</div>
+      <div class="erp-chip sankhya"><span class="dot"></span>Sankhya</div>
+      <div class="erp-chip omie"><span class="dot"></span>Omie</div>
+      <div class="erp-chip bling"><span class="dot"></span>Bling</div>
+      <div class="erp-chip sap"><span class="dot"></span>SAP Business One</div>
+      <div class="erp-chip tinyerp"><span class="dot"></span>Tiny ERP</div>
+      <div class="erp-chip winthor"><span class="dot"></span>WinThor</div>
+      <div class="erp-chip custom"><span class="dot"></span>Integração Customizada</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="section-inner">
+    <div class="section-tag">Arquitetura</div>
+    <h2 class="section-title">Como a integração <em>funciona</em></h2>
+    <p class="section-sub">Uma camada de sincronização inteligente que conecta o app móvel dos seus vendedores diretamente ao coração do seu sistema de gestão.</p>
+
+    <div class="how-grid fade-up">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div class="how-icon">📱</div>
+        <h3>App do Vendedor</h3>
+        <p>O vendedor usa o Rellav no celular para registrar pedidos, consultar estoque e cadastrar clientes mesmo offline.</p>
+      </div>
+      <div class="how-step highlight">
+        <div class="how-num">02</div>
+        <div class="how-icon">⚡</div>
+        <h3>Rellav Sync Engine</h3>
+        <p>Nosso motor de sincronização valida, transforma e roteia cada operação para o ERP no formato correto via API.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div class="how-icon">🏢</div>
+        <h3>ERP da Empresa</h3>
+        <p>Os dados chegam ao seu ERP como se tivessem sido lançados diretamente no sistema — sem duplicidade, sem erro.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <div class="how-icon">📊</div>
+        <h3>Gestão em Tempo Real</h3>
+        <p>Relatórios, comissões e metas são atualizados automaticamente. Seu gestor vê tudo em tempo real no painel.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box fade-up" style="margin-top:32px">
+      <p>💡 <strong>Modo offline inteligente:</strong> quando o vendedor está sem internet (áreas rurais, galpões, ruas com sinal fraco), os pedidos são gravados localmente no app e sincronizados automaticamente assim que a conexão for restabelecida — sem perda nenhuma de dado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ERPS DISPONÍVEIS -->
+<section id="erps" style="background:var(--light);padding:80px 24px">
+  <div class="section-inner">
+    <div class="section-tag">ERPs Suportados</div>
+    <h2 class="section-title">Integrações <em>disponíveis</em></h2>
+    <p class="section-sub">Cada integração é desenvolvida e homologada com o fornecedor do ERP, garantindo estabilidade e conformidade com as regras de negócio de cada sistema.</p>
+
+    <div class="pill-row">
+      <div class="pill green">✓ Ativas — prontas para uso</div>
+      <div class="pill blue">◷ Em desenvolvimento — previsão 2025</div>
+    </div>
+
+    <div class="erp-cards">
+
+      <!-- TOTVS -->
+      <div class="erp-card fade-up">
+        <div class="erp-card-head">
+          <div class="erp-logo-block" style="background:#fff1f1;font-size:1rem;color:#d9251c;font-weight:900">T</div>
+          <div class="erp-card-head-info">
+            <h3>TOTVS Protheus</h3>
+            <p>Maior ERP do Brasil — usado por indústrias, atacados e distribuidoras de médio e grande porte</p>
+            <span class="erp-status live">Disponível</span>
+          </div>
+        </div>
+        <div class="erp-card-body">
+          <div class="erp-features">
+            <div class="erp-feat">Sincronização de pedidos de venda (SC5/SC6)</div>
+            <div class="erp-feat">Catálogo de produtos com preços por tabela</div>
+            <div class="erp-feat">Consulta de saldo de estoque em tempo real</div>
+            <div class="erp-feat">Cadastro e atualização de clientes (SA1)</div>
+            <div class="erp-feat">Comissões por vendedor e regra de negócio</div>
+            <div class="erp-feat">Limites de crédito e inadimplência</div>
+          </div>
+          <div class="erp-tags">
+            <span class="erp-tag tech">REST API</span>
+            <span class="erp-tag tech">OAuth 2.0</span>
+            <span class="erp-tag">Protheus 12.1+</span>
+            <span class="erp-tag">TotvsCloud</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SANKHYA -->
+      <div class="erp-card fade-up">
+        <div class="erp-card-head">
+          <div class="erp-logo-block" style="background:#e8f0fb;font-size:1rem;color:#003f8a;font-weight:900">S</div>
+          <div class="erp-card-head-info">
+            <h3>Sankhya W</h3>
+            <p>Forte em indústrias e atacados do interior do Brasil, especialmente Centro-Oeste e Sudeste</p>
+            <span class="erp-status live">Disponível</span>
+          </div>
+        </div>
+        <div class="erp-card-body">
+          <div class="erp-features">
+            <div class="erp-feat">Lançamento de pedidos com aprovação automática</div>
+            <div class="erp-feat">Tabelas de preço por cliente e região</div>
+            <div class="erp-feat">Estoque por depósito e unidade de negócio</div>
+            <div class="erp-feat">Consulta de títulos e inadimplência</div>
+            <div class="erp-feat">Integração via SankhyaW WebService</div>
+            <div class="erp-feat">Suporte a NF-e e NF de saída</div>
+          </div>
+          <div class="erp-tags">
+            <span class="erp-tag tech">WebService</span>
+            <span class="erp-tag tech">JWT Auth</span>
+            <span class="erp-tag">Sankhya W 4.x+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OMIE -->
+      <div class="erp-card fade-up">
+        <div class="erp-card-head">
+          <div class="erp-logo-block" style="background:#fff5e6;font-size:1rem;color:#ff8c00;font-weight:900">O</div>
+          <div class="erp-card-head-info">
+            <h3>Omie</h3>
+            <p>ERP em nuvem muito usado por pequenas e médias empresas — integração via API pública</p>
+            <span class="erp-status live">Disponível</span>
+          </div>
+        </div>
+        <div class="erp-card-body">
+          <div class="erp-features">
+            <div class="erp-feat">Pedidos de venda com faturamento automático</div>
+            <div class="erp-feat">Produtos, variações e imagens</div>
+            <div class="erp-feat">Clientes PF e PJ com validação de CNPJ</div>
+            <div class="erp-feat">Contas a receber e situação financeira</div>
+            <div class="erp-feat">Notificações de pedido aprovado por webhook</div>
+            <div class="erp-feat disabled">Relatórios avançados (roadmap)</div>
+          </div>
+          <div class="erp-tags">
+            <span class="erp-tag tech">REST API</span>
+            <span class="erp-tag tech">AppKey / Secret</span>
+            <span class="erp-tag">Nuvem nativa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLING -->
+      <div class="erp-card fade-up">
+        <div class="erp-card-head">
+          <div class="erp-logo-block" style="background:#e6f5fb;font-size:1rem;color:#009cde;font-weight:900">B</div>
+          <div class="erp-card-head-info">
+            <h3>Bling ERP</h3>
+            <p>Popular entre e-commerces e pequenas empresas — API OAuth 2.0 moderna e bem documentada</p>
+            <span class="erp-status live">Disponível</span>
+          </div>
+        </div>
+        <div class="erp-card-body">
+          <div class="erp-features">
+            <div class="erp-feat">Pedidos com gestão de status e aprovação</div>
+            <div class="erp-feat">Catálogo com foto, variação e grade</div>
+            <div class="erp-feat">Clientes com histórico de compras</div>
+            <div class="erp-feat">Integração com logística e transportadoras</div>
+            <div class="erp-feat">Webhooks para eventos em tempo real</div>
+            <div class="erp-feat disabled">Multi-empresa (roadmap Q2 2025)</div>
+          </div>
+          <div class="erp-tags">
+            <span class="erp-tag tech">REST API v3</span>
+            <span class="erp-tag tech">OAuth 2.0</span>
+            <span class="erp-tag">Bling V3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAP -->
+      <div class="erp-card fade-up">
+        <div class="erp-card-head">
+          <div class="erp-logo-block" style="background:#e6f2fb;font-size:1rem;color:#0077b8;font-weight:900">SAP</div>
+          <div class="erp-card-head-info">
+            <h3>SAP Business One</h3>
+            <p>ERP internacional muito usado por empresas de médio porte e multinacionais no Brasil</p>
+            <span class="erp-status coming">Em desenvolvimento</span>
+          </div>
+        </div>
+        <div class="erp-card-body">
+          <div class="erp-features">
+            <div class="erp-feat">Pedidos de venda via Service Layer</div>
+            <div class="erp-feat">Catálogo com unidade de medida e grade</div>
+            <div class="erp-feat">Clientes (Business Partners)</div>
+            <div class="erp-feat">Consulta de saldo de estoque</div>
+            <div class="erp-feat disabled">Comissões (próxima fase)</div>
+            <div class="erp-feat disabled">Aprovação de crédito (próxima fase)</div>
+          </div>
+          <div class="erp-tags">
+            <span class="erp-tag tech">Service Layer</span>
+            <span class="erp-tag tech">OData</span>
+            <span class="erp-tag">SAP B1 9.x+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMIZADO -->
+      <div class="erp-card fade-up" style="border-style:dashed">
+        <div class="erp-card-head">
+          <div class="erp-logo-block" style="background:rgba(135,189,36,.1);font-size:1.4rem">🧩</div>
+          <div class="erp-card-head-info">
+            <h3>ERP Customizado</h3>
+            <p>Tem um ERP próprio ou regional? Nossa equipe faz a integração personalizada para a sua empresa</p>
+            <span class="erp-status live">Sob consulta</span>
+          </div>
+        </div>
+        <div class="erp-card-body">
+          <div class="erp-features">
+            <div class="erp-feat">Análise do seu sistema atual</div>
+            <div class="erp-feat">Desenvolvimento de conector dedicado</div>
+            <div class="erp-feat">Homologação e testes em ambiente real</div>
+            <div class="erp-feat">Suporte contínuo e manutenção</div>
+          </div>
+          <div style="margin-top:16px">
+            <a href="https://wa.me/5565999999999?text=Preciso%20de%20integra%C3%A7%C3%A3o%20customizada%20com%20meu%20ERP" class="btn-primary" target="_blank" style="font-size:.8rem;padding:10px 20px;display:inline-block;text-decoration:none">Falar com especialista →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TÉCNICO -->
+<section id="tecnico" class="tech-section">
+  <div class="section-inner">
+    <div class="section-tag">Para o time de TI</div>
+    <h2 class="section-title">Detalhes <em>técnicos</em></h2>
+    <p class="section-sub">Documentação técnica para seu time de TI avaliar a integração. Todos os conectores seguem os mesmos padrões de segurança e arquitetura.</p>
+
+    <div class="tech-grid">
+
+      <div class="tech-card fade-up">
+        <div class="tech-card-icon">🔐</div>
+        <h3>Autenticação Segura</h3>
+        <p>Cada ERP usa o protocolo de autenticação nativo. Credenciais nunca trafegam em plain text — apenas tokens com expiração controlada.</p>
+        <div class="code-snippet">
+<span class="cm">// TOTVS — OAuth 2.0</span>
+POST /api/oauth2/v1/token
+<span class="kw">grant_type</span>=<span class="str">client_credentials</span>
+<span class="kw">client_id</span>=<span class="str">{app_id}</span>
+<span class="kw">client_secret</span>=<span class="str">{secret}</span>
+        </div>
+      </div>
+
+      <div class="tech-card fade-up">
+        <div class="tech-card-icon">🔄</div>
+        <h3>Sincronização Delta</h3>
+        <p>Apenas os dados modificados são sincronizados — nunca toda a base. Isso reduz latência e consumo de banda, ideal para ERPs on-premise.</p>
+        <div class="code-snippet">
+<span class="cm">// Parâmetros de sincronização</span>
+GET /api/products
+  ?<span class="kw">modifiedSince</span>=<span class="str">2025-01-01T00:00:00Z</span>
+  &<span class="kw">pageSize</span>=<span class="str">100</span>
+  &<span class="kw">page</span>=<span class="str">1</span>
+        </div>
+      </div>
+
+      <div class="tech-card fade-up">
+        <div class="tech-card-icon">📦</div>
+        <h3>Pedidos em Fila</h3>
+        <p>Pedidos gerados offline entram em fila local (SQLite) e são enviados ao ERP assim que a conexão volta, com retry automático e log de erros.</p>
+        <div class="code-snippet">
+<span class="cm">// Payload de pedido</span>
+{
+  <span class="kw">"origin"</span>: <span class="str">"rellav_app"</span>,
+  <span class="kw">"vendedor_id"</span>: <span class="str">"V001"</span>,
+  <span class="kw">"cliente_id"</span>: <span class="str">"C00123"</span>,
+  <span class="kw">"itens"</span>: [...],
+  <span class="kw">"offline_at"</span>: <span class="str">"2025-05-01T14:22:00Z"</span>
+}
+        </div>
+      </div>
+
+      <div class="tech-card fade-up">
+        <div class="tech-card-icon">🪝</div>
+        <h3>Webhooks em Tempo Real</h3>
+        <p>Quando o ERP aprova ou rejeita um pedido, o app do vendedor é notificado em segundos via webhook — sem o vendedor precisar consultar.</p>
+        <div class="code-snippet">
+<span class="cm">// Evento de aprovação</span>
+POST /rellav/webhook/pedido
+{
+  <span class="kw">"evento"</span>: <span class="str">"pedido.aprovado"</span>,
+  <span class="kw">"pedido_id"</span>: <span class="str">"PED-8821"</span>,
+  <span class="kw">"status_erp"</span>: <span class="str">"FATURADO"</span>
+}
+        </div>
+      </div>
+
+      <div class="tech-card fade-up">
+        <div class="tech-card-icon">🌐</div>
+        <h3>On-premise ou Nuvem</h3>
+        <p>Funciona com ERPs instalados em servidores locais (via VPN ou túnel seguro) e também com ERPs 100% em nuvem sem configuração adicional.</p>
+        <div class="code-snippet">
+<span class="cm">// Configuração de endpoint</span>
+{
+  <span class="kw">"host"</span>: <span class="str">"erp.suaempresa.com.br"</span>,
+  <span class="kw">"port"</span>: <span class="str">8080</span>,
+  <span class="kw">"tls"</span>: <span class="str">true</span>,
+  <span class="kw">"timeout_ms"</span>: <span class="str">10000</span>
+}
+        </div>
+      </div>
+
+      <div class="tech-card fade-up">
+        <div class="tech-card-icon">🛡️</div>
+        <h3>Segurança e LGPD</h3>
+        <p>Dados em trânsito com TLS 1.3. Dados em repouso com AES-256. Logs auditáveis por 90 dias. Conformidade total com a LGPD.</p>
+        <div class="code-snippet">
+<span class="cm">// Headers obrigatórios</span>
+Authorization: Bearer <span class="str">{token}</span>
+X-Rellav-Version: <span class="str">2.0</span>
+X-Request-ID: <span class="str">{uuid}</span>
+Content-Type: <span class="str">application/json</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section id="comparativo">
+  <div class="section-inner">
+    <div class="section-tag">Comparativo</div>
+    <h2 class="section-title">Rellav vs <em>concorrentes</em></h2>
+    <p class="section-sub">Compare as integrações disponíveis e veja por que o Rellav entrega mais valor com menos fricção para sua operação de vendas.</p>
+
+    <div class="comp-table-wrap fade-up">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Recurso de Integração</th>
+            <th class="rellav-col">✦ Rellav</th>
+            <th>Mercos</th>
+            <th>Sellentt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TOTVS Protheus</td>
+            <td class="rellav-col check">✓ Nativo</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Sankhya W</td>
+            <td class="rellav-col check">✓ Nativo</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Omie</td>
+            <td class="rellav-col check">✓ Nativo</td>
+            <td class="check">✓</td>
+            <td class="partial">Parcial</td>
+          </tr>
+          <tr>
+            <td>Bling ERP</td>
+            <td class="rellav-col check">✓ Nativo</td>
+            <td class="check">✓</td>
+            <td class="cross">—</td>
+          </tr>
+          <tr>
+            <td>Modo Offline + Fila</td>
+            <td class="rellav-col check">✓ Completo</td>
+            <td class="partial">Parcial</td>
+            <td class="cross">—</td>
+          </tr>
+          <tr>
+            <td>Webhook em tempo real</td>
+            <td class="rellav-col check">✓</td>
+            <td class="cross">—</td>
+            <td class="partial">Parcial</td>
+          </tr>
+          <tr>
+            <td>Integração customizada</td>
+            <td class="rellav-col check">✓ Incluída</td>
+            <td class="partial">Pago extra</td>
+            <td class="partial">Pago extra</td>
+          </tr>
+          <tr>
+            <td>Suporte dedicado na integração</td>
+            <td class="rellav-col check">✓ Sempre</td>
+            <td class="partial">Planos top</td>
+            <td class="cross">—</td>
+          </tr>
+          <tr>
+            <td>Documentação técnica aberta</td>
+            <td class="rellav-col check">✓ Esta página</td>
+            <td class="cross">—</td>
+            <td class="partial">Parcial</td>
+          </tr>
+          <tr>
+            <td>Preço justo para PMEs</td>
+            <td class="rellav-col check">✓ Desde R$297/mês</td>
+            <td class="partial">A consultar</td>
+            <td class="partial">A consultar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO DE IMPLANTAÇÃO -->
+<section id="processo" style="background:var(--light);padding:80px 24px">
+  <div class="section-inner">
+    <div class="section-tag">Implantação</div>
+    <h2 class="section-title">Como é o processo de <em>ativação</em></h2>
+    <p class="section-sub">Do primeiro contato até o primeiro pedido sincronizado, nossa equipe conduz todo o processo — você não precisa de time de TI para começar.</p>
+
+    <div class="process-row fade-up">
+      <div class="process-step">
+        <div class="ps-num">1</div>
+        <h4>Diagnóstico Gratuito</h4>
+        <p>Nossa equipe mapeia seu ERP, versão, tipo de hospedagem (nuvem ou on-premise) e regras de negócio específicas da sua empresa.</p>
+        <div class="ps-time">⏱ 1 dia útil</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">2</div>
+        <h4>Configuração do Conector</h4>
+        <p>Configuramos o conector com suas credenciais de ERP em ambiente seguro. Nenhum dado trafega antes de tudo estar testado.</p>
+        <div class="ps-time">⏱ 2–3 dias úteis</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">3</div>
+        <h4>Homologação e Testes</h4>
+        <p>Rodamos testes de ponta a ponta com pedidos reais em ambiente de homologação. Validamos regras de preço, estoque e aprovação.</p>
+        <div class="ps-time">⏱ 2–5 dias úteis</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">4</div>
+        <h4>Treinamento da Equipe</h4>
+        <p>Treinamento por vídeo ou presencial para sua equipe de vendas e para o gestor responsável pelo sistema.</p>
+        <div class="ps-time">⏱ 1–2 dias</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">5</div>
+        <h4>Go-live! 🚀</h4>
+        <p>Sua equipe começa a usar o Rellav com integração ativa. Monitoramos os primeiros dias em tempo real para garantir estabilidade total.</p>
+        <div class="ps-time">⏱ Total: ~10 dias</div>
+      </div>
+    </div>
+
+    <div class="highlight-box fade-up" style="margin-top:32px">
+      <p>🤝 <strong>Sem custo de implantação nos planos anuais.</strong> Para ERPs customizados, o custo de desenvolvimento é informado no diagnóstico e negociado caso a caso. A maioria das integrações padrão é coberta no valor do plano mensal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-tag txt-center" style="text-align:center">Dúvidas frequentes</div>
+    <h2 class="section-title txt-center" style="text-align:center">Perguntas sobre <em>integrações</em></h2>
+    <p class="section-sub txt-center" style="text-align:center;margin-left:auto;margin-right:auto">As dúvidas mais comuns de gestores de TI e diretores comerciais antes de contratar o Rellav.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso dar acesso ao banco de dados do meu ERP para integrar com o Rellav?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Não. O Rellav usa exclusivamente a API oficial de cada ERP — nunca acessa diretamente o banco de dados. Isso garante que sua infraestrutura permaneça protegida e que todas as operações sigam as regras de negócio configuradas no seu ERP.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O que acontece com os pedidos se a internet cair durante a venda?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          O app funciona 100% offline. Os pedidos são gravados localmente no celular do vendedor com todos os dados (produto, quantidade, preço, cliente, localização). Assim que a conexão volta — seja Wi-Fi ou dados móveis — os pedidos são sincronizados automaticamente com o ERP na ordem correta, com timestamp do momento real da venda.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Meu ERP fica instalado em servidor interno da empresa (on-premise). Funciona?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Sim. Para ERPs on-premise, usamos uma das duas abordagens: (1) abertura de porta específica no firewall da empresa com IP fixo autorizado, ou (2) instalação de um agente leve de sincronização dentro da rede interna que inicia conexão de saída — sem necessidade de abrir portas. A escolha depende da política de segurança da sua empresa.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O Rellav duplica pedidos no ERP se houver falha na sincronização?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Não. Cada pedido tem um ID único gerado no app (UUID v4) que é enviado junto com o payload. Nosso sistema verifica se o pedido já existe no ERP antes de inserir. Em caso de timeout ou erro de rede, o sistema faz retry com o mesmo ID — e o ERP ignora a tentativa se o pedido já foi registrado. Duplicidade zero por design.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Posso ter múltiplos ERPs integrados ao mesmo tempo?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Sim, isso é possível para empresas que operam com mais de uma unidade de negócio ou empresa CNPJ diferente. Cada unidade pode ter seu próprio conector de ERP configurado, e o vendedor seleciona de qual empresa está emitindo o pedido no momento da venda. Entre em contato para verificar a disponibilidade no seu plano.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Meu ERP não está na lista. O que faço?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Nossa equipe faz integrações customizadas. Já desenvolvemos conectores para sistemas regionais, ERPs próprios e sistemas legados com API simples. O processo começa com um diagnóstico gratuito onde avaliamos a viabilidade técnica. Entre em contato via WhatsApp e descreva seu sistema — respondemos em até 24 horas úteis.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A integração afeta a performance do meu ERP?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Não de forma significativa. O Rellav usa sincronização delta (apenas dados modificados) com controle de rate limit respeitando os limites da API de cada ERP. Para ERPs TOTVS com muitos acessos simultâneos, configuramos janelas de sincronização fora do horário de pico. O impacto médio observado em produção é inferior a 2% da carga normal do sistema.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>Pronto para conectar seu<br><em>ERP ao campo</em>?</h2>
+  <p>Fale com nosso time de especialistas e veja uma demonstração ao vivo com o seu ERP integrado — sem compromisso.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5565999999999?text=Ol%C3%A1!%20Quero%20integrar%20o%20Rellav%20ao%20meu%20ERP.%20Podem%20me%20ajudar%3F" class="btn-primary" target="_blank">💬 Falar no WhatsApp</a>
+    <a href="/docs" class="btn-ghost">Ver Documentação</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Início</a>
+      <a href="/docs">Documentação</a>
+      <a href="/integracoes">Integrações</a>
+      <a href="/privacidade">Política de Privacidade</a>
+      <a href="/termos">Termos de Uso</a>
+    </div>
+    <p>&copy; 2026 Rellav — Força de Vendas. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+// FAQ toggle
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// Scroll to section
+function scrollToSection(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+
+// Intersection Observer - fade-up
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// Float nav dots
+const sections=['hero','como-funciona','erps','tecnico','comparativo','processo','faq'];
+const dots=document.querySelectorAll('.float-dot');
+const scrollObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const idx=sections.indexOf(e.target.id);
+      if(idx>=0){
+        dots.forEach(d=>d.classList.remove('active'));
+        if(dots[idx]) dots[idx].classList.add('active');
+      }
+    }
+  });
+},{threshold:0.4});
+sections.forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) scrollObs.observe(el);
+});
+</script>
+</body>
+</html>

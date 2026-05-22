@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentação — Rellav</title>
+<meta name="description" content="Documentação completa do app Rellav — Guia de início rápido, funcionalidades, configurações e FAQ.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--g:#87BD24;--o:#EA533A;--t:#368499;--d:#3D3D3B;--gray:#666;--light:#f7f8fa;--border:#e8e8e8;--white:#fff;--sidebar:260px}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);font-size:15px;line-height:1.7}
+
+/* NAV TOPO */
+.topnav{background:var(--d);border-bottom:3px solid var(--g);position:sticky;top:0;z-index:200}
+.topnav-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tn-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.tn-brand span{font-size:1rem;font-weight:900;color:#fff}
+.tn-brand small{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:500;margin-left:6px}
+.tn-links{display:flex;gap:20px}
+.tn-links a{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:color .15s}
+.tn-links a:hover,.tn-links a.active{color:#fff}
+.tn-links a.active{color:var(--g)}
+.tn-cta{background:var(--g);color:var(--d);font-size:.78rem;font-weight:800;padding:8px 18px;border-radius:8px;text-decoration:none;white-space:nowrap}
+
+/* LAYOUT */
+.docs-layout{display:flex;max-width:1400px;margin:0 auto;min-height:calc(100vh - 60px)}
+
+/* SIDEBAR */
+.docs-sidebar{width:var(--sidebar);flex-shrink:0;border-right:1px solid var(--border);position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;padding:24px 0;background:#fafafa}
+.docs-sidebar::-webkit-scrollbar{width:3px}
+.docs-sidebar::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
+.ds-section{font-size:.6rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);padding:14px 20px 6px;margin-top:8px}
+.ds-link{display:flex;align-items:center;gap:8px;padding:8px 20px;font-size:.82rem;font-weight:600;color:#555;text-decoration:none;border-left:3px solid transparent;transition:all .15s;line-height:1.3}
+.ds-link:hover{color:var(--g);background:rgba(135,189,36,.05);border-left-color:var(--g)}
+.ds-link.active{color:var(--g);border-left-color:var(--g);background:rgba(135,189,36,.08)}
+.ds-icon{font-size:.9rem;flex-shrink:0}
+.ds-div{height:1px;background:var(--border);margin:10px 20px}
+.ds-badge{font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:100px;margin-left:auto;flex-shrink:0}
+.ds-badge.new{background:rgba(135,189,36,.15);color:var(--g)}
+.ds-badge.beta{background:rgba(54,132,153,.15);color:var(--t)}
+
+/* MAIN */
+.docs-main{flex:1;min-width:0;padding:40px 48px;max-width:880px}
+
+/* ARTICLE */
+.doc-article{scroll-margin-top:80px;margin-bottom:56px}
+.doc-tag{font-size:.6rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.doc-article h1{font-size:2rem;font-weight:900;color:var(--d);margin-bottom:12px;line-height:1.2}
+.doc-article h2{font-size:1.35rem;font-weight:800;color:var(--d);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+.doc-article h3{font-size:1rem;font-weight:800;color:var(--d);margin:22px 0 10px}
+.doc-article p{color:var(--gray);margin-bottom:14px;line-height:1.85}
+.doc-article ul,.doc-article ol{margin:10px 0 14px;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+.doc-article li{color:var(--gray);font-size:.92rem;line-height:1.6}
+.doc-article strong{color:var(--d)}
+.doc-article a{color:var(--g);text-decoration:none;font-weight:600}
+.doc-article a:hover{text-decoration:underline}
+.doc-article code{background:#f0f0f0;padding:2px 7px;border-radius:4px;font-family:monospace;font-size:.85rem;color:var(--o)}
+.doc-divider{height:1px;background:var(--border);margin:48px 0}
+
+/* HERO DOC */
+.doc-hero{background:linear-gradient(135deg,var(--d),#2a2a28);border-radius:16px;padding:36px;margin-bottom:40px;position:relative;overflow:hidden}
+.doc-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(135,189,36,.08),transparent 70%)}
+.doc-hero-tag{font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.doc-hero h1{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
+.doc-hero h1 em{color:var(--g);font-style:normal}
+.doc-hero p{color:rgba(255,255,255,.5);font-size:.9rem;max-width:500px;margin-bottom:20px}
+.doc-hero-cards{display:flex;gap:10px;flex-wrap:wrap}
+.doc-hero-card{padding:8px 16px;border-radius:8px;font-size:.75rem;font-weight:700;text-decoration:none;transition:all .2s}
+.doc-hero-card.primary{background:var(--g);color:var(--d)}
+.doc-hero-card.secondary{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.12)}
+
+/* QUICK START STEPS */
+.qs-steps{display:flex;flex-direction:column;gap:0;margin:20px 0}
+.qs-step{display:flex;gap:0}
+.qs-left{display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0}
+.qs-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:900;color:#fff;flex-shrink:0;z-index:1}
+.qs-line{width:2px;flex:1;margin:0}
+.qs-content{flex:1;background:#fff;border-radius:12px;padding:16px 18px;margin-bottom:12px;border:1px solid var(--border)}
+.qs-content h4{font-size:.88rem;font-weight:800;color:var(--d);margin-bottom:6px}
+.qs-content p{font-size:.82rem;color:var(--gray);margin:0;line-height:1.6}
+
+/* FEATURE CARDS */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0}
+.feat-card{border-radius:12px;padding:18px;border:1px solid var(--border);background:#fff;transition:all .2s}
+.feat-card:hover{border-color:var(--g);box-shadow:0 4px 16px rgba(135,189,36,.1)}
+.feat-icon{font-size:1.6rem;margin-bottom:10px}
+.feat-title{font-size:.88rem;font-weight:800;color:var(--d);margin-bottom:6px}
+.feat-desc{font-size:.8rem;color:var(--gray);line-height:1.6}
+
+/* INFO BOXES */
+.info-box{border-radius:12px;padding:16px 20px;margin:18px 0;display:flex;gap:12px;align-items:flex-start}
+.info-box.tip{background:rgba(135,189,36,.06);border:1px solid rgba(135,189,36,.2)}
+.info-box.note{background:rgba(54,132,153,.06);border:1px solid rgba(54,132,153,.2)}
+.info-box.warn{background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.2)}
+.info-box.danger{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2)}
+.ib-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.ib-text{font-size:.85rem;color:#444;line-height:1.7}
+.ib-text strong{color:var(--d)}
+
+/* CODE BLOCK */
+.code-block{background:#1e1e1e;border-radius:10px;padding:16px 18px;font-family:'Courier New',monospace;font-size:.8rem;color:#a8ff78;overflow-x:auto;margin:14px 0;line-height:1.7}
+.code-block .cm{color:#666}
+.code-block .kw{color:var(--g)}
+
+/* TABLE */
+.doc-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+.doc-table th{background:var(--d);color:#fff;padding:10px 14px;text-align:left;font-weight:700;font-size:.78rem}
+.doc-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:#555}
+.doc-table tr:nth-child(even) td{background:var(--light)}
+.doc-table tr:last-child td{border-bottom:none}
+.doc-table td:first-child{font-weight:600;color:var(--d)}
+.tag-yes{color:var(--g);font-weight:800}
+.tag-no{color:#ccc}
+.tag-plan{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:100px}
+.tp-start{background:rgba(178,178,178,.15);color:#888}
+.tp-pro{background:rgba(135,189,36,.12);color:var(--g)}
+.tp-ent{background:rgba(61,61,59,.1);color:var(--d)}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;font-size:.92rem;font-weight:700;color:var(--d);gap:12px}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--g);font-weight:400;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 16px;font-size:.85rem;color:var(--gray);line-height:1.75}
+.faq-item.open .faq-a{display:block}
+
+/* PHONE SCREENSHOT */
+.screenshot-row{display:flex;gap:20px;align-items:flex-start;margin:20px 0;flex-wrap:wrap}
+.ss-phone{background:#111;border-radius:28px;padding:7px;box-shadow:0 12px 32px rgba(0,0,0,.18);width:160px;flex-shrink:0}
+.ss-phone-screen{border-radius:22px;overflow:hidden}
+.ss-phone-screen img{width:100%;display:block}
+.ss-caption{flex:1;min-width:200px}
+.ss-caption h4{font-size:.9rem;font-weight:800;color:var(--d);margin-bottom:8px}
+.ss-caption ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ss-caption ul li{font-size:.82rem;color:var(--gray);display:flex;gap:8px;line-height:1.5}
+.ss-caption ul li::before{content:'✓';color:var(--g);font-weight:900;flex-shrink:0}
+
+/* CONTACT CTA */
+.doc-cta{background:var(--d);border-radius:16px;padding:28px;text-align:center;margin-top:32px}
+.doc-cta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:8px}
+.doc-cta p{color:rgba(255,255,255,.45);font-size:.85rem;margin-bottom:18px}
+.doc-cta-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.cta-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .2s}
+.cta-btn.green{background:var(--g);color:var(--d)}
+.cta-btn.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.12)}
+
+@media(max-width:900px){.docs-sidebar{display:none}.docs-main{padding:24px 20px}.feat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV TOPO -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="tn-brand">
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+        <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+        <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+        <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+      </svg>
+      <span>Rellav</span>
+      <small>Documentação</small>
+    </a>
+    <div class="tn-links">
+      <a href="/" >Site</a>
+      <a href="/docs" class="active">Docs</a>
+      <a href="/integracoes">Integrações</a>
+      <a href="/privacidade">Privacidade</a>
+    </div>
+    <a href="/#precos" class="tn-cta">Começar grátis</a>
+  </div>
+</nav>
+
+<div class="docs-layout">
+
+<!-- SIDEBAR -->
+<aside class="docs-sidebar">
+  <div class="ds-section">Início</div>
+  <a class="ds-link active" href="#inicio"><span class="ds-icon">🚀</span>Início Rápido</a>
+  <a class="ds-link" href="#instalacao"><span class="ds-icon">📱</span>Instalação</a>
+  <a class="ds-link" href="#primeiro-acesso"><span class="ds-icon">🔑</span>Primeiro Acesso</a>
+
+  <div class="ds-div"></div>
+  <div class="ds-section">Funcionalidades</div>
+  <a class="ds-link" href="#clientes"><span class="ds-icon">👥</span>Gestão de Clientes</a>
+  <a class="ds-link" href="#catalogo"><span class="ds-icon">📦</span>Catálogo de Produtos</a>
+  <a class="ds-link" href="#pedidos"><span class="ds-icon">🛒</span>Criando Pedidos</a>
+  <a class="ds-link" href="#mapa"><span class="ds-icon">🗺️</span>Mapa de Clientes</a>
+  <a class="ds-link" href="#atendimentos"><span class="ds-icon">📋</span>Atendimentos</a>
+  <a class="ds-link" href="#tarefas"><span class="ds-icon">✅</span>Tarefas</a>
+  <a class="ds-link" href="#comissoes"><span class="ds-icon">💰</span>Comissões</a>
+
+  <div class="ds-div"></div>
+  <div class="ds-section">Configurações</div>
+  <a class="ds-link" href="#integracao-erp"><span class="ds-icon">🔌</span>Integrar ERP <span class="ds-badge new">Novo</span></a>
+  <a class="ds-link" href="#sincronizacao"><span class="ds-icon">🔄</span>Sincronização</a>
+  <a class="ds-link" href="#tema"><span class="ds-icon">🎨</span>Tema e Aparência</a>
+  <a class="ds-link" href="#usuarios"><span class="ds-icon">👤</span>Usuários e Perfis</a>
+
+  <div class="ds-div"></div>
+  <div class="ds-section">Referência</div>
+  <a class="ds-link" href="#planos"><span class="ds-icon">💳</span>Planos e Limites</a>
+  <a class="ds-link" href="#faq"><span class="ds-icon">❓</span>FAQ</a>
+  <a class="ds-link" href="#suporte"><span class="ds-icon">💬</span>Suporte</a>
+</aside>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="docs-main">
+
+<!-- HERO -->
+<div class="doc-hero">
+  <div class="doc-hero-tag">Documentação Oficial · v1.0</div>
+  <h1>Bem-vindo ao <em>Rellav</em></h1>
+  <p>Tudo que você precisa para configurar, usar e aproveitar ao máximo o app de força de vendas da sua equipe.</p>
+  <div class="doc-hero-cards">
+    <a href="#inicio" class="doc-hero-card primary">🚀 Início Rápido</a>
+    <a href="#pedidos" class="doc-hero-card secondary">🛒 Criar um Pedido</a>
+    <a href="#integracao-erp" class="doc-hero-card secondary">🔌 Integrar ERP</a>
+    <a href="/integracoes" class="doc-hero-card secondary">📋 Ver Integrações</a>
+  </div>
+</div>
+
+<!-- INÍCIO RÁPIDO -->
+<div class="doc-article" id="inicio">
+  <div class="doc-tag">Primeiros Passos</div>
+  <h1>Início Rápido</h1>
+  <p>Coloque sua equipe operando com o Rellav em menos de 30 minutos. Siga os passos abaixo:</p>
+
+  <div class="qs-steps">
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--g)">1</div><div class="qs-line" style="background:linear-gradient(var(--g),var(--t))"></div></div>
+      <div class="qs-content"><h4>Criar sua conta</h4><p>Acesse <a href="https://rellav.com.br">rellav.com.br</a> e clique em "Começar grátis". 14 dias sem cartão de crédito. Preencha os dados da empresa.</p></div>
+    </div>
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--t)">2</div><div class="qs-line" style="background:linear-gradient(var(--t),var(--o))"></div></div>
+      <div class="qs-content"><h4>Baixar o app</h4><p>Instale o Rellav no celular via <strong>App Store</strong> (iPhone) ou <strong>Google Play</strong> (Android). Faça login com os dados criados no passo 1.</p></div>
+    </div>
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--o)">3</div><div class="qs-line" style="background:linear-gradient(var(--o),#87BD24)"></div></div>
+      <div class="qs-content"><h4>Cadastrar produtos e clientes</h4><p>Importe via planilha CSV ou integre diretamente com seu ERP. Seus dados ficam disponíveis para todos os vendedores em segundos.</p></div>
+    </div>
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--g)">4</div><div class="qs-line" style="background:transparent"></div></div>
+      <div class="qs-content"><h4>Convidar a equipe</h4><p>Cadastre seus vendedores no painel web. Cada um recebe um convite por e-mail e acessa o app com seu próprio login.</p></div>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <span class="ib-icon">💡</span>
+    <div class="ib-text"><strong>Dica:</strong> Comece integrando o ERP para que produtos e clientes sejam importados automaticamente. Economiza horas de cadastro manual. Veja <a href="#integracao-erp">Como integrar o ERP</a>.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- INSTALAÇÃO -->
+<div class="doc-article" id="instalacao">
+  <div class="doc-tag">Instalação</div>
+  <h2>Instalar o App</h2>
+  <p>O Rellav está disponível para <strong>iOS (iPhone)</strong> e <strong>Android</strong>. Ambas as versões recebem atualizações simultâneas.</p>
+
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🍎</div>
+      <div class="feat-title">App Store — iPhone</div>
+      <div class="feat-desc">Requer iOS 14.0 ou superior. Compatível com iPhone 8 e modelos mais recentes.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🤖</div>
+      <div class="feat-title">Google Play — Android</div>
+      <div class="feat-desc">Requer Android 8.0 (API 26) ou superior. Compatível com a maioria dos smartphones Android.</div>
+    </div>
+  </div>
+
+  <h3>Permissões solicitadas</h3>
+  <table class="doc-table">
+    <thead><tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr></thead>
+    <tbody>
+      <tr><td>📍 Localização</td><td>Mapa de clientes e planejamento de rota</td><td>Não — só para a tela de Mapa</td></tr>
+      <tr><td>📷 Câmera</td><td>Scanner de código de barras no catálogo</td><td>Não — só para o scanner</td></tr>
+      <tr><td>🔔 Notificações</td><td>Alertas de pedidos confirmados e tarefas</td><td>Não — recomendado</td></tr>
+      <tr><td>💾 Armazenamento</td><td>Cache local para uso offline</td><td>Sim — necessário para o app funcionar</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box note">
+    <span class="ib-icon">ℹ️</span>
+    <div class="ib-text"><strong>Modo offline:</strong> O Rellav funciona sem internet para consultar clientes, produtos e criar pedidos. A sincronização com o ERP ocorre automaticamente ao reconectar.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- GESTÃO DE CLIENTES -->
+<div class="doc-article" id="clientes">
+  <div class="doc-tag">Funcionalidades</div>
+  <h2>Gestão de Clientes</h2>
+  <p>A tela de Clientes é o ponto central para o vendedor gerenciar sua carteira. Todos os clientes são exibidos com informações essenciais e ações rápidas.</p>
+
+  <div class="screenshot-row">
+    <div class="ss-phone">
+      <div class="ss-phone-screen"><img src="/telas/IMG_1737.JPG" alt="Lista de Clientes"></div>
+    </div>
+    <div class="ss-caption">
+      <h4>O que você vê na tela de Clientes</h4>
+      <ul>
+        <li><strong>Curva A/B/C</strong> — classificação visual por cor (verde, amarelo, vermelho)</li>
+        <li><strong>Busca</strong> por nome, CNPJ ou telefone</li>
+        <li><strong>Filtros</strong> por Curva, status ativo/inativo</li>
+        <li><strong>Ordenação</strong> por nome, última visita ou volume</li>
+        <li><strong>Badge de status</strong> — ATIVO ou INATIVO</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Ações rápidas na ficha do cliente</h3>
+  <p>Ao abrir a ficha de um cliente, você tem acesso imediato a:</p>
+  <table class="doc-table">
+    <thead><tr><th>Ação</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td>📞 Ligar</td><td>Abre o discador com o telefone principal do cliente</td></tr>
+      <tr><td>📧 Email</td><td>Abre o app de e-mail com o endereço do cliente</td></tr>
+      <tr><td>🗺️ Mapa</td><td>Abre o GPS com o endereço principal do cliente</td></tr>
+      <tr><td>🛒 Novo Pedido</td><td>Inicia um pedido diretamente para este cliente (Passo 1 já preenchido)</td></tr>
+      <tr><td>📋 Novo Atendimento</td><td>Registra um atendimento para este cliente</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Classificação por Curva A, B e C</h3>
+  <p>A Curva ABC classifica automaticamente os clientes com base no volume de compras:</p>
+  <table class="doc-table">
+    <thead><tr><th>Curva</th><th>Cor</th><th>Critério</th><th>Frequência de visita</th></tr></thead>
+    <tbody>
+      <tr><td>🟢 Curva A</td><td>Verde</td><td>Clientes de maior valor — top 20%</td><td>Semanal</td></tr>
+      <tr><td>🟡 Curva B</td><td>Amarelo</td><td>Clientes de valor médio — 30%</td><td>Quinzenal</td></tr>
+      <tr><td>🔴 Curva C</td><td>Vermelho</td><td>Clientes de menor volume — 50%</td><td>Mensal</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- CATÁLOGO -->
+<div class="doc-article" id="catalogo">
+  <div class="doc-tag">Funcionalidades</div>
+  <h2>Catálogo de Produtos</h2>
+  <p>O catálogo exibe todos os produtos com foto, preço, estoque e informações técnicas — tudo atualizado em tempo real via integração com o ERP.</p>
+
+  <div class="screenshot-row">
+    <div class="ss-phone">
+      <div class="ss-phone-screen"><img src="/telas/IMG_1740.JPG" alt="Catálogo"></div>
+    </div>
+    <div class="ss-caption">
+      <h4>Recursos do Catálogo</h4>
+      <ul>
+        <li><strong>Busca</strong> por nome, SKU ou código de barras</li>
+        <li><strong>Scanner EAN</strong> — toque no ícone e aponte para o produto</li>
+        <li><strong>Filtros</strong> por categoria, marca e disponibilidade</li>
+        <li><strong>Visualização</strong> em lista ou grade (toggle)</li>
+        <li><strong>Preço em verde</strong> para leitura rápida</li>
+        <li><strong>Badge de estoque</strong> — disponível ou indisponível</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Detalhe do Produto</h3>
+  <p>Ao tocar em um produto, você vê:</p>
+  <ul>
+    <li>Foto em alta resolução</li>
+    <li>Código SKU e código de barras EAN</li>
+    <li>Preço por tabela (pode haver múltiplas tabelas por cliente)</li>
+    <li>Estoque atual no depósito</li>
+    <li>Especificações técnicas (unidade, categoria, marca, NCM)</li>
+    <li>Compatibilidades (quando aplicável)</li>
+    <li>Botão <strong>"Adicionar ao Pedido"</strong></li>
+  </ul>
+
+  <div class="info-box tip">
+    <span class="ib-icon">📷</span>
+    <div class="ib-text"><strong>Scanner de código de barras:</strong> Toque no ícone de câmera na busca e aponte para qualquer código de barras EAN. O produto aparece instantaneamente — sem digitar nada.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- PEDIDOS -->
+<div class="doc-article" id="pedidos">
+  <div class="doc-tag">Funcionalidades</div>
+  <h2>Criando Pedidos</h2>
+  <p>O fluxo de criação de pedido é dividido em <strong>5 passos simples</strong>, com uma barra de progresso que orienta o vendedor em cada etapa.</p>
+
+  <h3>Passo 1 — Selecionar o Cliente</h3>
+  <p>Busque o cliente pelo nome, CNPJ ou telefone. Ao selecionar, um preview exibe o limite de crédito disponível, o valor do último pedido e os contatos.</p>
+  <div class="info-box tip">
+    <span class="ib-icon">💡</span>
+    <div class="ib-text">O botão <strong>"Próximo: Adicionar Produtos"</strong> só fica ativo após selecionar um cliente. Se o cliente não existir, cadastre-o primeiro em <strong>Clientes → + Novo cliente</strong>.</div>
+  </div>
+
+  <h3>Passo 2 — Adicionar Produtos</h3>
+  <p>Busque produtos por nome, SKU ou scanner de código de barras. Toque no <strong>+</strong> para abrir o modal de configuração:</p>
+  <ul>
+    <li>Selecione a <strong>tabela de preço</strong> (Padrão, Especial, Atacado, etc.)</li>
+    <li>Defina a <strong>quantidade</strong> com o controle — / +</li>
+    <li>Aplique <strong>desconto</strong> por percentual (%) ou valor (R$)</li>
+    <li>Adicione uma <strong>observação</strong> específica para o item</li>
+    <li>O <strong>subtotal</strong> é calculado em tempo real</li>
+  </ul>
+  <p>Repita para todos os produtos. O total acumulado fica visível no rodapé da tela.</p>
+
+  <h3>Passo 3 — Condições Comerciais</h3>
+  <table class="doc-table">
+    <thead><tr><th>Campo</th><th>Descrição</th><th>Obrigatório?</th></tr></thead>
+    <tbody>
+      <tr><td>Tipo de pedido</td><td>Venda, Devolução, Troca ou Amostra</td><td>✅ Sim</td></tr>
+      <tr><td>Condição de pagamento</td><td>Ex: Boleto 30/60, PIX à vista, Cartão 2x</td><td>✅ Sim</td></tr>
+      <tr><td>Transportadora</td><td>Empresa responsável pela entrega</td><td>Não</td></tr>
+      <tr><td>Frete (R$)</td><td>Valor do frete cobrado</td><td>Não</td></tr>
+      <tr><td>Entrega prevista</td><td>Data estimada de entrega</td><td>Não</td></tr>
+      <tr><td>Desconto global (%)</td><td>Desconto aplicado a todos os itens</td><td>Não</td></tr>
+      <tr><td>Observações</td><td>Notas internas ou instruções especiais</td><td>Não</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Passo 4 — Revisão do Pedido</h3>
+  <p>Confira todos os itens, condições e o total. Você pode:</p>
+  <ul>
+    <li><strong>Salvar como Orçamento</strong> — para enviar ao cliente e confirmar depois</li>
+    <li><strong>Confirmar Pedido</strong> — pedido registrado e enviado ao ERP imediatamente</li>
+  </ul>
+
+  <h3>Passo 5 — Confirmação</h3>
+  <p>Após confirmar, a tela exibe o número do pedido e as opções: <strong>Ver Pedido</strong>, <strong>Novo Pedido</strong> ou <strong>Fechar</strong>. O pedido já está disponível no ERP para faturamento.</p>
+
+  <div class="info-box note">
+    <span class="ib-icon">⏱️</span>
+    <div class="ib-text"><strong>Tempo médio:</strong> Um pedido completo leva cerca de <strong>60 segundos</strong> do início ao envio para o ERP, sem nenhum retrabalho de digitação.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- MAPA -->
+<div class="doc-article" id="mapa">
+  <div class="doc-tag">Funcionalidades</div>
+  <h2>Mapa de Clientes</h2>
+  <p>A tela Mapa exibe todos os clientes da carteira no mapa geográfico, com pins coloridos pela Curva ABC, permitindo planejar a rota do dia.</p>
+  <ul>
+    <li>🟢 <strong>Pin verde</strong> = Curva A (alta prioridade)</li>
+    <li>🟡 <strong>Pin amarelo</strong> = Curva B (média prioridade)</li>
+    <li>🔴 <strong>Pin vermelho</strong> = Curva C (baixa prioridade)</li>
+  </ul>
+  <p>Ao tocar em um pin, um card inferior exibe o nome do cliente, último atendimento e ações rápidas (Telefone, Classificação).</p>
+  <p><strong>Filtros disponíveis:</strong> Raio de alcance (5km, 10km, 20km) e filtro por Curva ABC ativo.</p>
+  <div class="info-box warn">
+    <span class="ib-icon">📍</span>
+    <div class="ib-text"><strong>Permissão de localização:</strong> O mapa só funciona com a permissão de localização ativada. Vá em Configurações do celular → Rellav → Localização → Permitir durante o uso.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- ATENDIMENTOS -->
+<div class="doc-article" id="atendimentos">
+  <div class="doc-tag">Funcionalidades</div>
+  <h2>Registro de Atendimentos</h2>
+  <p>O módulo de Atendimentos permite registrar qualquer contato com o cliente — presencial ou remoto — em um fluxo de 3 passos.</p>
+  <h3>Canal de Contato</h3>
+  <ul>
+    <li>🚶 Visita Pessoal</li>
+    <li>📞 Telefone</li>
+    <li>💬 WhatsApp</li>
+    <li>📧 E-mail</li>
+    <li>📹 Videoconferência</li>
+  </ul>
+  <h3>Campos do Atendimento</h3>
+  <table class="doc-table">
+    <thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Cliente</td><td>Cliente atendido (selecionado da carteira)</td></tr>
+      <tr><td>Canal</td><td>Como o contato foi feito</td></tr>
+      <tr><td>Assunto</td><td>Tema ou motivo do atendimento</td></tr>
+      <tr><td>Resultado</td><td>Venda, Orçamento, Agendamento, Sem interesse, Outro</td></tr>
+      <tr><td>Próxima ação</td><td>Data e descrição do que fazer a seguir</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- COMISSÕES -->
+<div class="doc-article" id="comissoes">
+  <div class="doc-tag">Funcionalidades</div>
+  <h2>Minhas Comissões</h2>
+  <p>O vendedor pode consultar suas comissões em tempo real, diretamente no celular, sem depender do departamento financeiro.</p>
+  <ul>
+    <li>Filtros por <strong>ano</strong> e <strong>mês</strong></li>
+    <li><strong>Resumo anual</strong>: total de vendas, comissão e valor pago</li>
+    <li><strong>Gráfico de barras</strong> com desempenho mês a mês</li>
+    <li><strong>Lista mensal</strong> com percentual, valor e status do pagamento</li>
+  </ul>
+  <div class="info-box tip">
+    <span class="ib-icon">💰</span>
+    <div class="ib-text">Os dados de comissão são sincronizados a partir do ERP. Certifique-se de que a integração ERP está configurada e as comissões estão cadastradas no sistema.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- INTEGRAÇÃO ERP -->
+<div class="doc-article" id="integracao-erp">
+  <div class="doc-tag">Configurações</div>
+  <h2>Integrar com seu ERP</h2>
+  <p>A integração com o ERP é o que torna o Rellav poderoso: produtos, preços, estoque e clientes sempre atualizados, e pedidos caindo automaticamente no sistema sem retrabalho.</p>
+
+  <h3>ERPs suportados</h3>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-icon">🔴</div><div class="feat-title">TOTVS Protheus</div><div class="feat-desc">Integração via REST API. Requer credenciais OAuth2 da empresa.</div></div>
+    <div class="feat-card"><div class="feat-icon">🔵</div><div class="feat-title">Sankhya</div><div class="feat-desc">Integração via JWT Gateway. Mapeamento de entidades TGFPRO e TGFPAR.</div></div>
+    <div class="feat-card"><div class="feat-icon">🟠</div><div class="feat-title">Omie</div><div class="feat-desc">Integração via API JSON com App Key + Secret. Configuração mais simples.</div></div>
+    <div class="feat-card"><div class="feat-icon">🔵</div><div class="feat-title">Bling</div><div class="feat-desc">Integração OAuth 2.0. Suporta produtos, contatos e pedidos de venda.</div></div>
+  </div>
+  <p style="margin-top:8px">Veja todos os ERPs suportados e a documentação técnica completa em <a href="/integracoes">nossa página de Integrações</a>.</p>
+
+  <h3>Como configurar</h3>
+  <div class="qs-steps">
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--t);font-size:.75rem">1</div><div class="qs-line" style="background:rgba(54,132,153,.3)"></div></div>
+      <div class="qs-content"><h4>Acessar as Configurações</h4><p>No app, toque em <strong>Mais → Configurações</strong> e selecione <strong>"Integração ERP"</strong>.</p></div>
+    </div>
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--t);font-size:.75rem">2</div><div class="qs-line" style="background:rgba(54,132,153,.3)"></div></div>
+      <div class="qs-content"><h4>Selecionar o ERP</h4><p>Escolha seu ERP na lista. Cada um tem um formulário específico de credenciais (URL, chave API, usuário, etc.).</p></div>
+    </div>
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--t);font-size:.75rem">3</div><div class="qs-line" style="background:rgba(54,132,153,.3)"></div></div>
+      <div class="qs-content"><h4>Inserir as credenciais</h4><p>Preencha as credenciais fornecidas pelo administrador do ERP ou pela equipe de TI da empresa.</p></div>
+    </div>
+    <div class="qs-step">
+      <div class="qs-left"><div class="qs-circle" style="background:var(--g);font-size:.75rem">4</div><div class="qs-line" style="background:transparent"></div></div>
+      <div class="qs-content"><h4>Testar e sincronizar</h4><p>Toque em <strong>"Testar conexão"</strong>. Se aprovado, clique em <strong>"Sincronizar agora"</strong> para importar produtos e clientes.</p></div>
+    </div>
+  </div>
+
+  <div class="info-box note">
+    <span class="ib-icon">🆘</span>
+    <div class="ib-text"><strong>Precisa de ajuda?</strong> Nossa equipe configura a integração por você sem custo adicional. Envie e-mail para <a href="mailto:contato@rellav.com.br">contato@rellav.com.br</a> com o ERP que você usa.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- SINCRONIZAÇÃO -->
+<div class="doc-article" id="sincronizacao">
+  <div class="doc-tag">Configurações</div>
+  <h2>Sincronização</h2>
+  <p>O Rellav sincroniza dados com o ERP automaticamente. Veja a frequência de cada dado:</p>
+  <table class="doc-table">
+    <thead><tr><th>Dado</th><th>Frequência automática</th><th>Sync manual</th></tr></thead>
+    <tbody>
+      <tr><td>Produtos e preços</td><td>A cada 4 horas</td><td>✅ Disponível</td></tr>
+      <tr><td>Estoque</td><td>A cada 15 minutos</td><td>✅ Disponível</td></tr>
+      <tr><td>Clientes</td><td>Diariamente</td><td>✅ Disponível</td></tr>
+      <tr><td>Pedidos → ERP</td><td>Imediato (tempo real)</td><td>✅ Disponível</td></tr>
+      <tr><td>Comissões</td><td>Diariamente</td><td>✅ Disponível</td></tr>
+    </tbody>
+  </table>
+  <p>Para forçar uma sincronização, acesse <strong>Mais → Configurações → Sincronizar agora</strong>.</p>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- PLANOS -->
+<div class="doc-article" id="planos">
+  <div class="doc-tag">Referência</div>
+  <h2>Planos e Limites</h2>
+  <table class="doc-table">
+    <thead><tr><th>Funcionalidade</th><th><span class="tag-plan tp-start">Starter</span></th><th><span class="tag-plan tp-pro">Profissional</span></th><th><span class="tag-plan tp-ent">Enterprise</span></th></tr></thead>
+    <tbody>
+      <tr><td>Gestão de clientes</td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
+      <tr><td>Catálogo digital + scanner</td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
+      <tr><td>Gestão de pedidos</td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
+      <tr><td>Mapa de clientes</td><td><span class="tag-no">—</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
+      <tr><td>Comissões do vendedor</td><td><span class="tag-no">—</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
+      <tr><td>Tarefas e atendimentos</td><td><span class="tag-no">—</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
+      <tr><td>Integrações ERP</td><td>1 ERP</td><td>Ilimitadas</td><td>Ilimitadas + API</td></tr>
+      <tr><td>Vendedores</td><td>Até 5</td><td>Até 20</td><td>Ilimitados</td></tr>
+      <tr><td>Suporte</td><td>WhatsApp</td><td>WhatsApp + E-mail</td><td>Dedicado + SLA</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- FAQ -->
+<div class="doc-article" id="faq">
+  <div class="doc-tag">Referência</div>
+  <h2>Perguntas Frequentes</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">O app funciona sem internet?</div>
+    <div class="faq-a">Sim. O Rellav tem modo offline. Você pode consultar clientes, produtos e criar pedidos sem conexão. Os dados ficam em cache local e sincronizam automaticamente quando a internet retornar.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Quanto tempo leva para configurar?</div>
+    <div class="faq-a">A maioria das empresas está operando em menos de 24 horas. A configuração básica (cadastro + download do app) leva cerca de 15 minutos. A integração com ERP pode levar de 1 a 5 dias dependendo do sistema.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como convidar vendedores para o app?</div>
+    <div class="faq-a">No painel web (rellav.com.br), acesse Usuários → Convidar usuário. Informe o e-mail do vendedor e o perfil (Vendedor ou Gestor). Ele receberá um e-mail com o link de acesso. O aplicativo já estará pronto para uso.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">O vendedor pode ver os dados de outros vendedores?</div>
+    <div class="faq-a">Não. Cada vendedor vê apenas sua própria carteira de clientes, pedidos e comissões. O gestor/administrador tem acesso a todos os dados da empresa.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Posso ter múltiplas tabelas de preço?</div>
+    <div class="faq-a">Sim. O Rellav suporta múltiplas tabelas de preço sincronizadas do ERP. Você pode configurar preços diferentes por cliente, grupo de clientes ou região. O app exibe automaticamente a tabela correta para cada cliente.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como funciona o período de teste?</div>
+    <div class="faq-a">O teste gratuito de 14 dias dá acesso completo a todas as funcionalidades do plano Profissional, sem necessidade de cartão de crédito. Ao final, você escolhe o plano que melhor atende sua equipe ou cancela sem nenhum custo.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Meus dados são seguros?</div>
+    <div class="faq-a">Sim. Todos os dados são criptografados em trânsito (HTTPS/TLS) e em repouso (AES-256). O Rellav está em conformidade com a LGPD. Veja nossa Política de Privacidade completa em <a href="/privacidade">rellav.com.br/privacidade</a>.</div>
+  </div>
+</div>
+
+<div class="doc-divider"></div>
+
+<!-- SUPORTE -->
+<div class="doc-article" id="suporte">
+  <div class="doc-tag">Suporte</div>
+  <h2>Precisa de ajuda?</h2>
+  <div class="doc-cta">
+    <h3>📬 Fale com nossa equipe</h3>
+    <p>Respondemos em até 2 horas no horário comercial (seg–sex, 8h–18h).</p>
+    <div class="doc-cta-links">
+      <a href="mailto:contato@rellav.com.br" class="cta-btn green">📧 contato@rellav.com.br</a>
+      <a href="https://wa.me/5565999999999" class="cta-btn ghost">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+// Sidebar active link on scroll
+const links = document.querySelectorAll('.ds-link[href^="#"]');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`.ds-link[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, {threshold: 0.3, rootMargin: '-60px 0px -60% 0px'});
+document.querySelectorAll('.doc-article[id]').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
