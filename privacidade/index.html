@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Política de Privacidade do aplicativo Rellav — App de Força de Vendas">
+<meta name="robots" content="index, follow">
+<title>Política de Privacidade — Rellav</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --g:#87BD24;--d:#3D3D3B;--gray:#666;--light:#f7f8fa;
+  --border:#e8e8e8;--white:#fff
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:var(--d);background:var(--white);
+  font-size:15px;line-height:1.8
+}
+
+/* ── HEADER ── */
+.header{
+  background:var(--d);padding:0;
+  border-bottom:4px solid var(--g)
+}
+.header-inner{
+  max-width:860px;margin:0 auto;padding:28px 24px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px
+}
+.header-brand{display:flex;align-items:center;gap:12px}
+.header-title{color:#fff;font-size:1.1rem;font-weight:800}
+.header-sub{color:rgba(255,255,255,.45);font-size:.72rem;margin-top:2px}
+.header-badge{
+  background:rgba(135,189,36,.2);color:var(--g);
+  font-size:.68rem;font-weight:800;padding:5px 14px;border-radius:100px
+}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,var(--d) 0%,#2a2a28 100%);
+  padding:48px 24px;text-align:center
+}
+.hero-tag{
+  display:inline-block;background:rgba(135,189,36,.15);color:var(--g);
+  font-size:.7rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 16px;border-radius:100px;margin-bottom:16px
+}
+.hero h1{
+  font-size:1.9rem;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2
+}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero-meta{
+  display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px
+}
+.hero-meta span{font-size:.78rem;color:rgba(255,255,255,.45);font-weight:500}
+.hero-meta strong{color:rgba(255,255,255,.7)}
+
+/* ── MAIN CONTENT ── */
+.container{max-width:860px;margin:0 auto;padding:48px 24px}
+
+/* ── TOC ── */
+.toc{
+  background:var(--light);border-radius:14px;padding:24px 28px;
+  margin-bottom:40px;border-left:4px solid var(--g)
+}
+.toc-title{font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:14px}
+.toc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.toc-list a{
+  font-size:.82rem;color:#555;text-decoration:none;
+  display:flex;align-items:center;gap:6px;transition:color .15s
+}
+.toc-list a:hover{color:var(--g)}
+.toc-num{
+  font-size:.65rem;font-weight:800;color:var(--g);
+  background:rgba(135,189,36,.1);width:20px;height:20px;
+  border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0
+}
+
+/* ── SECTIONS ── */
+.policy-section{margin-bottom:44px;scroll-margin-top:20px}
+.section-num{
+  font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  color:var(--g);margin-bottom:6px
+}
+.policy-section h2{
+  font-size:1.25rem;font-weight:800;color:var(--d);
+  margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--border)
+}
+.policy-section p{
+  color:var(--gray);margin-bottom:14px;line-height:1.85
+}
+.policy-section p:last-child{margin-bottom:0}
+
+/* ── DATA TABLE ── */
+.data-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.85rem}
+.data-table th{
+  background:var(--d);color:#fff;padding:11px 14px;
+  text-align:left;font-weight:700;font-size:.78rem
+}
+.data-table td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:#555
+}
+.data-table tr:nth-child(even) td{background:var(--light)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table td:first-child{font-weight:600;color:var(--d);white-space:nowrap}
+
+/* ── CARDS ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.info-card{
+  background:var(--light);border-radius:12px;padding:18px;
+  border-left:3px solid var(--g)
+}
+.info-card h4{font-size:.82rem;font-weight:800;color:var(--d);margin-bottom:8px}
+.info-card ul{list-style:none}
+.info-card ul li{
+  font-size:.8rem;color:#555;padding:4px 0;
+  display:flex;gap:7px;line-height:1.5
+}
+.info-card ul li::before{content:'✓';color:var(--g);font-weight:900;flex-shrink:0}
+
+/* ── LEGAL BASE ── */
+.legal-base{
+  background:rgba(135,189,36,.06);border-radius:12px;padding:18px;
+  border:1px solid rgba(135,189,36,.2);margin:18px 0
+}
+.legal-base-label{
+  font-size:.65rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--g);margin-bottom:10px
+}
+.legal-base-items{display:flex;flex-direction:column;gap:8px}
+.lb-item{display:flex;gap:10px;align-items:flex-start}
+.lb-art{
+  font-size:.65rem;font-weight:800;color:var(--g);
+  background:rgba(135,189,36,.15);padding:2px 8px;border-radius:4px;
+  white-space:nowrap;margin-top:2px;flex-shrink:0
+}
+.lb-text{font-size:.82rem;color:#555;line-height:1.5}
+
+/* ── RIGHTS LIST ── */
+.rights-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.right-item{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 16px;background:var(--light);border-radius:10px
+}
+.right-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.right-content h4{font-size:.85rem;font-weight:700;color:var(--d);margin-bottom:3px}
+.right-content p{font-size:.8rem;color:#666;line-height:1.5;margin:0}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight{
+  border-radius:12px;padding:18px 20px;margin:18px 0;
+  display:flex;gap:12px;align-items:flex-start
+}
+.highlight.blue{background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.2)}
+.highlight.green{background:rgba(135,189,36,.06);border:1px solid rgba(135,189,36,.2)}
+.highlight.orange{background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.2)}
+.highlight.red{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2)}
+.highlight-icon{font-size:1.2rem;flex-shrink:0}
+.highlight-text{font-size:.85rem;color:#444;line-height:1.7}
+.highlight-text strong{color:var(--d)}
+
+/* ── CONTACT BOX ── */
+.contact-box{
+  background:var(--d);border-radius:16px;padding:28px;
+  margin:20px 0;text-align:center
+}
+.contact-box h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:8px}
+.contact-box p{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:18px}
+.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.contact-link{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 20px;border-radius:8px;font-size:.82rem;font-weight:700;
+  text-decoration:none;transition:all .2s
+}
+.contact-link.primary{background:var(--g);color:var(--d)}
+.contact-link.secondary{
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.15)
+}
+.contact-link:hover{opacity:.85;transform:translateY(-2px)}
+
+/* ── UPDATE LOG ── */
+.update-log{list-style:none}
+.update-log li{
+  display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:.83rem;color:#555
+}
+.update-log li:last-child{border-bottom:none}
+.update-date{font-weight:700;color:var(--d);white-space:nowrap;width:100px;flex-shrink:0}
+.update-desc{color:var(--gray)}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--light);border-top:1px solid var(--border);
+  padding:32px 24px;text-align:center
+}
+.footer-inner{max-width:860px;margin:0 auto}
+.footer-logo{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;margin-bottom:12px
+}
+.footer-logo span{font-size:1rem;font-weight:900;color:var(--d)}
+.footer p{font-size:.78rem;color:#aaa;margin-bottom:6px}
+
+/* RESPONSIVE */
+@media(max-width:620px){
+  .toc-list,.info-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.5rem}
+  .hero-meta{gap:12px}
+  .header-inner{flex-direction:column;align-items:flex-start}
+}
+@media print{
+  .header,.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+        <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+        <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+        <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+      </svg>
+      <div>
+        <div class="header-title">Rellav — App de Força de Vendas</div>
+        <div class="header-sub">rellav.com.br · FJN Tecnologia</div>
+      </div>
+    </div>
+    <span class="header-badge">🔒 Conforme LGPD</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Documento Legal · Versão 1.0</div>
+  <h1>Política de <em>Privacidade</em></h1>
+  <div class="hero-meta">
+    <span><strong>Vigência:</strong> 19 de maio de 2026</span>
+    <span><strong>Última atualização:</strong> 19 de maio de 2026</span>
+    <span><strong>Aplicável a:</strong> App Rellav (iOS e Android)</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+<!-- ÍNDICE -->
+<div class="toc">
+  <div class="toc-title">Índice — Clique para navegar</div>
+  <ul class="toc-list">
+    <li><a href="#s1"><span class="toc-num">1</span> Sobre esta Política</a></li>
+    <li><a href="#s2"><span class="toc-num">2</span> Quem somos</a></li>
+    <li><a href="#s3"><span class="toc-num">3</span> Dados coletados</a></li>
+    <li><a href="#s4"><span class="toc-num">4</span> Como usamos seus dados</a></li>
+    <li><a href="#s5"><span class="toc-num">5</span> Base legal (LGPD)</a></li>
+    <li><a href="#s6"><span class="toc-num">6</span> Compartilhamento</a></li>
+    <li><a href="#s7"><span class="toc-num">7</span> Armazenamento e segurança</a></li>
+    <li><a href="#s8"><span class="toc-num">8</span> Retenção de dados</a></li>
+    <li><a href="#s9"><span class="toc-num">9</span> Seus direitos (LGPD)</a></li>
+    <li><a href="#s10"><span class="toc-num">10</span> Crianças e adolescentes</a></li>
+    <li><a href="#s11"><span class="toc-num">11</span> Integrações com terceiros</a></li>
+    <li><a href="#s12"><span class="toc-num">12</span> Alterações desta política</a></li>
+    <li><a href="#s13"><span class="toc-num">13</span> Contato e DPO</a></li>
+  </ul>
+</div>
+
+<!-- SEÇÃO 1 -->
+<div class="policy-section" id="s1">
+  <div class="section-num">Seção 01</div>
+  <h2>Sobre Esta Política de Privacidade</h2>
+  <p>Esta Política de Privacidade descreve como a <strong>FJN Tecnologia</strong> ("nós", "nosso" ou "Rellav") coleta, usa, armazena, protege e compartilha as informações dos usuários do aplicativo <strong>Rellav</strong> — App de Força de Vendas — disponível para dispositivos iOS e Android.</p>
+  <p>Ao instalar e utilizar o aplicativo Rellav, você confirma que leu, compreendeu e concorda com os termos desta Política de Privacidade. Caso não concorde, solicitamos que não utilize o aplicativo.</p>
+  <p>Esta política está em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD) — Lei nº 13.709/2018</strong>, o Marco Civil da Internet (Lei nº 12.965/2014), os termos de serviço do <strong>Google Play Store</strong> e da <strong>Apple App Store</strong>, e o Regulamento Geral de Proteção de Dados da União Europeia (GDPR), quando aplicável.</p>
+  <div class="highlight green">
+    <span class="highlight-icon">🔒</span>
+    <div class="highlight-text"><strong>Nosso compromisso:</strong> A Rellav é uma plataforma B2B de força de vendas. Os dados que coletamos são estritamente necessários para o funcionamento do serviço. Não vendemos dados pessoais a terceiros e jamais o faremos.</div>
+  </div>
+</div>
+
+<!-- SEÇÃO 2 -->
+<div class="policy-section" id="s2">
+  <div class="section-num">Seção 02</div>
+  <h2>Quem Somos — Controlador dos Dados</h2>
+  <table class="data-table">
+    <tbody>
+      <tr><td>Empresa</td><td>FJN Tecnologia</td></tr>
+      <tr><td>Produto</td><td>Rellav — App de Força de Vendas</td></tr>
+      <tr><td>Site</td><td><a href="https://rellav.com.br" style="color:var(--g)">rellav.com.br</a></td></tr>
+      <tr><td>E-mail</td><td><a href="mailto:privacidade@rellav.com.br" style="color:var(--g)">privacidade@rellav.com.br</a></td></tr>
+      <tr><td>Contato geral</td><td><a href="mailto:fjntecnologia2022@gmail.com" style="color:var(--g)">fjntecnologia2022@gmail.com</a></td></tr>
+      <tr><td>Papel na LGPD</td><td>Controlador de Dados Pessoais</td></tr>
+      <tr><td>Plataformas</td><td>Google Play Store (Android) · Apple App Store (iOS)</td></tr>
+    </tbody>
+  </table>
+  <p>A empresa cliente que contrata o Rellav (indústria, atacadista, distribuidora, etc.) atua como <strong>Co-controladora dos dados</strong> referentes aos seus clientes, vendedores e pedidos cadastrados na plataforma.</p>
+</div>
+
+<!-- SEÇÃO 3 -->
+<div class="policy-section" id="s3">
+  <div class="section-num">Seção 03</div>
+  <h2>Quais Dados Coletamos</h2>
+  <p>Coletamos apenas os dados estritamente necessários para fornecer, operar e melhorar o serviço Rellav. Abaixo está a descrição completa de cada categoria:</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.1 Dados do Usuário (Vendedor / Gestor)</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>Dado</th><th>Finalidade</th><th>Obrigatório?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Nome completo</td><td>Identificação e exibição no app</td><td>✅ Sim</td></tr>
+      <tr><td>Endereço de e-mail</td><td>Login, autenticação e comunicações</td><td>✅ Sim</td></tr>
+      <tr><td>Número de telefone</td><td>Suporte e verificação de identidade</td><td>⚪ Opcional</td></tr>
+      <tr><td>Foto de perfil</td><td>Personalização do perfil no app</td><td>⚪ Opcional</td></tr>
+      <tr><td>Cargo / função</td><td>Controle de permissões no sistema</td><td>✅ Sim</td></tr>
+      <tr><td>Empresa vinculada</td><td>Identificação da conta da empresa</td><td>✅ Sim</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.2 Dados de Clientes da Empresa</h3>
+  <p style="font-size:.85rem;color:#888;margin-bottom:10px">Estes dados são inseridos pela empresa contratante (B2B) e referem-se aos clientes dela:</p>
+  <table class="data-table">
+    <thead>
+      <tr><th>Dado</th><th>Finalidade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Razão social / Nome fantasia</td><td>Identificação do cliente no catálogo</td></tr>
+      <tr><td>CNPJ ou CPF</td><td>Verificação fiscal e emissão de pedidos</td></tr>
+      <tr><td>Endereços (entrega e cobrança)</td><td>Logística de pedidos e rotas de visita</td></tr>
+      <tr><td>Telefone e e-mail</td><td>Comunicação do vendedor com o cliente</td></tr>
+      <tr><td>Limite de crédito</td><td>Controle de crédito nos pedidos</td></tr>
+      <tr><td>Classificação (Curva A/B/C)</td><td>Priorização de atendimento</td></tr>
+      <tr><td>Histórico de pedidos</td><td>Consulta e contexto de atendimento</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.3 Dados de Uso e Técnicos</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>Dado</th><th>Finalidade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Endereço IP</td><td>Segurança, detecção de fraudes e logs</td></tr>
+      <tr><td>Modelo do dispositivo</td><td>Compatibilidade e suporte técnico</td></tr>
+      <tr><td>Sistema operacional e versão</td><td>Compatibilidade e otimização</td></tr>
+      <tr><td>Identificador de dispositivo (Device ID)</td><td>Autenticação e segurança de sessão</td></tr>
+      <tr><td>Logs de acesso e uso</td><td>Monitoramento de erros e performance</td></tr>
+      <tr><td>Dados de crash / falhas</td><td>Melhoria de qualidade do app</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.4 Localização Geográfica</h3>
+  <div class="highlight orange">
+    <span class="highlight-icon">📍</span>
+    <div class="highlight-text">
+      <strong>Acesso à localização:</strong> O aplicativo solicita permissão de acesso à localização do dispositivo exclusivamente para a funcionalidade de <strong>Mapa de Clientes</strong> — que exibe a posição geográfica dos clientes próximos ao vendedor e auxilia no planejamento de rotas de visita. A localização <strong>não é coletada em segundo plano</strong> e é utilizada apenas quando o usuário está com o app aberto e utilizando o mapa.
+    </div>
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.5 Câmera</h3>
+  <div class="highlight blue">
+    <span class="highlight-icon">📷</span>
+    <div class="highlight-text">
+      <strong>Acesso à câmera:</strong> O aplicativo solicita permissão de câmera exclusivamente para a funcionalidade de <strong>Leitor de Código de Barras</strong> do catálogo de produtos. A câmera é ativada somente quando o usuário toca no ícone de scanner. <strong>Nenhuma imagem ou vídeo é armazenado</strong> — apenas o código lido é processado.
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 4 -->
+<div class="policy-section" id="s4">
+  <div class="section-num">Seção 04</div>
+  <h2>Como Usamos Seus Dados</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>🔐 Autenticação e Segurança</h4>
+      <ul>
+        <li>Verificar identidade do usuário no login</li>
+        <li>Gerenciar sessões ativas</li>
+        <li>Prevenir acessos não autorizados</li>
+        <li>Detectar e bloquear atividades suspeitas</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>📱 Funcionamento do App</h4>
+      <ul>
+        <li>Exibir catálogo de produtos e clientes</li>
+        <li>Processar e registrar pedidos de venda</li>
+        <li>Sincronizar dados com o ERP da empresa</li>
+        <li>Exibir mapa de clientes e rotas</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>📊 Performance e Métricas</h4>
+      <ul>
+        <li>Calcular comissões do vendedor</li>
+        <li>Gerar relatórios de vendas</li>
+        <li>Exibir metas e resultados</li>
+        <li>Dashboard de desempenho</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>🛠️ Suporte e Melhoria</h4>
+      <ul>
+        <li>Diagnosticar e corrigir erros (bugs)</li>
+        <li>Monitorar performance do sistema</li>
+        <li>Melhorar funcionalidades existentes</li>
+        <li>Desenvolver novas features</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>📧 Comunicações</h4>
+      <ul>
+        <li>Enviar notificações sobre pedidos</li>
+        <li>Alertas de sincronização com ERP</li>
+        <li>Comunicados de atualização do app</li>
+        <li>Suporte técnico ao usuário</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>⚖️ Obrigações Legais</h4>
+      <ul>
+        <li>Cumprir obrigações fiscais e contábeis</li>
+        <li>Atender requisições de autoridades</li>
+        <li>Exercer direitos em processos legais</li>
+        <li>Guardar registros exigidos por lei</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight red">
+    <span class="highlight-icon">🚫</span>
+    <div class="highlight-text"><strong>O que NÃO fazemos:</strong> Não vendemos seus dados para anunciantes. Não utilizamos dados para publicidade direcionada fora do app. Não compartilhamos dados com empresas de marketing. Não mineramos dados para fins não relacionados ao serviço contratado.</div>
+  </div>
+</div>
+
+<!-- SEÇÃO 5 -->
+<div class="policy-section" id="s5">
+  <div class="section-num">Seção 05</div>
+  <h2>Base Legal para o Tratamento (LGPD)</h2>
+  <p>Todo tratamento de dados pessoais pela Rellav está fundamentado em uma das bases legais previstas na LGPD (Lei nº 13.709/2018):</p>
+  <div class="legal-base">
+    <div class="legal-base-label">Bases Legais Aplicáveis</div>
+    <div class="legal-base-items">
+      <div class="lb-item">
+        <span class="lb-art">Art. 7º, II</span>
+        <span class="lb-text"><strong>Cumprimento de obrigação legal:</strong> Tratamento necessário para cumprir obrigações legais do controlador (registros fiscais, guarda de documentos, etc.)</span>
+      </div>
+      <div class="lb-item">
+        <span class="lb-art">Art. 7º, V</span>
+        <span class="lb-text"><strong>Execução de contrato:</strong> Tratamento indispensável para executar o contrato de prestação de serviço SaaS entre a Rellav e a empresa contratante, incluindo todos os dados necessários para funcionamento do app.</span>
+      </div>
+      <div class="lb-item">
+        <span class="lb-art">Art. 7º, VI</span>
+        <span class="lb-text"><strong>Exercício regular de direitos:</strong> Tratamento necessário para exercer ou defender direitos em processos judiciais, administrativos ou arbitrais.</span>
+      </div>
+      <div class="lb-item">
+        <span class="lb-art">Art. 7º, IX</span>
+        <span class="lb-text"><strong>Legítimo interesse:</strong> Tratamento para fins de segurança, prevenção de fraudes, melhoria do serviço e comunicações operacionais, desde que não prejudique os direitos fundamentais do titular.</span>
+      </div>
+      <div class="lb-item">
+        <span class="lb-art">Art. 7º, I</span>
+        <span class="lb-text"><strong>Consentimento:</strong> Para funcionalidades opcionais como acesso à câmera (scanner) e localização (mapa), mediante solicitação explícita ao usuário com possibilidade de revogação a qualquer momento.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 6 -->
+<div class="policy-section" id="s6">
+  <div class="section-num">Seção 06</div>
+  <h2>Compartilhamento de Dados</h2>
+  <p>A Rellav <strong>não vende, não aluga e não comercializa</strong> dados pessoais. O compartilhamento de dados ocorre apenas nas seguintes hipóteses:</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Com quem</th><th>Por quê</th><th>Proteção</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Empresa contratante</td>
+        <td>A empresa que contratou o Rellav tem acesso aos dados dos seus vendedores e clientes cadastrados na plataforma, por ser co-controladora</td>
+        <td>Contrato de serviço com cláusulas de confidencialidade</td>
+      </tr>
+      <tr>
+        <td>ERPs integrados (TOTVS, Sankhya, Omie, Bling, etc.)</td>
+        <td>Sincronização de produtos, clientes, preços, estoque e pedidos — exclusivamente mediante autorização e configuração da empresa</td>
+        <td>Conexão autenticada e criptografada (HTTPS/TLS)</td>
+      </tr>
+      <tr>
+        <td>Provedores de infraestrutura em nuvem</td>
+        <td>Hospedagem dos servidores e banco de dados (AWS, Google Cloud ou equivalente)</td>
+        <td>Contratos de processamento de dados (DPA) e certificações SOC 2 / ISO 27001</td>
+      </tr>
+      <tr>
+        <td>Provedores de monitoramento de erros</td>
+        <td>Diagnóstico técnico de falhas e crashes no app (ex: Sentry)</td>
+        <td>Dados anonimizados, sem informações pessoais identificáveis</td>
+      </tr>
+      <tr>
+        <td>Autoridades governamentais</td>
+        <td>Quando exigido por lei, ordem judicial ou requisição de autoridade competente</td>
+        <td>Somente mediante requisição formal e fundamento legal</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight blue">
+    <span class="highlight-icon">🌎</span>
+    <div class="highlight-text"><strong>Transferência internacional:</strong> Em caso de transferência de dados para países fora do Brasil, a Rellav garantirá que o país de destino ofereça grau de proteção adequado ou adotará salvaguardas contratuais em conformidade com o Art. 33 da LGPD.</div>
+  </div>
+</div>
+
+<!-- SEÇÃO 7 -->
+<div class="policy-section" id="s7">
+  <div class="section-num">Seção 07</div>
+  <h2>Armazenamento e Segurança dos Dados</h2>
+  <p>A Rellav adota medidas técnicas e administrativas de segurança da informação para proteger os dados pessoais contra acesso não autorizado, destruição, perda, alteração ou divulgação indevida.</p>
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>🔐 Criptografia</h4>
+      <ul>
+        <li>Todas as comunicações via HTTPS/TLS 1.3</li>
+        <li>Dados em repouso criptografados (AES-256)</li>
+        <li>Senhas armazenadas com hash seguro (bcrypt)</li>
+        <li>Tokens de sessão com prazo de expiração</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>🛡️ Controle de Acesso</h4>
+      <ul>
+        <li>Autenticação JWT com expiração automática</li>
+        <li>Controle de acesso por função (RBAC)</li>
+        <li>Log de todas as ações sensíveis</li>
+        <li>Isolamento de dados por empresa (multi-tenant)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>☁️ Infraestrutura</h4>
+      <ul>
+        <li>Servidores em datacenters certificados</li>
+        <li>Backup diário automatizado</li>
+        <li>Monitoramento 24/7 de disponibilidade</li>
+        <li>Plano de recuperação de desastres (DR)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>📱 Segurança no Dispositivo</h4>
+      <ul>
+        <li>Cache local criptografado (SQLite cifrado)</li>
+        <li>Dados sensíveis em Keychain/Keystore</li>
+        <li>Limpeza de dados ao efetuar logout</li>
+        <li>Bloqueio de captura de tela em telas sensíveis</li>
+      </ul>
+    </div>
+  </div>
+  <p>Em caso de incidente de segurança que resulte em violação de dados pessoais, a Rellav notificará a <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> e os titulares afetados no prazo previsto pela LGPD (Art. 48).</p>
+</div>
+
+<!-- SEÇÃO 8 -->
+<div class="policy-section" id="s8">
+  <div class="section-num">Seção 08</div>
+  <h2>Retenção e Exclusão de Dados</h2>
+  <table class="data-table">
+    <thead>
+      <tr><th>Tipo de dado</th><th>Período de retenção</th><th>Motivo</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dados de conta do usuário</td><td>Enquanto a conta estiver ativa + 5 anos após encerramento</td><td>Obrigação contratual e prevenção de fraudes</td></tr>
+      <tr><td>Dados de clientes da empresa</td><td>Duração do contrato + 5 anos</td><td>Obrigações fiscais e legais</td></tr>
+      <tr><td>Pedidos e histórico de vendas</td><td>5 anos após a transação</td><td>Obrigação fiscal (legislação tributária brasileira)</td></tr>
+      <tr><td>Logs de acesso e segurança</td><td>6 meses (Art. 15 do Marco Civil da Internet)</td><td>Obrigação legal — Lei 12.965/2014</td></tr>
+      <tr><td>Dados de localização</td><td>Não armazenados permanentemente</td><td>Usado apenas em tempo real para o mapa</td></tr>
+      <tr><td>Dados de crash / erros</td><td>30 dias (anonimizados)</td><td>Diagnóstico técnico</td></tr>
+      <tr><td>Dados após solicitação de exclusão</td><td>Até 30 dias para exclusão completa</td><td>Processamento técnico da solicitação</td></tr>
+    </tbody>
+  </table>
+  <p>Após o término dos prazos de retenção, os dados são permanentemente excluídos ou anonimizados, de forma que não seja possível identificar o titular.</p>
+</div>
+
+<!-- SEÇÃO 9 -->
+<div class="policy-section" id="s9">
+  <div class="section-num">Seção 09</div>
+  <h2>Seus Direitos como Titular (LGPD — Art. 18)</h2>
+  <p>A Lei Geral de Proteção de Dados (LGPD) garante a você os seguintes direitos em relação aos seus dados pessoais. Para exercer qualquer um deles, entre em contato através do e-mail <a href="mailto:privacidade@rellav.com.br" style="color:var(--g);font-weight:600">privacidade@rellav.com.br</a>:</p>
+
+  <ul class="rights-list">
+    <li class="right-item">
+      <span class="right-icon">👁️</span>
+      <div class="right-content">
+        <h4>Direito de Acesso</h4>
+        <p>Você pode solicitar confirmação sobre se tratamos seus dados e obter uma cópia completa de todas as informações que temos sobre você.</p>
+      </div>
+    </li>
+    <li class="right-item">
+      <span class="right-icon">✏️</span>
+      <div class="right-content">
+        <h4>Direito de Correção</h4>
+        <p>Você pode solicitar a correção de dados incompletos, inexatos ou desatualizados a qualquer momento.</p>
+      </div>
+    </li>
+    <li class="right-item">
+      <span class="right-icon">🗑️</span>
+      <div class="right-content">
+        <h4>Direito à Exclusão (Esquecimento)</h4>
+        <p>Você pode solicitar a exclusão dos dados pessoais tratados com base em consentimento, ressalvadas as hipóteses em que a lei exige sua guarda (ex: dados fiscais).</p>
+      </div>
+    </li>
+    <li class="right-item">
+      <span class="right-icon">📦</span>
+      <div class="right-content">
+        <h4>Direito à Portabilidade</h4>
+        <p>Você pode solicitar a portabilidade dos seus dados pessoais para outro fornecedor de serviço, em formato estruturado e legível por máquina (JSON ou CSV).</p>
+      </div>
+    </li>
+    <li class="right-item">
+      <span class="right-icon">🚫</span>
+      <div class="right-content">
+        <h4>Direito de Oposição e Revogação do Consentimento</h4>
+        <p>Você pode revogar o consentimento para dados tratados com essa base legal (ex: localização, câmera) a qualquer momento nas configurações do dispositivo, sem prejuízo das funcionalidades que não dependem de consentimento.</p>
+      </div>
+    </li>
+    <li class="right-item">
+      <span class="right-icon">ℹ️</span>
+      <div class="right-content">
+        <h4>Direito à Informação</h4>
+        <p>Você pode solicitar informações sobre as entidades públicas e privadas com as quais compartilhamos seus dados.</p>
+      </div>
+    </li>
+    <li class="right-item">
+      <span class="right-icon">⚖️</span>
+      <div class="right-content">
+        <h4>Direito de Reclamação à ANPD</h4>
+        <p>Você tem o direito de apresentar reclamação à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> caso entenda que seus direitos foram violados. Site: <a href="https://www.gov.br/anpd" style="color:var(--g)">gov.br/anpd</a></p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="highlight green">
+    <span class="highlight-icon">⏱️</span>
+    <div class="highlight-text"><strong>Prazo de resposta:</strong> Atenderemos às solicitações de direitos no prazo de <strong>até 15 dias úteis</strong> a partir do recebimento. Solicitações enviadas para: <a href="mailto:privacidade@rellav.com.br" style="color:var(--g);font-weight:700">privacidade@rellav.com.br</a></div>
+  </div>
+</div>
+
+<!-- SEÇÃO 10 -->
+<div class="policy-section" id="s10">
+  <div class="section-num">Seção 10</div>
+  <h2>Crianças e Adolescentes</h2>
+  <div class="highlight red">
+    <span class="highlight-icon">🔞</span>
+    <div class="highlight-text">
+      <strong>O aplicativo Rellav é destinado exclusivamente a usuários com 18 anos ou mais.</strong> O app é uma plataforma B2B de força de vendas voltada para profissionais e empresas. Não coletamos intencionalmente dados de menores de 18 anos. Caso identifiquemos que dados de menores foram inadvertidamente coletados, esses dados serão imediatamente excluídos.
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 11 -->
+<div class="policy-section" id="s11">
+  <div class="section-num">Seção 11</div>
+  <h2>Integrações com Serviços de Terceiros</h2>
+  <p>O Rellav pode integrar-se a ERPs e sistemas terceiros conforme configuração da empresa contratante. Cada integração está sujeita também às políticas de privacidade dos respectivos sistemas:</p>
+  <table class="data-table">
+    <thead>
+      <tr><th>Sistema</th><th>Dados trocados</th><th>Política de privacidade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>TOTVS Protheus</td><td>Produtos, clientes, pedidos, estoque</td><td>totvs.com/politica-de-privacidade</td></tr>
+      <tr><td>Sankhya</td><td>Produtos, clientes, pedidos, estoque</td><td>sankhya.com.br/privacidade</td></tr>
+      <tr><td>Omie ERP</td><td>Produtos, clientes, pedidos, estoque</td><td>omie.com.br/privacidade</td></tr>
+      <tr><td>Bling ERP</td><td>Produtos, contatos, pedidos, estoques</td><td>bling.com.br/politica-privacidade</td></tr>
+      <tr><td>Google Play Services</td><td>ID do dispositivo para distribuição do app</td><td>policies.google.com/privacy</td></tr>
+      <tr><td>Apple App Store</td><td>ID do dispositivo para distribuição do app</td><td>apple.com/br/legal/privacy</td></tr>
+    </tbody>
+  </table>
+  <p>A Rellav não se responsabiliza pelas práticas de privacidade dos sistemas de terceiros integrados. Recomendamos a leitura das políticas de privacidade de cada sistema utilizado.</p>
+</div>
+
+<!-- SEÇÃO 12 -->
+<div class="policy-section" id="s12">
+  <div class="section-num">Seção 12</div>
+  <h2>Alterações desta Política de Privacidade</h2>
+  <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças nas nossas práticas, novos requisitos legais ou melhorias no serviço. Quando realizarmos alterações significativas:</p>
+  <ul style="list-style:none;margin:14px 0;display:flex;flex-direction:column;gap:8px">
+    <li style="display:flex;gap:8px;font-size:.85rem;color:#555"><span style="color:var(--g);font-weight:900">→</span>Notificaremos você por e-mail ou notificação push no app</li>
+    <li style="display:flex;gap:8px;font-size:.85rem;color:#555"><span style="color:var(--g);font-weight:900">→</span>Exibiremos um aviso em destaque no app com as principais mudanças</li>
+    <li style="display:flex;gap:8px;font-size:.85rem;color:#555"><span style="color:var(--g);font-weight:900">→</span>A data de "Última atualização" no topo desta política será alterada</li>
+    <li style="display:flex;gap:8px;font-size:.85rem;color:#555"><span style="color:var(--g);font-weight:900">→</span>O uso continuado do app após a vigência das alterações implica aceite das novas condições</li>
+  </ul>
+  <p>Recomendamos revisar esta política periodicamente. A versão vigente sempre estará disponível em <a href="https://rellav.com.br/privacidade" style="color:var(--g);font-weight:600">rellav.com.br/privacidade</a>.</p>
+
+  <h3 style="font-size:.88rem;font-weight:800;color:var(--d);margin:20px 0 12px">Histórico de Versões</h3>
+  <ul class="update-log">
+    <li>
+      <span class="update-date">19/05/2026</span>
+      <span class="update-desc">Versão 1.0 — Publicação inicial da Política de Privacidade para lançamento do app nas lojas Google Play e App Store. Conformidade com LGPD.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- SEÇÃO 13 -->
+<div class="policy-section" id="s13">
+  <div class="section-num">Seção 13</div>
+  <h2>Contato, DPO e Canal de Privacidade</h2>
+  <p>Para dúvidas, solicitações relacionadas a dados pessoais ou exercício dos seus direitos como titular, entre em contato conosco pelos canais abaixo:</p>
+  <div class="contact-box">
+    <h3>📬 Canal de Privacidade — Rellav</h3>
+    <p>Nossa equipe responde em até 15 dias úteis. Informe sempre seu nome completo e a natureza da sua solicitação.</p>
+    <div class="contact-links">
+      <a href="mailto:privacidade@rellav.com.br" class="contact-link primary">📧 privacidade@rellav.com.br</a>
+      <a href="mailto:fjntecnologia2022@gmail.com" class="contact-link secondary">✉️ fjntecnologia2022@gmail.com</a>
+      <a href="https://rellav.com.br/privacidade" class="contact-link secondary">🌐 rellav.com.br/privacidade</a>
+    </div>
+  </div>
+
+  <table class="data-table" style="margin-top:16px">
+    <tbody>
+      <tr><td>Encarregado (DPO)</td><td>FJN Tecnologia — Equipe de Privacidade</td></tr>
+      <tr><td>E-mail do DPO</td><td><a href="mailto:privacidade@rellav.com.br" style="color:var(--g)">privacidade@rellav.com.br</a></td></tr>
+      <tr><td>Autoridade supervisora</td><td>Autoridade Nacional de Proteção de Dados (ANPD) — <a href="https://www.gov.br/anpd" style="color:var(--g)">gov.br/anpd</a></td></tr>
+      <tr><td>Jurisdição aplicável</td><td>República Federativa do Brasil — Foro da Comarca de [Cidade], Estado de [Estado]</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- AVISO FINAL -->
+<div style="background:var(--light);border-radius:14px;padding:24px;margin-top:12px;text-align:center;border:1px solid var(--border)">
+  <p style="font-size:.85rem;color:#888;margin:0">
+    Esta Política de Privacidade foi elaborada em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD) — Lei nº 13.709/2018</strong>, o Marco Civil da Internet (Lei nº 12.965/2014) e os requisitos de privacidade do <strong>Google Play Store</strong> e <strong>Apple App Store</strong>. Data de vigência: <strong>19 de maio de 2026</strong>.
+  </p>
+</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+        <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+        <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+        <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+      </svg>
+      <span>Rellav</span>
+    </div>
+    <p>© 2026 FJN Tecnologia · rellav.com.br</p>
+    <p>Política de Privacidade · Versão 1.0 · 19 de maio de 2026</p>
+    <p style="margin-top:8px">
+      <a href="https://rellav.com.br" style="color:var(--g);text-decoration:none;font-size:.75rem;font-weight:600">Site Rellav</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:privacidade@rellav.com.br" style="color:var(--g);text-decoration:none;font-size:.75rem;font-weight:600">privacidade@rellav.com.br</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.gov.br/anpd" style="color:var(--g);text-decoration:none;font-size:.75rem;font-weight:600">ANPD</a>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

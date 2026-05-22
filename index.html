@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rellav — Sua equipe na rua. Você no controle.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#87BD24;--orange:#EA533A;--teal:#368499;--pink:#E41D4A;
+  --dark:#3D3D3B;--gray:#B2B2B2;--white:#fff;
+  --text:#333;--text-light:#666;--bg:#f7f8fa;
+  --radius:14px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--text);overflow-x:hidden}
+h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1}
+h2{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;line-height:1.2}
+h3{font-size:1.2rem;font-weight:700}
+p{line-height:1.7;color:var(--text-light)}
+a{text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:88px 0}
+
+/* ══ MOTION SYSTEM ══ */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pulseCta{0%,100%{box-shadow:0 0 0 0 rgba(135,189,36,.45)}55%{box-shadow:0 0 0 14px rgba(135,189,36,0)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.reveal{opacity:0;transform:translateY(20px);
+  transition:opacity .55s cubic-bezier(.25,.46,.45,.94),transform .55s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-s{opacity:0;transform:scale(.96);
+  transition:opacity .4s cubic-bezier(.25,.46,.45,.94),transform .4s cubic-bezier(.25,.46,.45,.94)}
+.reveal-s.visible{opacity:1;transform:scale(1)}
+.float-hero{animation:floatY 3.2s ease-in-out infinite}
+.pulse-hero{animation:pulseCta 2.5s infinite}
+.card-hover{transition:transform .25s cubic-bezier(.25,.46,.45,.94),box-shadow .25s cubic-bezier(.25,.46,.45,.94)}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.11)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* Hero entrance sequence */
+.hero-badge{animation:fadeInUp .5s cubic-bezier(.25,.46,.45,.94) .1s both}
+.hero h1{animation:fadeInUp .6s cubic-bezier(.25,.46,.45,.94) .22s both}
+.hero .hero-sub{animation:fadeInUp .5s cubic-bezier(.25,.46,.45,.94) .38s both}
+.hero .hero-ctas{animation:fadeInUp .5s cubic-bezier(.25,.46,.45,.94) .52s both}
+.hero .store-badges{animation:fadeInUp .45s cubic-bezier(.25,.46,.45,.94) .65s both}
+.hero .hero-trust{animation:fadeInUp .4s cubic-bezier(.25,.46,.45,.94) .75s both}
+.hero-visual>div{animation:fadeInUp .6s cubic-bezier(.25,.46,.45,.94) .28s both}
+.phone{animation:floatY 3.2s ease-in-out .9s infinite}
+.float-card.top{animation:floatY 3.2s ease-in-out 1.6s infinite}
+.float-card.bot{animation:floatY 3.2s ease-in-out 2.4s infinite}
+
+/* STORE BADGES */
+.store-badges{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.store-badge{display:inline-flex;align-items:center;gap:10px;background:#000;
+  border-radius:10px;padding:10px 18px;border:1.5px solid rgba(255,255,255,.18);
+  text-decoration:none;min-width:148px;transition:all .2s}
+.store-badge:hover{background:#1c1c1c;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.store-badge-txt{display:flex;flex-direction:column;gap:1px}
+.store-badge-sm{font-size:.58rem;color:rgba(255,255,255,.65);font-weight:500;letter-spacing:.3px}
+.store-badge-lg{font-size:1rem;color:#fff;font-weight:800;line-height:1.1}
+.store-badges-light .store-badge{border-color:rgba(0,0,0,.12)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:10px;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;
+  cursor:pointer;border:2px solid transparent;transition:all .2s}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:#76a81f;transform:translateY(-2px);box-shadow:0 8px 24px rgba(135,189,36,.4)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-outline{background:transparent;color:var(--dark);border-color:#ddd}
+.btn-outline:hover{border-color:var(--dark);background:var(--dark);color:#fff}
+
+/* TAG */
+.tag{display:inline-block;background:rgba(135,189,36,.12);color:var(--green);
+  font-size:.72rem;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
+  padding:5px 14px;border-radius:100px;margin-bottom:14px}
+
+/* SECTION HEADER */
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-head h2{margin-bottom:14px}
+.sec-head p{max-width:540px;margin:0 auto;font-size:1.05rem}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);height:68px}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 24px;height:100%;
+  display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo span{font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-.5px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-login{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s}
+.nav-login:hover{color:#fff}
+
+/* ── HERO ── */
+.hero{background:var(--dark);min-height:100vh;display:flex;align-items:center;
+  padding-top:68px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(135,189,36,.07),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:72px 0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(135,189,36,.12);border:1px solid rgba(135,189,36,.3);
+  color:var(--green);padding:6px 16px;border-radius:100px;
+  font-size:.75rem;font-weight:800;letter-spacing:1px;margin-bottom:22px}
+.hero-badge span{width:7px;height:7px;background:var(--green);border-radius:50%;display:inline-block}
+.hero h1{color:#fff;margin-bottom:22px}
+.hero h1 em{color:var(--green);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.6);font-size:1.1rem;margin-bottom:36px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:20px}
+.trust-item{display:flex;align-items:center;gap:7px;
+  color:rgba(255,255,255,.45);font-size:.82rem;font-weight:600}
+.trust-dot{width:5px;height:5px;background:var(--green);border-radius:50%}
+
+/* Phone mockup */
+.hero-visual{display:flex;justify-content:center;align-items:center;position:relative}
+.phone{width:270px;background:#111;border-radius:44px;padding:10px;
+  box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.phone-screen{border-radius:36px;overflow:hidden;background:#fff}
+.phone-screen img{width:100%}
+.float-card{position:absolute;background:#fff;border-radius:12px;padding:12px 16px;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);display:flex;align-items:center;gap:10px}
+.float-card.top{top:40px;right:-50px;animation:floaty 3s ease-in-out infinite}
+.float-card.bot{bottom:80px;left:-60px;animation:floaty 3s ease-in-out 1.5s infinite}
+.float-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;
+  justify-content:center;font-size:1rem;flex-shrink:0}
+.float-label{font-size:.7rem;color:#aaa;font-weight:600}
+.float-value{font-size:.9rem;font-weight:800;color:#111}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ── ERP BAR ── */
+.erp-bar{background:#fff;padding:28px 0;border-bottom:1px solid #eee}
+.erp-bar-label{text-align:center;font-size:.72rem;font-weight:800;color:#ccc;
+  letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px}
+.erp-logos{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
+.erp-logos span{font-size:1rem;font-weight:800;color:#ccc;letter-spacing:-.3px;transition:color .2s}
+.erp-logos span:hover{color:#999}
+
+/* ── PROBLEM ── */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.prob-card{background:#fff;border-radius:var(--radius);padding:30px;
+  border-left:4px solid var(--orange);box-shadow:var(--shadow);transition:transform .2s}
+.prob-card:hover{transform:translateY(-4px)}
+.prob-icon{font-size:2rem;margin-bottom:14px}
+.prob-card h3{color:var(--dark);margin-bottom:10px;font-size:1rem}
+.prob-card p{font-size:.9rem}
+.prob-result{margin-top:14px;font-size:.8rem;font-weight:700;color:var(--orange)}
+
+/* ── FEATURES ── */
+.feat-block{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:96px}
+.feat-block:last-child{margin-bottom:0}
+.feat-block.rev{direction:rtl}
+.feat-block.rev>*{direction:ltr}
+.feat-tag{display:inline-flex;align-items:center;gap:6px;
+  background:rgba(135,189,36,.1);color:var(--green);
+  font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 12px;border-radius:100px;margin-bottom:14px}
+.feat-content h2{margin-bottom:14px;font-size:clamp(1.4rem,2.5vw,2rem)}
+.feat-content>p{font-size:1rem;margin-bottom:22px}
+.feat-list{list-style:none}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;
+  margin-bottom:11px;font-size:.92rem;color:var(--text-light)}
+.feat-list li::before{content:'✓';width:20px;height:20px;min-width:20px;
+  background:var(--green);color:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;font-weight:900;margin-top:1px}
+.feat-visual{display:flex;justify-content:center}
+.phone-sm{width:250px;background:#111;border-radius:40px;padding:10px;
+  box-shadow:0 24px 56px rgba(0,0,0,.15),0 0 0 1px rgba(0,0,0,.06)}
+.phone-sm-screen{border-radius:32px;overflow:hidden;background:#fff}
+.phone-sm-screen img{width:100%}
+.feat-placeholder{width:250px;height:460px;
+  background:linear-gradient(145deg,#2c2c2a,#1e1e1c);
+  border-radius:40px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:14px;
+  color:rgba(255,255,255,.35);font-size:.82rem;text-align:center;padding:24px}
+
+/* ── HOW IT WORKS ── */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  margin-top:48px;position:relative}
+.steps::before{content:'';position:absolute;top:40px;
+  left:calc(16.67% + 20px);right:calc(16.67% + 20px);
+  height:2px;background:linear-gradient(90deg,var(--green),var(--teal))}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:80px;height:80px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;font-weight:900;color:#fff;margin:0 auto 22px;
+  box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.step:nth-child(1) .step-num{background:var(--green)}
+.step:nth-child(2) .step-num{background:var(--teal)}
+.step:nth-child(3) .step-num{background:var(--orange)}
+.step h3{margin-bottom:10px}
+.step p{font-size:.92rem}
+
+/* ── COMPARISON ── */
+.table-wrap{overflow-x:auto;margin-top:48px}
+table{width:100%;border-collapse:collapse;min-width:580px}
+th{padding:18px 20px;font-weight:800;font-size:.92rem;border-bottom:2px solid #eee;text-align:center}
+th:first-child{text-align:left}
+th.hl{background:var(--green);color:#fff;border-radius:12px 12px 0 0}
+td{padding:15px 20px;border-bottom:1px solid #f0f0f0;text-align:center;font-size:.9rem}
+td:first-child{text-align:left;font-weight:600;color:var(--dark)}
+td.hl{background:rgba(135,189,36,.05);font-weight:700}
+tr:last-child td{border-bottom:none}
+.yes{color:var(--green);font-size:1.1rem;font-weight:900}
+.no{color:#ddd;font-size:1.1rem}
+.hl-val{font-weight:800;color:var(--green)}
+
+/* ── TESTIMONIALS ── */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+.metric{text-align:center;background:#fff;border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow)}
+.metric-num{font-size:2.8rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px}
+.metric-lbl{font-size:.85rem;color:var(--text-light);font-weight:500}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi-card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.stars{color:#f5a623;margin-bottom:14px;font-size:1rem}
+.testi-text{font-size:.9rem;font-style:italic;color:var(--dark);
+  line-height:1.7;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.avatar{width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:.9rem;flex-shrink:0}
+.author-name{font-weight:700;font-size:.88rem;color:var(--dark)}
+.author-role{font-size:.78rem;color:var(--gray)}
+
+/* ── INTEGRATIONS ── */
+.int-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:48px 0 28px}
+.int-card{background:#fff;border:2px solid #eee;border-radius:var(--radius);
+  padding:24px;text-align:center;transition:border-color .2s,transform .2s;cursor:default}
+.int-card:hover{border-color:var(--green);transform:translateY(-3px)}
+.int-icon{font-size:1.8rem;margin-bottom:10px}
+.int-name{font-weight:800;color:var(--dark);font-size:.95rem}
+.int-type{font-size:.75rem;color:var(--gray);margin-top:4px}
+.int-note{text-align:center;font-size:.9rem;color:var(--gray)}
+.int-note a{color:var(--green);font-weight:700}
+
+/* ── PRICING ── */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:start}
+.price-card{background:#fff;border-radius:var(--radius);padding:36px 28px;
+  border:2px solid #eee;position:relative;transition:transform .2s,box-shadow .2s}
+.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.price-card.pop{border-color:var(--green);box-shadow:0 8px 40px rgba(135,189,36,.18);transform:scale(1.03)}
+.pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:#fff;font-size:.72rem;font-weight:800;
+  padding:4px 18px;border-radius:100px;white-space:nowrap;letter-spacing:.5px}
+.plan-name{font-size:.75rem;font-weight:800;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+.plan-price{margin-bottom:6px}
+.plan-num{font-size:2.6rem;font-weight:900;color:var(--dark);line-height:1}
+.plan-per{font-size:.82rem;color:var(--gray);margin-top:4px}
+.plan-div{height:1px;background:#eee;margin:22px 0}
+.plan-feats{list-style:none;margin-bottom:28px}
+.plan-feats li{display:flex;align-items:center;gap:9px;
+  font-size:.87rem;color:var(--text-light);margin-bottom:11px}
+.plan-feats li::before{content:'✓';color:var(--green);font-weight:900;font-size:.8rem}
+.plan-btn{display:block;text-align:center;width:100%}
+.price-footer{text-align:center;margin-top:36px;display:flex;
+  justify-content:center;gap:28px;flex-wrap:wrap}
+.price-footer span{font-size:.82rem;color:var(--gray);display:flex;align-items:center;gap:5px}
+
+/* ── FAQ ── */
+.faq-wrap{max-width:700px;margin:48px auto 0}
+details{border-bottom:1px solid #eee}
+details:first-child{border-top:1px solid #eee}
+summary{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 0;font-weight:700;font-size:.97rem;cursor:pointer;
+  list-style:none;color:var(--dark)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:1.4rem;color:var(--green);font-weight:300;min-width:24px;text-align:center}
+details[open] summary::after{content:'−'}
+details p{padding:0 0 18px;font-size:.92rem;color:var(--text-light);line-height:1.7}
+
+/* ── CTA FINAL ── */
+.cta-final{background:var(--dark);padding:96px 0;text-align:center;overflow:hidden;position:relative}
+.cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:300px;background:radial-gradient(ellipse,rgba(135,189,36,.07),transparent 70%)}
+.cta-final h2{color:#fff;margin-bottom:14px;position:relative}
+.cta-final>div>p{color:rgba(255,255,255,.55);font-size:1.05rem;
+  margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-micro{color:rgba(255,255,255,.35);font-size:.82rem;margin-top:22px;position:relative}
+
+/* ── FOOTER ── */
+footer{background:#252523;padding:60px 0 28px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.foot-logo span{font-size:1.3rem;font-weight:900;color:#fff}
+.foot-brand p{color:rgba(255,255,255,.4);font-size:.87rem;line-height:1.7}
+.foot-col h4{color:rgba(255,255,255,.5);font-size:.7rem;font-weight:800;
+  letter-spacing:1.8px;text-transform:uppercase;margin-bottom:16px}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:10px}
+.foot-col ul a{color:rgba(255,255,255,.4);font-size:.87rem;transition:color .2s}
+.foot-col ul a:hover{color:rgba(255,255,255,.8)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:22px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-bottom p{color:rgba(255,255,255,.28);font-size:.78rem}
+.foot-badges{display:flex;gap:20px}
+.foot-badge{color:rgba(255,255,255,.3);font-size:.75rem;display:flex;align-items:center;gap:5px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-visual{display:none}
+  .hero-ctas,.hero-trust{justify-content:center}
+  .feat-block,.feat-block.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
+  .feat-visual{order:-1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .section{padding:60px 0}
+  .problem-grid,.steps,.testi-grid,.price-grid,.int-grid,.metrics{grid-template-columns:1fr}
+  .steps::before{display:none}
+  .price-card.pop{transform:none}
+  .nav-links{display:none}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;text-align:center}
+}
+</style>
+
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Rellav — App de forca de vendas que conecta sua equipe ao ERP. Gestao de clientes, catalogo digital, pedidos e mapa em tempo real.">
+  <meta property="og:title" content="Rellav — Forca de Vendas Integrada">
+  <meta property="og:description" content="Conecta sua equipe de vendas ao ERP em tempo real. Para industrias, comercios e atacados de qualquer porte.">
+  <meta property="og:image" content="https://rellav.com.br/telas/IMG_1737.JPG">
+  <meta property="og:url" content="https://rellav.com.br">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rellav — Forca de Vendas">
+  <meta name="theme-color" content="#3D3D3B">
+  <link rel="canonical" href="https://rellav.com.br">
+  <!-- Google Analytics - adicionar ID depois do cadastro -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+        <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+        <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+        <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+      </svg>
+      <span>Rellav</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="#integracoes">Integrações</a></li>
+      <li><a href="#precos">Preços</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="nav-login">Entrar</a>
+      <a href="#" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem">Começar grátis</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge"><span></span>APP DE FORÇA DE VENDAS</div>
+        <h1>Sua equipe na rua.<br><em>Você no controle.</em></h1>
+        <p class="hero-sub">Rellav conecta seus vendedores ao ERP com gestão de clientes, catálogo digital, pedidos e mapa — em tempo real, no celular.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary pulse-hero">● Começar grátis</a>
+          <a href="#" class="btn btn-ghost">▷ Ver uma demo</a>
+        </div>
+        <div class="store-badges" style="margin-bottom:20px">
+          <a href="#" class="store-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <div class="store-badge-txt"><span class="store-badge-sm">Download on the</span><span class="store-badge-lg">App Store</span></div>
+          </a>
+          <a href="#" class="store-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#EA4335" d="M1.2 23.5l12.4-12.3L1.2.5C.5.9 0 1.7 0 2.6v18.8c0 .9.5 1.7 1.2 2.1z"/><path fill="#FBBC04" d="M20.1 10.5L16.8 8.8 13.6 12l3.2 3.2 3.3-1.7c.9-.5 1.4-1.3 1.4-2s-.5-1.5-1.4-2z"/><path fill="#4285F4" d="M1.2.5l12.4 11.5L16.8 8.8 4.2.2C3.5-.3 2.7-.2 2 .2L1.2.5z"/><path fill="#34A853" d="M1.2 23.5l.8.3c.7.4 1.5.5 2.2 0l12.6-7.6-3.2-3.2L1.2 23.5z"/></svg>
+            <div class="store-badge-txt"><span class="store-badge-sm">GET IT ON</span><span class="store-badge-lg">Google Play</span></div>
+          </a>
+        </div>
+        <div class="hero-trust">
+          <span class="trust-item"><span class="trust-dot"></span>Sem taxa de setup</span>
+          <span class="trust-item"><span class="trust-dot"></span>14 dias grátis</span>
+          <span class="trust-item"><span class="trust-dot"></span>Cancele quando quiser</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div style="position:relative">
+          <div class="phone">
+            <div class="phone-screen">
+              <img src="./telas/IMG_1737.JPG" alt="Rellav App">
+            </div>
+          </div>
+          <div class="float-card top">
+            <div class="float-icon" style="background:rgba(135,189,36,.12)">✅</div>
+            <div><div class="float-label">Novo pedido</div><div class="float-value">R$ 4.820,00</div></div>
+          </div>
+          <div class="float-card bot">
+            <div class="float-icon" style="background:rgba(54,132,153,.12)">📍</div>
+            <div><div class="float-label">Em campo agora</div><div class="float-value">8 vendedores</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ERP BAR -->
+<div class="erp-bar">
+  <div class="container">
+    <p class="erp-bar-label">Integrado com os principais ERPs do Brasil</p>
+    <div class="erp-logos">
+      <span>TOTVS</span><span>SANKHYA</span><span>OMIE</span>
+      <span>BLING</span><span>SAP</span><span>+ outros</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">O PROBLEMA</span>
+      <h2>Você reconhece alguma dessas situações?</h2>
+      <p>São os problemas mais comuns de quem tem equipe na rua. A maioria das empresas ainda convive com eles todo dia.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="prob-card">
+        <div class="prob-icon">📋</div>
+        <h3>"Meu vendedor ainda anota pedido no papel"</h3>
+        <p>Erros de digitação, retrabalho e informação que chega tarde. Um processo que custa dinheiro todo dia.</p>
+        <p class="prob-result">→ Erro humano · Retrabalho · Tempo perdido</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">📍</div>
+        <h3>"Não sei onde meus vendedores estão"</h3>
+        <p>Sem visibilidade de rota, sem registro de visitas, sem controle de quem foi atendido e quem ficou para trás.</p>
+        <p class="prob-result">→ Rota ineficiente · Sem visibilidade</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">💸</div>
+        <h3>"Só descubro o problema depois da venda"</h3>
+        <p>Produto sem estoque, preço errado, pedido cancelado. O cliente que paga a conta não pode ser o último a saber.</p>
+        <p class="prob-result">→ Cliente insatisfeito · Venda perdida</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" style="background:#fff" id="funcionalidades">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">FUNCIONALIDADES</span>
+      <h2>Tudo que seu time precisa.<br>Em um único app.</h2>
+      <p>Do campo ao ERP, sem retrabalho, sem erro, sem perda de tempo.</p>
+    </div>
+
+    <div class="feat-block">
+      <div class="feat-content">
+        <span class="feat-tag">👥 Clientes</span>
+        <h2>Carteira organizada. Equipe focada nos clientes certos.</h2>
+        <p>Classifique sua carteira por <strong>Curva A, B e C</strong> e garanta que seu time priorize quem realmente importa.</p>
+        <ul class="feat-list">
+          <li>Busca por nome, CNPJ ou telefone</li>
+          <li>Classificação Curva A/B/C com código de cor</li>
+          <li>Ligação, email e mapa direto da ficha do cliente</li>
+          <li>Histórico completo de atendimentos e pedidos</li>
+          <li>Dados de crédito e limite por cliente</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="phone-sm"><div class="phone-sm-screen">
+          <img src="./telas/IMG_1737.JPG" alt="Clientes">
+        </div></div>
+      </div>
+    </div>
+
+    <div class="feat-block rev">
+      <div class="feat-content">
+        <span class="feat-tag">📦 Catálogo</span>
+        <h2>Catálogo atualizado. Sempre na mão do vendedor.</h2>
+        <p>Produtos com foto, preço e <strong>estoque em tempo real</strong>. Seu vendedor chega na visita preparado — sem surpresas.</p>
+        <ul class="feat-list">
+          <li>Fotos, preços e disponibilidade em tempo real</li>
+          <li>Busca por nome, SKU ou código de barras</li>
+          <li>Leitor de código de barras integrado</li>
+          <li>Múltiplas tabelas de preço por cliente</li>
+          <li>Visualização em lista ou grade</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="phone-sm"><div class="phone-sm-screen">
+          <img src="./telas/IMG_1740.JPG" alt="Catálogo">
+        </div></div>
+      </div>
+    </div>
+
+    <div class="feat-block">
+      <div class="feat-content">
+        <span class="feat-tag">🛒 Pedidos</span>
+        <h2>Do produto ao pedido em menos de 60 segundos.</h2>
+        <p>Selecione o cliente, adicione os produtos, confirme. O pedido cai <strong>direto no ERP</strong> — sem redigitar, sem erro humano.</p>
+        <ul class="feat-list">
+          <li>Fluxo de pedido simplificado em 3 toques</li>
+          <li>Preço correto puxado automaticamente por tabela</li>
+          <li>Integração direta com ERP — zero retrabalho</li>
+          <li>Acompanhamento de status em tempo real</li>
+          <li>Histórico completo por cliente</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="feat-placeholder">
+          <div style="font-size:3rem">🛒</div>
+          <strong style="color:rgba(255,255,255,.6)">Tela de Pedidos</strong>
+          <span>Inserir screenshot real aqui</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-block rev">
+      <div class="feat-content">
+        <span class="feat-tag">🗺️ Mapa</span>
+        <h2>Veja onde sua equipe está e quem ainda não foi visitado.</h2>
+        <p>Todos os seus clientes no mapa. Planeje rotas inteligentes e garanta que <strong>nenhum cliente estratégico</strong> fique sem atendimento.</p>
+        <ul class="feat-list">
+          <li>Clientes plotados no mapa por localização</li>
+          <li>Planejamento de rota de visitas</li>
+          <li>Filtros por Curva, status e última visita</li>
+          <li>Gestão de território por vendedor</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="feat-placeholder">
+          <div style="font-size:3rem">🗺️</div>
+          <strong style="color:rgba(255,255,255,.6)">Tela de Mapa</strong>
+          <span>Inserir screenshot real aqui</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-block">
+      <div class="feat-content">
+        <span class="feat-tag">💰 Comissões</span>
+        <h2>Vendedor que sabe o que vai ganhar, vende mais.</h2>
+        <p>Comissões em tempo real direto no celular. <strong>Transparência que motiva</strong> e equipe produtiva do primeiro ao último pedido do dia.</p>
+        <ul class="feat-list">
+          <li>Vendedor vê própria comissão no celular</li>
+          <li>Gestão de tarefas: abertas, em andamento, concluídas</li>
+          <li>Histórico de atendimentos por canal e período</li>
+          <li>Notificações em tempo real</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="phone-sm"><div class="phone-sm-screen">
+          <img src="./telas/IMG_1741.JPG" alt="Comissões">
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">COMO FUNCIONA</span>
+      <h2>Comece a vender mais em 3 passos</h2>
+      <p>Sem semanas de implantação. Sem precisar de TI. Sem complicação.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Cadastre</h3>
+        <p>Crie sua conta em minutos. Sem cartão de crédito. Sem burocracia. Acesso imediato à plataforma completa.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Configure</h3>
+        <p>Importe seus clientes e produtos. Conecte seu ERP com suporte técnico incluso. Pronto em menos de 1 dia.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Venda mais</h3>
+        <p>Seu time usa o app na rua. Você acompanha tudo no painel em tempo real. Mais controle, mais vendas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOJAS -->
+<section class="section" style="background:var(--dark);padding:72px 0">
+  <div class="container" style="text-align:center">
+    <span class="tag" style="background:rgba(135,189,36,.15)">DISPONÍVEL AGORA</span>
+    <h2 style="color:#fff;margin:14px 0 12px">Baixe o Rellav.<br><span style="color:var(--green)">Grátis nas lojas.</span></h2>
+    <p style="color:rgba(255,255,255,.45);max-width:440px;margin:0 auto 36px;font-size:1rem">iOS e Android. Disponível para qualquer dispositivo. Seu time começa a usar hoje mesmo.</p>
+    <div class="store-badges" style="justify-content:center;margin-bottom:24px">
+      <a href="#" class="store-badge" style="padding:14px 24px;min-width:180px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="store-badge-txt">
+          <span class="store-badge-sm">Download on the</span>
+          <span class="store-badge-lg" style="font-size:1.15rem">App Store</span>
+        </div>
+      </a>
+      <a href="#" class="store-badge" style="padding:14px 24px;min-width:180px">
+        <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#EA4335" d="M1.2 23.5l12.4-12.3L1.2.5C.5.9 0 1.7 0 2.6v18.8c0 .9.5 1.7 1.2 2.1z"/><path fill="#FBBC04" d="M20.1 10.5L16.8 8.8 13.6 12l3.2 3.2 3.3-1.7c.9-.5 1.4-1.3 1.4-2s-.5-1.5-1.4-2z"/><path fill="#4285F4" d="M1.2.5l12.4 11.5L16.8 8.8 4.2.2C3.5-.3 2.7-.2 2 .2L1.2.5z"/><path fill="#34A853" d="M1.2 23.5l.8.3c.7.4 1.5.5 2.2 0l12.6-7.6-3.2-3.2L1.2 23.5z"/></svg>
+        <div class="store-badge-txt">
+          <span class="store-badge-sm">GET IT ON</span>
+          <span class="store-badge-lg" style="font-size:1.15rem">Google Play</span>
+        </div>
+      </a>
+    </div>
+    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Download gratuito</span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Sem anúncios</span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span><a href="/privacidade" style="color:rgba(255,255,255,.35);text-decoration:none">Dados protegidos pela LGPD</a></span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Atualização automática</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">COMPARATIVO</span>
+      <h2>Por que empresas estão migrando para o Rellav</h2>
+      <p>Compare e veja o que os concorrentes simplesmente não oferecem.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Funcionalidade</th>
+            <th class="hl">Rellav ✦</th>
+            <th>Mercos</th>
+            <th>Sellentt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Catálogo digital com fotos</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Gestão de pedidos</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Mapa de clientes</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Classificação Curva A/B/C</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Comissões para o vendedor</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Leitor de código de barras</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Múltiplas tabelas de preço</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Integrações ERP</td><td class="hl hl-val">Múltiplas</td><td>Limitada</td><td>Média</td></tr>
+          <tr><td>Suporte incluso</td><td class="hl"><span class="yes">✓</span></td><td>Pago</td><td>Pago</td></tr>
+          <tr><td>Preço</td><td class="hl hl-val">Acessível</td><td>Alto</td><td>Alto</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">RESULTADOS</span>
+      <h2>Quem usa, não volta para planilha</h2>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-num">+40%</div><div class="metric-lbl">de pedidos fechados em média</div></div>
+      <div class="metric"><div class="metric-num">-80%</div><div class="metric-lbl">de retrabalho de dados</div></div>
+      <div class="metric"><div class="metric-num">1 dia</div><div class="metric-lbl">para estar 100% operacional</div></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Antes perdíamos pedidos todo dia por erro de digitação. Com o Rellav, meu time faz o pedido na hora e eu acompanho tudo em tempo real. Mudou completamente nossa operação."</p>
+        <div class="testi-author">
+          <div class="avatar">MR</div>
+          <div><div class="author-name">Marcos Ribeiro</div><div class="author-role">Gerente Comercial · Distribuidora</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"A integração com nosso ERP foi feita em menos de 24h com suporte do time deles. Hoje meu vendedor sai com catálogo, preços e estoque na palma da mão."</p>
+        <div class="testi-author">
+          <div class="avatar">AC</div>
+          <div><div class="author-name">Ana Carvalho</div><div class="author-role">Diretora Comercial · Indústria</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"O vendedor ver a própria comissão no app foi divisor de águas. A equipe ficou mais motivada e as metas começaram a ser batidas com mais consistência."</p>
+        <div class="testi-author">
+          <div class="avatar">FS</div>
+          <div><div class="author-name">Felipe Santos</div><div class="author-role">CEO · Atacadista</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRAÇÕES -->
+<section class="section" style="background:#fff" id="integracoes">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">INTEGRAÇÕES</span>
+      <h2>Conectado com o ERP que você já usa</h2>
+      <p>Não precisa trocar nada. O Rellav se adapta ao seu sistema existente.</p>
+    </div>
+    <div class="int-grid">
+      <div class="int-card"><div class="int-icon">🔵</div><div class="int-name">TOTVS</div><div class="int-type">ERP Corporativo</div></div>
+      <div class="int-card"><div class="int-icon">🟠</div><div class="int-name">SANKHYA</div><div class="int-type">ERP Gestão</div></div>
+      <div class="int-card"><div class="int-icon">🟢</div><div class="int-name">OMIE</div><div class="int-type">ERP Cloud</div></div>
+      <div class="int-card"><div class="int-icon">🔴</div><div class="int-name">BLING</div><div class="int-type">Gestão Empresarial</div></div>
+    </div>
+    <p class="int-note">Não vê seu ERP aqui? <a href="#">Fale com a gente</a> — integramos por demanda e nosso time técnico cuida de tudo.</p>
+  </div>
+</section>
+
+<!-- PREÇOS -->
+<section class="section" style="background:var(--bg)" id="precos">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">PREÇOS</span>
+      <h2>Planos que cabem no seu time</h2>
+      <p>Simples e transparente. Sem surpresas na fatura.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><div class="plan-num">R$ XX</div><div class="plan-per">/mês por vendedor</div></div>
+        <div class="plan-div"></div>
+        <ul class="plan-feats">
+          <li>Gestão de Clientes</li>
+          <li>Catálogo Digital</li>
+          <li>Gestão de Pedidos</li>
+          <li>1 Integração ERP</li>
+          <li>Suporte via WhatsApp</li>
+        </ul>
+        <a href="#" class="btn btn-outline plan-btn">Começar grátis</a>
+      </div>
+      <div class="price-card pop">
+        <div class="pop-badge">✨ MAIS POPULAR</div>
+        <div class="plan-name">Profissional</div>
+        <div class="plan-price"><div class="plan-num">R$ XX</div><div class="plan-per">/mês por vendedor</div></div>
+        <div class="plan-div"></div>
+        <ul class="plan-feats">
+          <li>Tudo do Starter +</li>
+          <li>Mapa de Clientes</li>
+          <li>Comissões do Vendedor</li>
+          <li>Tarefas e Atendimentos</li>
+          <li>ERPs ilimitados</li>
+          <li>Relatórios avançados</li>
+        </ul>
+        <a href="#" class="btn btn-primary plan-btn">Começar grátis</a>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price"><div class="plan-num">Custom</div><div class="plan-per">Fale com um consultor</div></div>
+        <div class="plan-div"></div>
+        <ul class="plan-feats">
+          <li>Tudo do Profissional +</li>
+          <li>Vendedores ilimitados</li>
+          <li>API aberta</li>
+          <li>SLA garantido</li>
+          <li>Suporte dedicado</li>
+          <li>Implantação assistida</li>
+        </ul>
+        <a href="#" class="btn btn-outline plan-btn">Falar com consultor</a>
+      </div>
+    </div>
+    <div class="price-footer">
+      <span>✅ Sem taxa de setup</span>
+      <span>✅ 14 dias grátis</span>
+      <span>✅ Cancele quando quiser</span>
+      <span>✅ Suporte WhatsApp incluso</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:#fff" id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">FAQ</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq-wrap">
+      <details open>
+        <summary>Quanto tempo leva para configurar?</summary>
+        <p>A maioria das empresas está operando em menos de 24 horas. Nosso suporte técnico acompanha todo o processo — importação de clientes, produtos e integração com ERP.</p>
+      </details>
+      <details>
+        <summary>O app funciona sem internet?</summary>
+        <p>[Preencher com informação real do app sobre modo offline.]</p>
+      </details>
+      <details>
+        <summary>Como funciona a integração com meu ERP?</summary>
+        <p>Via API ou arquivo de importação padronizado. Nosso time técnico configura junto com você — sem custo adicional, em qualquer plano.</p>
+      </details>
+      <details>
+        <summary>Posso testar antes de contratar?</summary>
+        <p>Sim. 14 dias de acesso completo, sem cartão de crédito. Teste com sua equipe real e veja a diferença na prática.</p>
+      </details>
+      <details>
+        <summary>E se eu precisar de mais vendedores?</summary>
+        <p>É só nos chamar. Adaptamos o plano sem complicação, sem contratos longos e sem multas.</p>
+      </details>
+      <details>
+        <summary>O suporte é em português?</summary>
+        <p>Sim. Suporte via WhatsApp, em português, incluso em todos os planos. Você fala com uma pessoa real — sem chatbot.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <span class="tag" style="background:rgba(135,189,36,.15)">COMECE AGORA</span>
+    <h2>Sua equipe pronta para vender mais.<br>Você pronto para ver tudo.</h2>
+    <p>Comece hoje. É grátis por 14 dias. Sem cartão de crédito.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-primary" style="padding:17px 34px;font-size:1rem">● Criar minha conta grátis</a>
+      <a href="#" class="btn btn-ghost" style="padding:17px 34px;font-size:1rem">▷ Agendar uma demo</a>
+    </div>
+    <p class="cta-micro" style="margin-bottom:28px">Sem cartão de crédito · Configuração rápida · Suporte via WhatsApp incluído</p>
+    <div style="display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap">
+      <span style="color:rgba(255,255,255,.25);font-size:.78rem;font-weight:600">Disponível em:</span>
+      <div class="store-badges">
+        <a href="#" class="store-badge" style="padding:9px 16px;min-width:130px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="store-badge-txt"><span class="store-badge-sm">Download on the</span><span class="store-badge-lg" style="font-size:.88rem">App Store</span></div>
+        </a>
+        <a href="#" class="store-badge" style="padding:9px 16px;min-width:130px">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M1.2 23.5l12.4-12.3L1.2.5C.5.9 0 1.7 0 2.6v18.8c0 .9.5 1.7 1.2 2.1z"/><path fill="#FBBC04" d="M20.1 10.5L16.8 8.8 13.6 12l3.2 3.2 3.3-1.7c.9-.5 1.4-1.3 1.4-2s-.5-1.5-1.4-2z"/><path fill="#4285F4" d="M1.2.5l12.4 11.5L16.8 8.8 4.2.2C3.5-.3 2.7-.2 2 .2L1.2.5z"/><path fill="#34A853" d="M1.2 23.5l.8.3c.7.4 1.5.5 2.2 0l12.6-7.6-3.2-3.2L1.2 23.5z"/></svg>
+          <div class="store-badge-txt"><span class="store-badge-sm">GET IT ON</span><span class="store-badge-lg" style="font-size:.88rem">Google Play</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+            <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+            <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+            <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+            <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+          </svg>
+          <span>Rellav</span>
+        </div>
+        <p>O app de força de vendas que conecta sua equipe ao ERP. Para indústrias, comércios e atacados que querem vender mais e controlar melhor.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Produto</h4>
+        <ul>
+          <li><a href="#">Funcionalidades</a></li>
+          <li><a href="#">Integrações</a></li>
+          <li><a href="#">Preços</a></li>
+          <li><a href="#">Novidades</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Parceiros</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">Central de ajuda</a></li>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="#">Privacidade</a></li>
+          <li><a href="#">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 Rellav. Todos os direitos reservados. rellav.com.br</p>
+      <div class="foot-badges" style="gap:12px;align-items:center">
+        <span class="foot-badge">🔒 LGPD</span>
+        <a href="#" class="store-badge" style="padding:5px 11px;min-width:0;border-color:rgba(255,255,255,.1)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="store-badge-lg" style="font-size:.72rem">App Store</span>
+        </a>
+        <a href="#" class="store-badge" style="padding:5px 11px;min-width:0;border-color:rgba(255,255,255,.1)">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path fill="#EA4335" d="M1.2 23.5l12.4-12.3L1.2.5C.5.9 0 1.7 0 2.6v18.8c0 .9.5 1.7 1.2 2.1z"/><path fill="#FBBC04" d="M20.1 10.5L16.8 8.8 13.6 12l3.2 3.2 3.3-1.7c.9-.5 1.4-1.3 1.4-2s-.5-1.5-1.4-2z"/><path fill="#4285F4" d="M1.2.5l12.4 11.5L16.8 8.8 4.2.2C3.5-.3 2.7-.2 2 .2L1.2.5z"/><path fill="#34A853" d="M1.2 23.5l.8.3c.7.4 1.5.5 2.2 0l12.6-7.6-3.2-3.2L1.2 23.5z"/></svg>
+          <span class="store-badge-lg" style="font-size:.72rem">Google Play</span>
+        </a>
+        <span class="foot-badge">🇧🇷 Made in Brazil</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── RELLAV MOTION — IntersectionObserver ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+// Seções e headers
+document.querySelectorAll('.sec-head, .erp-bar-label').forEach(el => {
+  el.classList.add('reveal');
+  revealObs.observe(el);
+});
+
+// Cards com stagger automático
+const staggerGroups = [
+  { selector: '.prob-card',   delay: 80 },
+  { selector: '.feat-block',  delay: 0  },
+  { selector: '.step',        delay: 100 },
+  { selector: '.testi-card',  delay: 80 },
+  { selector: '.int-card',    delay: 60 },
+  { selector: '.price-card',  delay: 90 },
+  { selector: '.metric',      delay: 70 },
+];
+
+staggerGroups.forEach(({ selector, delay }) => {
+  document.querySelectorAll(selector).forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${i * delay}ms`;
+    revealObs.observe(el);
+  });
+});
+
+// Card hover em todos os cards clicáveis
+document.querySelectorAll('.prob-card, .testi-card, .int-card, .price-card').forEach(el => {
+  el.classList.add('card-hover');
+});
+
+// Seções completas
+document.querySelectorAll('.section').forEach((el, i) => {
+  if (i > 0) { el.classList.add('reveal'); revealObs.observe(el); }
+});
+</script>
+</body>
+</html>
