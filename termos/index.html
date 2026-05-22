@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Termos de Uso do aplicativo Rellav — App de Força de Vendas">
+<meta name="robots" content="index, follow">
+<title>Termos de Uso — Rellav</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--g:#87BD24;--d:#3D3D3B;--gray:#666;--light:#f7f8fa;--border:#e8e8e8;--white:#fff}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);font-size:15px;line-height:1.8}
+.header{background:var(--d);padding:0;border-bottom:4px solid var(--g)}
+.header-inner{max-width:860px;margin:0 auto;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.header-brand{display:flex;align-items:center;gap:12px}
+.header-title{color:#fff;font-size:1.1rem;font-weight:800}
+.header-sub{color:rgba(255,255,255,.45);font-size:.72rem;margin-top:2px}
+.header-badge{background:rgba(135,189,36,.2);color:var(--g);font-size:.68rem;font-weight:800;padding:5px 14px;border-radius:100px}
+.hero{background:linear-gradient(135deg,#1a2e4a 0%,#0f1e2e 100%);padding:48px 24px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(135,189,36,.15);color:var(--g);font-size:.7rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px}
+.hero h1{font-size:1.9rem;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero-meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px}
+.hero-meta span{font-size:.78rem;color:rgba(255,255,255,.45);font-weight:500}
+.hero-meta strong{color:rgba(255,255,255,.7)}
+.container{max-width:860px;margin:0 auto;padding:48px 24px}
+.toc{background:var(--light);border-radius:14px;padding:24px 28px;margin-bottom:40px;border-left:4px solid var(--g)}
+.toc-title{font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:14px}
+.toc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.toc-list a{font-size:.82rem;color:#555;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .15s}
+.toc-list a:hover{color:var(--g)}
+.toc-num{font-size:.65rem;font-weight:800;color:var(--g);background:rgba(135,189,36,.1);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec{margin-bottom:44px;scroll-margin-top:20px}
+.sec-num{font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:6px}
+.sec h2{font-size:1.25rem;font-weight:800;color:var(--d);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.sec p{color:var(--gray);margin-bottom:14px;line-height:1.85}
+.sec p:last-child{margin-bottom:0}
+.sec ul,.sec ol{margin:14px 0 14px 20px;display:flex;flex-direction:column;gap:8px}
+.sec li{color:var(--gray);font-size:.9rem;line-height:1.7}
+.sec strong{color:var(--d)}
+.box{border-radius:12px;padding:18px 20px;margin:18px 0;display:flex;gap:12px;align-items:flex-start}
+.box.green{background:rgba(135,189,36,.06);border:1px solid rgba(135,189,36,.2)}
+.box.blue{background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.2)}
+.box.orange{background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.2)}
+.box.red{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2)}
+.box-icon{font-size:1.2rem;flex-shrink:0}
+.box-text{font-size:.85rem;color:#444;line-height:1.7}
+.box-text strong{color:var(--d)}
+.table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.85rem}
+.table th{background:var(--d);color:#fff;padding:11px 14px;text-align:left;font-weight:700;font-size:.78rem}
+.table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:#555}
+.table tr:nth-child(even) td{background:var(--light)}
+.table tr:last-child td{border-bottom:none}
+.table td:first-child{font-weight:600;color:var(--d)}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.plan-card{border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.plan-head{padding:14px 16px;text-align:center}
+.plan-head h3{font-size:.9rem;font-weight:800;color:#fff;margin-bottom:3px}
+.plan-head p{font-size:.72rem;color:rgba(255,255,255,.65)}
+.plan-body{padding:14px 16px;background:#fff}
+.plan-body ul{list-style:none;margin:0}
+.plan-body ul li{font-size:.78rem;color:#555;padding:4px 0;border-bottom:1px solid #f5f5f5;display:flex;gap:7px}
+.plan-body ul li:last-child{border-bottom:none}
+.plan-body ul li::before{content:'✓';color:var(--g);font-weight:900;flex-shrink:0}
+.contact-box{background:var(--d);border-radius:16px;padding:28px;margin:20px 0;text-align:center}
+.contact-box h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:8px}
+.contact-box p{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:18px}
+.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .2s}
+.contact-link.primary{background:var(--g);color:var(--d)}
+.contact-link.secondary{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
+.contact-link:hover{opacity:.85;transform:translateY(-2px)}
+.footer{background:var(--light);border-top:1px solid var(--border);padding:32px 24px;text-align:center}
+.footer-inner{max-width:860px;margin:0 auto}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px}
+.footer-logo span{font-size:1rem;font-weight:900;color:var(--d)}
+.footer p{font-size:.78rem;color:#aaa;margin-bottom:6px}
+.footer-links{display:flex;justify-content:center;gap:20px;margin-top:10px;flex-wrap:wrap}
+.footer-links a{font-size:.75rem;color:var(--g);text-decoration:none;font-weight:600}
+@media(max-width:620px){.toc-list,.plan-grid{grid-template-columns:1fr}.hero h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+        <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+        <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+        <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+      </svg>
+      <div>
+        <div class="header-title">Rellav — App de Força de Vendas</div>
+        <div class="header-sub">rellav.com.br · FJN Tecnologia</div>
+      </div>
+    </div>
+    <span class="header-badge">📄 Documento Legal</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Documento Legal · Versão 1.0</div>
+  <h1>Termos de <em>Uso</em></h1>
+  <div class="hero-meta">
+    <span><strong>Vigência:</strong> 22 de maio de 2026</span>
+    <span><strong>Última atualização:</strong> 22 de maio de 2026</span>
+    <span><strong>Aplicável a:</strong> App Rellav (iOS e Android)</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ÍNDICE -->
+<div class="toc">
+  <div class="toc-title">Índice — Clique para navegar</div>
+  <ul class="toc-list">
+    <li><a href="#s1"><span class="toc-num">1</span> Aceitação dos Termos</a></li>
+    <li><a href="#s2"><span class="toc-num">2</span> Sobre o Rellav</a></li>
+    <li><a href="#s3"><span class="toc-num">3</span> Cadastro e Conta</a></li>
+    <li><a href="#s4"><span class="toc-num">4</span> Planos e Pagamento</a></li>
+    <li><a href="#s5"><span class="toc-num">5</span> Uso Permitido</a></li>
+    <li><a href="#s6"><span class="toc-num">6</span> Uso Proibido</a></li>
+    <li><a href="#s7"><span class="toc-num">7</span> Propriedade Intelectual</a></li>
+    <li><a href="#s8"><span class="toc-num">8</span> Dados e Privacidade</a></li>
+    <li><a href="#s9"><span class="toc-num">9</span> Integrações com ERP</a></li>
+    <li><a href="#s10"><span class="toc-num">10</span> Disponibilidade e SLA</a></li>
+    <li><a href="#s11"><span class="toc-num">11</span> Limitação de Responsabilidade</a></li>
+    <li><a href="#s12"><span class="toc-num">12</span> Suspensão e Cancelamento</a></li>
+    <li><a href="#s13"><span class="toc-num">13</span> Alterações nos Termos</a></li>
+    <li><a href="#s14"><span class="toc-num">14</span> Foro e Lei Aplicável</a></li>
+    <li><a href="#s15"><span class="toc-num">15</span> Contato</a></li>
+  </ul>
+</div>
+
+<!-- S1 -->
+<div class="sec" id="s1">
+  <div class="sec-num">Cláusula 01</div>
+  <h2>Aceitação dos Termos</h2>
+  <p>Estes Termos de Uso ("Termos") constituem um contrato juridicamente vinculante entre você (pessoa física ou jurídica — "Usuário" ou "Cliente") e a <strong>FJN Tecnologia</strong>, empresa desenvolvedora e operadora do aplicativo <strong>Rellav</strong> ("Rellav", "nós" ou "nosso").</p>
+  <p>Ao criar uma conta, instalar, acessar ou utilizar o aplicativo Rellav — disponível para iOS e Android — você declara que:</p>
+  <ul>
+    <li>Leu, compreendeu e concorda com estes Termos de Uso em sua totalidade;</li>
+    <li>Tem capacidade legal para celebrar contratos (maior de 18 anos ou representante legal de pessoa jurídica);</li>
+    <li>Leu e concorda com nossa <a href="/privacidade" style="color:var(--g);font-weight:600">Política de Privacidade</a>.</li>
+  </ul>
+  <div class="box red">
+    <span class="box-icon">⚠️</span>
+    <div class="box-text"><strong>Se você não concordar com estes Termos, não utilize o Rellav.</strong> O uso do aplicativo implica automaticamente a aceitação integral destas condições.</div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="sec" id="s2">
+  <div class="sec-num">Cláusula 02</div>
+  <h2>Sobre o Rellav</h2>
+  <p>O <strong>Rellav</strong> é uma plataforma SaaS (Software as a Service) de <strong>força de vendas</strong>, oferecida como aplicativo móvel para iOS e Android, que permite às empresas gerenciar equipes de vendedores externos com funcionalidades como:</p>
+  <ul>
+    <li>Gestão de clientes com classificação por Curva A, B e C;</li>
+    <li>Catálogo digital de produtos com preços e estoque em tempo real;</li>
+    <li>Criação e gestão de pedidos integrados ao ERP;</li>
+    <li>Mapa de clientes e planejamento de rotas de visita;</li>
+    <li>Acompanhamento de comissões pelo vendedor;</li>
+    <li>Gestão de tarefas e registro de atendimentos;</li>
+    <li>Integração com os principais sistemas ERP do mercado brasileiro.</li>
+  </ul>
+  <p>O Rellav é destinado exclusivamente a <strong>pessoas jurídicas e profissionais</strong> que atuam no segmento B2B. Não é um serviço voltado ao consumidor final.</p>
+</div>
+
+<!-- S3 -->
+<div class="sec" id="s3">
+  <div class="sec-num">Cláusula 03</div>
+  <h2>Cadastro, Conta e Responsabilidades</h2>
+  <p>Para utilizar o Rellav, é necessário criar uma conta empresarial. O cadastro exige informações verdadeiras, completas e atualizadas sobre a empresa e seus responsáveis.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">3.1 Responsabilidades do Usuário</h3>
+  <ul>
+    <li>Manter as credenciais de acesso (e-mail e senha) em sigilo, sendo responsável por todos os acessos realizados sob sua conta;</li>
+    <li>Notificar imediatamente o Rellav em caso de uso não autorizado da conta ou suspeita de violação de segurança;</li>
+    <li>Garantir que todos os usuários cadastrados (vendedores, gestores) estejam cientes e de acordo com estes Termos;</li>
+    <li>Manter as informações cadastrais sempre atualizadas;</li>
+    <li>Ser responsável pelo conteúdo inserido na plataforma (dados de clientes, produtos, pedidos).</li>
+  </ul>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">3.2 Conta Empresarial</h3>
+  <p>O titular da conta é a empresa contratante. O administrador da conta é responsável por:</p>
+  <ul>
+    <li>Gerenciar os acessos dos usuários (vendedores e gestores);</li>
+    <li>Revogar acessos de usuários que deixarem a empresa;</li>
+    <li>Garantir que os dados inseridos na plataforma são verídicos e de propriedade ou posse legítima da empresa.</li>
+  </ul>
+
+  <div class="box orange">
+    <span class="box-icon">🔐</span>
+    <div class="box-text"><strong>Segurança da senha:</strong> O Rellav nunca solicita sua senha por e-mail, WhatsApp ou telefone. Suspeita de phishing? Contate-nos em <a href="mailto:contato@rellav.com.br" style="color:var(--g)">contato@rellav.com.br</a>.</div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="sec" id="s4">
+  <div class="sec-num">Cláusula 04</div>
+  <h2>Planos, Pagamento e Cancelamento</h2>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">4.1 Planos Disponíveis</h3>
+  <div class="plan-grid">
+    <div class="plan-card">
+      <div class="plan-head" style="background:var(--d)">
+        <h3>Starter</h3>
+        <p>Para equipes pequenas</p>
+      </div>
+      <div class="plan-body">
+        <ul>
+          <li>Gestão de clientes</li>
+          <li>Catálogo digital</li>
+          <li>Gestão de pedidos</li>
+          <li>1 integração ERP</li>
+          <li>Suporte via WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+    <div class="plan-card" style="border-color:var(--g)">
+      <div class="plan-head" style="background:var(--g)">
+        <h3>Profissional</h3>
+        <p>Mais popular</p>
+      </div>
+      <div class="plan-body">
+        <ul>
+          <li>Tudo do Starter +</li>
+          <li>Mapa de clientes</li>
+          <li>Comissões do vendedor</li>
+          <li>ERPs ilimitados</li>
+          <li>Tarefas e atendimentos</li>
+        </ul>
+      </div>
+    </div>
+    <div class="plan-card">
+      <div class="plan-head" style="background:#1a1a18">
+        <h3>Enterprise</h3>
+        <p>Grandes equipes</p>
+      </div>
+      <div class="plan-body">
+        <ul>
+          <li>Tudo do Profissional +</li>
+          <li>Vendedores ilimitados</li>
+          <li>API aberta</li>
+          <li>SLA garantido</li>
+          <li>Suporte dedicado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">4.2 Período de Teste</h3>
+  <p>O Rellav oferece um período de teste gratuito de <strong>14 (quatorze) dias</strong> com acesso completo às funcionalidades do plano selecionado, sem necessidade de cartão de crédito.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">4.3 Cobrança e Pagamento</h3>
+  <ul>
+    <li>A cobrança é realizada de forma <strong>mensal ou anual</strong> (com desconto para anuidade), por vendedor ativo na plataforma;</li>
+    <li>O pagamento é processado via boleto bancário, cartão de crédito ou PIX;</li>
+    <li>Em caso de inadimplência, o acesso poderá ser suspenso após <strong>5 (cinco) dias úteis</strong> de atraso, mediante aviso prévio;</li>
+    <li>Os preços podem ser reajustados anualmente conforme o índice IGPM ou IPCA, com aviso de <strong>30 (trinta) dias</strong> de antecedência;</li>
+    <li>Não há reembolso proporcional em caso de cancelamento no meio do período pago, exceto nos casos previstos no Código de Defesa do Consumidor (Lei nº 8.078/1990).</li>
+  </ul>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">4.4 Cancelamento</h3>
+  <p>O cancelamento pode ser solicitado a qualquer momento pelo Cliente, sem multa, através dos seguintes canais:</p>
+  <ul>
+    <li>E-mail: <a href="mailto:contato@rellav.com.br" style="color:var(--g);font-weight:600">contato@rellav.com.br</a></li>
+    <li>WhatsApp ou área de suporte no app</li>
+  </ul>
+  <p>Após o cancelamento, o acesso ao serviço será mantido até o final do período já pago. Os dados ficam disponíveis para exportação por <strong>30 (trinta) dias</strong> após o cancelamento.</p>
+</div>
+
+<!-- S5 -->
+<div class="sec" id="s5">
+  <div class="sec-num">Cláusula 05</div>
+  <h2>Uso Permitido</h2>
+  <p>O Rellav concede ao Cliente uma <strong>licença limitada, não exclusiva, não transferível e revogável</strong> para usar o aplicativo exclusivamente para fins comerciais legítimos relacionados à gestão da força de vendas da empresa.</p>
+  <p>São usos permitidos:</p>
+  <ul>
+    <li>Cadastrar clientes, produtos, pedidos e atendimentos da empresa contratante;</li>
+    <li>Gerenciar equipes de vendedores externos da empresa;</li>
+    <li>Integrar o Rellav com o ERP da empresa mediante as ferramentas disponibilizadas;</li>
+    <li>Exportar dados da própria empresa para fins internos;</li>
+    <li>Acessar o suporte técnico disponibilizado pela Rellav;</li>
+    <li>Utilizar as funcionalidades descritas nos planos contratados.</li>
+  </ul>
+</div>
+
+<!-- S6 -->
+<div class="sec" id="s6">
+  <div class="sec-num">Cláusula 06</div>
+  <h2>Uso Proibido</h2>
+  <p>É expressamente <strong>proibido</strong> ao Usuário, sob pena de suspensão imediata e responsabilização civil e criminal:</p>
+  <ul>
+    <li>Compartilhar credenciais de acesso com pessoas não autorizadas ou terceiros;</li>
+    <li>Usar o Rellav para fins ilegais, fraudulentos ou contrários à ordem pública;</li>
+    <li>Tentar acessar contas, dados ou sistemas de outros clientes da plataforma;</li>
+    <li>Fazer engenharia reversa, descompilar ou tentar extrair o código-fonte do aplicativo;</li>
+    <li>Usar bots, scripts ou ferramentas automatizadas para acessar a plataforma sem autorização escrita;</li>
+    <li>Inserir vírus, malware ou qualquer código malicioso na plataforma;</li>
+    <li>Revender, sublicenciar ou comercializar o acesso ao Rellav para terceiros;</li>
+    <li>Sobrecarregar intencionalmente os servidores da plataforma (ataques DDoS ou similares);</li>
+    <li>Publicar, transmitir ou armazenar conteúdo ilegal, difamatório, obsceno ou que viole direitos de terceiros;</li>
+    <li>Usar o Rellav para fins concorrenciais — coletar informações sobre funcionalidades para desenvolvimento de produto similar.</li>
+  </ul>
+</div>
+
+<!-- S7 -->
+<div class="sec" id="s7">
+  <div class="sec-num">Cláusula 07</div>
+  <h2>Propriedade Intelectual</h2>
+  <p>Todos os direitos sobre o Rellav — incluindo, mas não se limitando a: código-fonte, design, interface, logotipo, marca, algoritmos, fluxos de trabalho, documentação e funcionalidades — são de propriedade exclusiva da <strong>FJN Tecnologia</strong> e estão protegidos pela legislação brasileira de propriedade intelectual (Lei nº 9.610/1998 e Lei nº 9.279/1996).</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">7.1 Conteúdo do Cliente</h3>
+  <p>Os dados inseridos pelo Cliente na plataforma (clientes, produtos, pedidos, atendimentos) permanecem de propriedade do Cliente. A Rellav não reivindica propriedade sobre esses dados e os utiliza apenas para prestação do serviço contratado, conforme a Política de Privacidade.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:18px 0 10px">7.2 Feedback e Sugestões</h3>
+  <p>Ao enviar sugestões, ideias ou feedback sobre o Rellav, o Cliente concede à FJN Tecnologia uma licença irrevogável e gratuita para usar essas ideias no desenvolvimento do produto, sem qualquer compensação ao remetente.</p>
+</div>
+
+<!-- S8 -->
+<div class="sec" id="s8">
+  <div class="sec-num">Cláusula 08</div>
+  <h2>Dados Pessoais e Privacidade</h2>
+  <p>O tratamento de dados pessoais no âmbito do Rellav é regido pela nossa <a href="/privacidade" style="color:var(--g);font-weight:600">Política de Privacidade</a>, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
+  <p>O Cliente, ao contratar o Rellav e cadastrar dados de seus clientes e colaboradores na plataforma, declara que:</p>
+  <ul>
+    <li>Possui base legal adequada para o tratamento desses dados (Art. 7º da LGPD);</li>
+    <li>Obteve os consentimentos necessários ou possui outro fundamento legal para compartilhar esses dados com o Rellav;</li>
+    <li>É responsável pela veracidade e licitude dos dados inseridos na plataforma;</li>
+    <li>Notificará seus clientes e colaboradores sobre o uso do Rellav como ferramenta de gestão, quando exigido pela legislação.</li>
+  </ul>
+  <div class="box blue">
+    <span class="box-icon">🔒</span>
+    <div class="box-text">O Cliente e a FJN Tecnologia atuam como <strong>Co-controladores dos dados</strong> cadastrados na plataforma, nos termos do Art. 26 da LGPD. Mais detalhes na <a href="/privacidade" style="color:var(--g)">Política de Privacidade</a>.</div>
+  </div>
+</div>
+
+<!-- S9 -->
+<div class="sec" id="s9">
+  <div class="sec-num">Cláusula 09</div>
+  <h2>Integrações com Sistemas ERP e Terceiros</h2>
+  <p>O Rellav permite integração com sistemas ERP e outras plataformas de terceiros (TOTVS, Sankhya, Omie, Bling, entre outros). Ao configurar uma integração, o Cliente:</p>
+  <ul>
+    <li>Garante que possui autorização para integrar o ERP de sua empresa com o Rellav;</li>
+    <li>Concorda que o Rellav acessará e sincronizará os dados conforme as permissões configuradas;</li>
+    <li>Reconhece que as integrações dependem da disponibilidade e funcionamento dos sistemas de terceiros, sobre os quais o Rellav não tem controle;</li>
+    <li>É responsável por revisar e aceitar os termos de uso e políticas de privacidade dos sistemas integrados;</li>
+    <li>Pode revogar as permissões de integração a qualquer momento nas configurações do app.</li>
+  </ul>
+  <p>O Rellav não se responsabiliza por falhas, indisponibilidades ou mudanças de API dos sistemas de terceiros integrados.</p>
+</div>
+
+<!-- S10 -->
+<div class="sec" id="s10">
+  <div class="sec-num">Cláusula 10</div>
+  <h2>Disponibilidade, Manutenção e SLA</h2>
+  <table class="table">
+    <thead><tr><th>Plano</th><th>SLA de Disponibilidade</th><th>Suporte</th><th>Manutenção programada</th></tr></thead>
+    <tbody>
+      <tr><td>Starter</td><td>99% ao mês</td><td>WhatsApp (horário comercial)</td><td>Com aviso prévio de 24h</td></tr>
+      <tr><td>Profissional</td><td>99,5% ao mês</td><td>WhatsApp + E-mail prioritário</td><td>Com aviso prévio de 12h</td></tr>
+      <tr><td>Enterprise</td><td>99,9% ao mês</td><td>Canal dedicado + Telefone</td><td>Com aviso prévio de 48h</td></tr>
+    </tbody>
+  </table>
+  <p>O Rellav envidará os melhores esforços para manter o serviço disponível 24 horas por dia, 7 dias por semana. Porém, reserva-se o direito de realizar manutenções programadas, que serão comunicadas com antecedência. Eventos de força maior, falhas de infraestrutura de terceiros (AWS, Google Cloud, etc.) ou ataques externos podem afetar a disponibilidade sem constituir responsabilidade do Rellav.</p>
+</div>
+
+<!-- S11 -->
+<div class="sec" id="s11">
+  <div class="sec-num">Cláusula 11</div>
+  <h2>Limitação de Responsabilidade</h2>
+  <p>Na máxima extensão permitida pela lei brasileira, a FJN Tecnologia não será responsável por:</p>
+  <ul>
+    <li>Perdas de negócios, lucros cessantes ou danos indiretos decorrentes do uso ou impossibilidade de uso do Rellav;</li>
+    <li>Decisões comerciais tomadas com base em informações exibidas no aplicativo;</li>
+    <li>Erros de sincronização causados por configurações incorretas do ERP do Cliente;</li>
+    <li>Falhas decorrentes de uso inadequado do aplicativo pelo Cliente ou seus usuários;</li>
+    <li>Indisponibilidade causada por fatores fora do controle do Rellav (falhas de Internet, energia elétrica, servidores de terceiros, etc.);</li>
+    <li>Acesso não autorizado à conta do Cliente por falha de guarda das credenciais pelo próprio Cliente.</li>
+  </ul>
+  <p>Em nenhum caso a responsabilidade total da FJN Tecnologia perante o Cliente excederá o valor pago nos últimos <strong>3 (três) meses</strong> de assinatura do serviço.</p>
+  <div class="box green">
+    <span class="box-icon">✅</span>
+    <div class="box-text"><strong>O Rellav é responsável por:</strong> manter o serviço funcionando conforme o SLA contratado, proteger os dados do Cliente com as medidas de segurança descritas na Política de Privacidade, e prestar suporte técnico nos canais e horários disponibilizados.</div>
+  </div>
+</div>
+
+<!-- S12 -->
+<div class="sec" id="s12">
+  <div class="sec-num">Cláusula 12</div>
+  <h2>Suspensão e Cancelamento pela Rellav</h2>
+  <p>A FJN Tecnologia poderá suspender ou encerrar o acesso do Cliente ao Rellav, a qualquer momento, mediante aviso prévio razoável, nos seguintes casos:</p>
+  <ul>
+    <li><strong>Inadimplência:</strong> falta de pagamento por mais de 5 dias úteis após o vencimento;</li>
+    <li><strong>Violação dos Termos:</strong> descumprimento de qualquer cláusula deste documento;</li>
+    <li><strong>Uso Abusivo:</strong> uso da plataforma de forma que prejudique outros clientes ou a infraestrutura do serviço;</li>
+    <li><strong>Atividade Ilegal:</strong> suspeita ou confirmação de uso do Rellav para fins ilegais;</li>
+    <li><strong>Solicitação legal:</strong> determinação judicial ou de autoridade competente.</li>
+  </ul>
+  <p>Em casos de violação grave, a suspensão pode ser imediata. Em demais casos, o Cliente receberá aviso por e-mail com prazo para regularização antes da suspensão.</p>
+</div>
+
+<!-- S13 -->
+<div class="sec" id="s13">
+  <div class="sec-num">Cláusula 13</div>
+  <h2>Alterações nos Termos de Uso</h2>
+  <p>A FJN Tecnologia reserva-se o direito de modificar estes Termos a qualquer momento para refletir mudanças no serviço, na legislação ou em nossas práticas. Quando houver alterações relevantes:</p>
+  <ul>
+    <li>O Cliente será notificado por e-mail e/ou notificação no app com <strong>30 (trinta) dias</strong> de antecedência;</li>
+    <li>A data de "última atualização" no topo deste documento será alterada;</li>
+    <li>O uso continuado do serviço após a entrada em vigor das alterações implica aceitação das novas condições;</li>
+    <li>Caso o Cliente não concorde com as alterações, poderá cancelar o serviço sem multa dentro do prazo de 30 dias após a notificação.</li>
+  </ul>
+</div>
+
+<!-- S14 -->
+<div class="sec" id="s14">
+  <div class="sec-num">Cláusula 14</div>
+  <h2>Foro e Lei Aplicável</h2>
+  <p>Estes Termos de Uso são regidos pelas leis da <strong>República Federativa do Brasil</strong>. Fica eleito o foro da Comarca de <strong>Cuiabá, Estado de Mato Grosso</strong>, com renúncia expressa a qualquer outro, por mais privilegiado que seja, para dirimir eventuais litígios decorrentes deste instrumento.</p>
+  <p>Antes de qualquer medida judicial, as partes comprometem-se a tentar resolver controvérsias amigavelmente, por meio de contato direto com a equipe Rellav em <a href="mailto:contato@rellav.com.br" style="color:var(--g);font-weight:600">contato@rellav.com.br</a>.</p>
+  <div class="box blue">
+    <span class="box-icon">⚖️</span>
+    <div class="box-text">Legislação aplicável: Código Civil Brasileiro (Lei nº 10.406/2002), Código de Defesa do Consumidor (Lei nº 8.078/1990), Marco Civil da Internet (Lei nº 12.965/2014), LGPD (Lei nº 13.709/2018) e Lei de Propriedade Intelectual (Lei nº 9.610/1998).</div>
+  </div>
+</div>
+
+<!-- S15 -->
+<div class="sec" id="s15">
+  <div class="sec-num">Cláusula 15</div>
+  <h2>Contato e Suporte</h2>
+  <p>Para dúvidas sobre estes Termos, suporte técnico, cancelamento, reclamações ou qualquer outra questão:</p>
+  <div class="contact-box">
+    <h3>📬 Fale com a Rellav</h3>
+    <p>Nossa equipe responde em até 2 dias úteis. Para suporte técnico urgente, use o WhatsApp.</p>
+    <div class="contact-links">
+      <a href="mailto:contato@rellav.com.br" class="contact-link primary">📧 contato@rellav.com.br</a>
+      <a href="https://rellav.com.br" class="contact-link secondary">🌐 rellav.com.br</a>
+    </div>
+  </div>
+  <table class="table" style="margin-top:16px">
+    <tbody>
+      <tr><td>Empresa</td><td>FJN Tecnologia</td></tr>
+      <tr><td>E-mail</td><td><a href="mailto:contato@rellav.com.br" style="color:var(--g)">contato@rellav.com.br</a></td></tr>
+      <tr><td>Site</td><td><a href="https://rellav.com.br" style="color:var(--g)">rellav.com.br</a></td></tr>
+      <tr><td>Versão dos Termos</td><td>1.0 — 22 de maio de 2026</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- AVISO FINAL -->
+<div style="background:var(--light);border-radius:14px;padding:24px;margin-top:12px;text-align:center;border:1px solid var(--border)">
+  <p style="font-size:.85rem;color:#888;margin:0">Estes Termos de Uso foram elaborados em conformidade com a legislação brasileira vigente, incluindo o <strong>Código Civil</strong>, o <strong>Código de Defesa do Consumidor</strong>, o <strong>Marco Civil da Internet</strong> e a <strong>LGPD</strong>. Data de vigência: <strong>22 de maio de 2026</strong>.</p>
+</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="2" width="17" height="13" rx="3" fill="#87BD24"/>
+        <circle cx="30" cy="9" r="8" fill="#E41D4A"/>
+        <path d="M3 17 C3 34 19 36 19 36 C19 22 5 20 3 17Z" fill="#EA533A"/>
+        <rect x="19" y="27" width="18" height="11" rx="3" fill="#368499"/>
+      </svg>
+      <span>Rellav</span>
+    </div>
+    <p>© 2026 FJN Tecnologia · rellav.com.br</p>
+    <p>Termos de Uso · Versão 1.0 · 22 de maio de 2026</p>
+    <div class="footer-links">
+      <a href="/">Site</a>
+      <a href="/privacidade">Política de Privacidade</a>
+      <a href="/termos">Termos de Uso</a>
+      <a href="mailto:contato@rellav.com.br">Contato</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
