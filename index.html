@@ -342,6 +342,32 @@ footer{background:#252523;padding:60px 0 28px}
   .foot-grid{grid-template-columns:1fr}
   .foot-bottom{flex-direction:column;text-align:center}
 }
+
+/* ── BROWSER FRAME (e-commerce) ── */
+.browser-frame{border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.16);border:1px solid #e6e6e6;background:#fff}
+.browser-bar{display:flex;align-items:center;gap:10px;padding:9px 13px;background:#f1f1f1;border-bottom:1px solid #e6e6e6}
+.browser-dots{display:flex;gap:6px}
+.browser-dots span{width:10px;height:10px;border-radius:50%}
+.browser-url{flex:1;background:#fff;border-radius:6px;padding:4px 12px;font-size:.7rem;color:#999;font-weight:600;text-align:center;border:1px solid #e6e6e6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser-frame img{width:100%;display:block}
+/* ── PLATFORM GRID ── */
+.plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.plat-card{background:#fff;border-radius:16px;padding:28px;border:1px solid #eee;box-shadow:var(--shadow)}
+.plat-ic{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+.plat-card h3{color:var(--dark);margin-bottom:8px;font-size:1.08rem}
+.plat-card p{font-size:.88rem;line-height:1.6}
+.plat-card.ai{background:linear-gradient(145deg,#3D3D3B,#2a2a28);border:none}
+.plat-card.ai h3{color:#fff}
+.plat-card.ai p{color:rgba(255,255,255,.72)}
+.plat-tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-top:14px}
+/* ── ECOMMERCE CARDS ── */
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.shop-card{display:block;text-decoration:none}
+.shop-meta{display:flex;align-items:center;justify-content:space-between;margin-top:15px}
+.shop-name{font-weight:800;color:var(--dark);font-size:.98rem}
+.shop-pill{font-size:.66rem;font-weight:800;padding:3px 11px;border-radius:100px}
+.shop-link{font-size:.78rem;color:var(--green);font-weight:700;margin-top:4px;display:inline-flex;align-items:center;gap:4px}
+@media(max-width:900px){.plat-grid,.shop-grid{grid-template-columns:1fr}}
 </style>
 
   <!-- SEO & Open Graph -->
@@ -375,6 +401,8 @@ footer{background:#252523;padding:60px 0 28px}
     </a>
     <ul class="nav-links">
       <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="#plataforma">Plataforma</a></li>
+      <li><a href="#ecommerce">E-commerce</a></li>
       <li class="nav-drop">
         <button class="nav-drop-btn" onclick="toggleDrop(this)">
           Segmentos
@@ -410,7 +438,7 @@ footer{background:#252523;padding:60px 0 28px}
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge"><span></span>APP DE FORÇA DE VENDAS</div>
+        <div class="hero-badge"><span></span>PLATAFORMA DE FORÇA DE VENDAS B2B</div>
         <h1>Sua equipe na rua.<br><em>Você no controle.</em></h1>
         <p class="hero-sub">Rellav conecta seus vendedores ao ERP: clientes, catálogo, pedidos, <strong style="color:rgba(255,255,255,.85)">orçamento aprovado por WhatsApp</strong>, cupons, metas e comissões — em tempo real, online e offline.</p>
         <div class="hero-ctas">
@@ -634,6 +662,88 @@ footer{background:#252523;padding:60px 0 28px}
   </div>
 </section>
 
+<!-- PLATAFORMA COMPLETA -->
+<section class="section" style="background:var(--bg)" id="plataforma">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">PLATAFORMA COMPLETA</span>
+      <h2>Muito mais que um app.<br>Um ecossistema de vendas B2B.</h2>
+      <p>Do vendedor na rua ao cliente comprando sozinho — tudo conectado ao seu ERP, com inteligência artificial no meio do caminho.</p>
+    </div>
+    <div class="plat-grid">
+      <div class="plat-card">
+        <div class="plat-ic" style="background:rgba(135,189,36,.12)">📱</div>
+        <h3>App de Força de Vendas</h3>
+        <p>Seu vendedor na rua com clientes, catálogo, pedidos e orçamento por WhatsApp — online e offline.</p>
+      </div>
+      <div class="plat-card">
+        <div class="plat-ic" style="background:rgba(234,83,58,.12)">🛒</div>
+        <h3>Loja B2B Online</h3>
+        <p>Seu catálogo vira uma loja: o cliente faz o pedido sozinho, 24/7, já com o preço da tabela dele.</p>
+      </div>
+      <div class="plat-card">
+        <div class="plat-ic" style="background:rgba(54,132,153,.12)">💻</div>
+        <h3>Portal Web do Gestor</h3>
+        <p>Acompanhe pedidos, clientes, metas, comissões e cupons pelo navegador, em tempo real.</p>
+      </div>
+      <div class="plat-card">
+        <div class="plat-ic" style="background:rgba(228,29,74,.1)">🛠️</div>
+        <h3>Painel Administrativo</h3>
+        <p>Licenças, usuários, tabelas de preço e integrações sob controle — configure tudo num lugar só.</p>
+      </div>
+      <div class="plat-card">
+        <div class="plat-ic" style="background:rgba(135,189,36,.12)">📦</div>
+        <h3>Cargas &amp; Lotes</h3>
+        <p>Pré-venda e carga organizadas, com controle de lote e acerto — do carregamento à entrega.</p>
+      </div>
+      <div class="plat-card ai">
+        <div class="plat-ic" style="background:rgba(135,189,36,.2)">🤖</div>
+        <h3>Inteligência Artificial</h3>
+        <p>Assistente que ajuda o cliente e sugere ao vendedor a próxima melhor ação: reposição na hora certa e alerta de churn.</p>
+        <span class="plat-tag" style="background:rgba(135,189,36,.22);color:var(--green)">✦ IA integrada</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E-COMMERCE B2B -->
+<section class="section" style="background:#fff" id="ecommerce">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">E-COMMERCE B2B</span>
+      <h2>Seu catálogo vira uma loja online.<br>O cliente compra sozinho.</h2>
+      <p>Cada cliente entra, vê o <strong>preço da tabela dele</strong>, aplica cupom e fecha o pedido — que segue o mesmo fluxo do ERP. Veja lojas reais no ar:</p>
+    </div>
+    <div class="shop-grid">
+      <a href="https://vovo-crocante.vercel.app" target="_blank" rel="noopener" class="shop-card card-hover">
+        <div class="browser-frame">
+          <div class="browser-bar"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">vovo-crocante.vercel.app</div></div>
+          <img src="./telas/loja-vovo.jpg" alt="Loja Vovó Crocante" loading="lazy">
+        </div>
+        <div class="shop-meta"><span class="shop-name">Vovó Crocante</span><span class="shop-pill" style="background:rgba(234,83,58,.1);color:var(--orange)">Cupons</span></div>
+        <span class="shop-link">Ver loja ao vivo →</span>
+      </a>
+      <a href="https://atacado-boapraca.vercel.app" target="_blank" rel="noopener" class="shop-card card-hover">
+        <div class="browser-frame">
+          <div class="browser-bar"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">atacado-boapraca.vercel.app</div></div>
+          <img src="./telas/loja-boapraca.jpg" alt="Atacado Boa Praça" loading="lazy">
+        </div>
+        <div class="shop-meta"><span class="shop-name">Atacado Boa Praça</span><span class="shop-pill" style="background:rgba(54,132,153,.1);color:var(--teal)">Preço por cliente</span></div>
+        <span class="shop-link">Ver loja ao vivo →</span>
+      </a>
+      <a href="https://nature-alimentos.vercel.app" target="_blank" rel="noopener" class="shop-card card-hover">
+        <div class="browser-frame">
+          <div class="browser-bar"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">nature-alimentos.vercel.app</div></div>
+          <img src="./telas/loja-nature.jpg" alt="Nature Alimentos" loading="lazy">
+        </div>
+        <div class="shop-meta"><span class="shop-name">Nature Alimentos</span><span class="shop-pill" style="background:rgba(135,189,36,.12);color:var(--green)">Tabela de preço</span></div>
+        <span class="shop-link">Ver loja ao vivo →</span>
+      </a>
+    </div>
+    <p class="int-note" style="margin-top:36px">Quer uma loja assim com a sua marca? <a href="#precos">Fale com a gente</a> — montamos a partir do seu catálogo.</p>
+  </div>
+</section>
+
 <!-- COMO FUNCIONA -->
 <section class="section" style="background:var(--bg)">
   <div class="container">
@@ -720,6 +830,8 @@ footer{background:#252523;padding:60px 0 28px}
           <tr><td>Orçamento aprovado por WhatsApp</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
           <tr><td>Cupons de desconto por regra</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
           <tr><td>Metas e positivação da equipe</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Loja B2B online (e-commerce)</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Inteligência artificial integrada</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
           <tr><td>Leitor de código de barras</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
           <tr><td>Múltiplas tabelas de preço</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
           <tr><td>Integrações ERP</td><td class="hl hl-val">Múltiplas</td><td>Limitada</td><td>Média</td></tr>
@@ -1027,6 +1139,8 @@ const staggerGroups = [
   { selector: '.int-card',    delay: 60 },
   { selector: '.price-card',  delay: 90 },
   { selector: '.metric',      delay: 70 },
+  { selector: '.plat-card',   delay: 70 },
+  { selector: '.shop-card',   delay: 90 },
 ];
 
 staggerGroups.forEach(({ selector, delay }) => {
@@ -1038,7 +1152,7 @@ staggerGroups.forEach(({ selector, delay }) => {
 });
 
 // Card hover em todos os cards clicáveis
-document.querySelectorAll('.prob-card, .testi-card, .int-card, .price-card').forEach(el => {
+document.querySelectorAll('.prob-card, .testi-card, .int-card, .price-card, .plat-card').forEach(el => {
   el.classList.add('card-hover');
 });
 
