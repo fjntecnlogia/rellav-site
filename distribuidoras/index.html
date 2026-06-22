@@ -178,6 +178,23 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
 .highlight-box{background:rgba(234,83,58,.05);border:1.5px solid rgba(234,83,58,.15);border-radius:14px;padding:20px 24px;margin:20px 0}
 .highlight-box p{font-size:.85rem;color:var(--d);line-height:1.8;margin:0}
 .highlight-box strong{color:var(--accent)}
+
+/* ── DROPDOWN SEGMENTOS (fix) ── */
+.nav-drop{position:relative}
+.nav-drop-btn{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;font-family:inherit;transition:color .2s}
+.nav-drop-btn:hover,.nav-drop-btn.open{color:#fff}
+.nav-drop-btn svg{transition:transform .2s}
+.nav-drop-btn.open svg{transform:rotate(180deg)}
+.nav-drop-menu{position:absolute;top:calc(100% + 14px);left:0;background:#fff;border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,.2);padding:8px;min-width:290px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:400}
+.nav-drop-menu.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+.ndm-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;text-decoration:none;transition:background .15s}
+.ndm-item:hover{background:#f5f5f5}
+.ndm-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.ndm-icon.ind{background:rgba(135,189,36,.1)}
+.ndm-icon.dis{background:rgba(234,83,58,.1)}
+.ndm-icon.rep{background:rgba(54,132,153,.1)}
+.ndm-title{font-size:.85rem;font-weight:800;color:#3D3D3B;line-height:1.2}
+.ndm-desc{font-size:.72rem;color:#666;line-height:1.4;margin-top:2px}
 </style>
 </head>
 <body>
