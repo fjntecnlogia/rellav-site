@@ -134,24 +134,25 @@ section{padding:80px 24px}
 .code-snippet{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;font-family:monospace;font-size:.75rem;color:rgba(255,255,255,.6);line-height:1.8;overflow-x:auto}
 .code-snippet .kw{color:#87BD24}.code-snippet .str{color:#EA533A}.code-snippet .cm{color:#555}
 
-/* TABELA DE RECURSOS */
-.feat-table-wrap{margin-top:40px;border-radius:20px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06)}
-.feat-table{width:100%;border-collapse:collapse}
+/* TABELA COMPARATIVA */
+.feat-table-wrap{margin-top:40px;border-radius:20px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);overflow-x:auto}
+.feat-table{width:100%;border-collapse:collapse;min-width:580px}
 .feat-table thead tr{background:var(--d)}
-.feat-table th{padding:18px 28px;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;text-align:left;color:rgba(255,255,255,.6)}
-.feat-table th.rellav-th{color:var(--g);text-align:center}
-.feat-table th.desc-th{color:rgba(255,255,255,.5)}
-.feat-table td{padding:16px 28px;font-size:.84rem;border-bottom:1px solid var(--border);vertical-align:middle}
-.feat-table td:first-child{font-weight:700;color:var(--d);width:36%}
-.feat-table td.status-td{text-align:center;width:18%}
-.feat-table td.desc-td{color:var(--gray);font-size:.81rem;line-height:1.45}
+.feat-table th{padding:16px 22px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;text-align:center;color:rgba(255,255,255,.45);white-space:nowrap}
+.feat-table th:first-child{text-align:left;color:rgba(255,255,255,.6);width:38%}
+.feat-table th.rellav-th{color:var(--g);background:rgba(135,189,36,.08)}
+.feat-table td{padding:14px 22px;font-size:.83rem;border-bottom:1px solid var(--border);vertical-align:middle;text-align:center}
+.feat-table td:first-child{font-weight:700;color:var(--d);text-align:left}
+.feat-table td.rellav-td{background:rgba(135,189,36,.04)}
 .feat-table tr:last-child td{border-bottom:none}
-.feat-table tr:nth-child(even){background:rgba(135,189,36,.025)}
-.feat-table tr:hover{background:rgba(135,189,36,.05);transition:background .15s}
-.feat-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:800;white-space:nowrap}
-.feat-badge.native{background:rgba(135,189,36,.14);color:#5a8f10}
-.feat-badge.yes{background:rgba(135,189,36,.1);color:#5a8f10}
+.feat-table tr:hover{background:rgba(135,189,36,.04);transition:background .15s}
+.feat-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;font-size:.74rem;font-weight:800;white-space:nowrap}
+.feat-badge.native{background:rgba(135,189,36,.14);color:#4d7d0e}
+.feat-badge.yes{background:rgba(135,189,36,.1);color:#4d7d0e}
 .feat-badge.label{background:rgba(11,19,64,.07);color:var(--d)}
+.comp-check{color:#87BD24;font-size:1rem;font-weight:900}
+.comp-partial{color:var(--o);font-size:.78rem;font-weight:700}
+.comp-dash{color:#d0d0d0;font-size:1.1rem}
 
 /* PROCESSO */
 .process-row{display:flex;gap:0;flex-wrap:wrap;margin-top:32px;border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
@@ -613,56 +614,66 @@ Content-Type: <span class="str">application/json</span>
       <table class="feat-table">
         <thead>
           <tr>
-            <th>Recurso</th>
+            <th>Recurso de Integração</th>
             <th class="rellav-th">✦ Rellav</th>
-            <th class="desc-th">O que significa</th>
+            <th>Concorrente A</th>
+            <th>Concorrente B</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>TOTVS Protheus</td>
-            <td class="status-td"><span class="feat-badge native">✓ Nativo</span></td>
-            <td class="desc-td">Sincronização bidirecional de pedidos, clientes e estoque em tempo real</td>
+            <td class="rellav-td"><span class="feat-badge native">✓ Nativo</span></td>
+            <td><span class="comp-check">✓</span></td>
+            <td><span class="comp-check">✓</span></td>
           </tr>
           <tr>
             <td>Sankhya W</td>
-            <td class="status-td"><span class="feat-badge native">✓ Nativo</span></td>
-            <td class="desc-td">Integração certificada com transmissão automática de pedidos</td>
+            <td class="rellav-td"><span class="feat-badge native">✓ Nativo</span></td>
+            <td><span class="comp-check">✓</span></td>
+            <td><span class="comp-check">✓</span></td>
           </tr>
           <tr>
             <td>Omie</td>
-            <td class="status-td"><span class="feat-badge native">✓ Nativo</span></td>
-            <td class="desc-td">Catálogo, preços e condições sincronizados automaticamente</td>
+            <td class="rellav-td"><span class="feat-badge native">✓ Nativo</span></td>
+            <td><span class="comp-check">✓</span></td>
+            <td><span class="comp-partial">Parcial</span></td>
           </tr>
           <tr>
             <td>Bling ERP</td>
-            <td class="status-td"><span class="feat-badge native">✓ Nativo</span></td>
-            <td class="desc-td">Pedidos transmitidos e confirmados sem intervenção manual</td>
+            <td class="rellav-td"><span class="feat-badge native">✓ Nativo</span></td>
+            <td><span class="comp-check">✓</span></td>
+            <td><span class="comp-dash">—</span></td>
           </tr>
           <tr>
             <td>Modo Offline + Fila</td>
-            <td class="status-td"><span class="feat-badge native">✓ Completo</span></td>
-            <td class="desc-td">Venda sem internet; pedidos sincronizam ao reconectar, sem perda</td>
+            <td class="rellav-td"><span class="feat-badge native">✓ Completo</span></td>
+            <td><span class="comp-partial">Parcial</span></td>
+            <td><span class="comp-dash">—</span></td>
           </tr>
           <tr>
             <td>Webhook em tempo real</td>
-            <td class="status-td"><span class="feat-badge yes">✓ Incluso</span></td>
-            <td class="desc-td">Notificações instantâneas de status de pedido para o seu sistema</td>
+            <td class="rellav-td"><span class="feat-badge yes">✓ Incluso</span></td>
+            <td><span class="comp-dash">—</span></td>
+            <td><span class="comp-partial">Parcial</span></td>
           </tr>
           <tr>
             <td>Integração customizada</td>
-            <td class="status-td"><span class="feat-badge yes">✓ Inclusa</span></td>
-            <td class="desc-td">Adaptações específicas ao seu ERP sem custo adicional</td>
+            <td class="rellav-td"><span class="feat-badge yes">✓ Inclusa</span></td>
+            <td><span class="comp-partial">Pago extra</span></td>
+            <td><span class="comp-partial">Pago extra</span></td>
           </tr>
           <tr>
-            <td>Suporte dedicado</td>
-            <td class="status-td"><span class="feat-badge label">Sempre</span></td>
-            <td class="desc-td">Equipe técnica acompanha a implantação do início ao fim</td>
+            <td>Suporte dedicado na integração</td>
+            <td class="rellav-td"><span class="feat-badge label">Sempre</span></td>
+            <td><span class="comp-partial">Planos top</span></td>
+            <td><span class="comp-dash">—</span></td>
           </tr>
           <tr>
             <td>Documentação técnica aberta</td>
-            <td class="status-td"><span class="feat-badge label">Esta página</span></td>
-            <td class="desc-td">API documentada e exemplos prontos para o seu time de TI</td>
+            <td class="rellav-td"><span class="feat-badge label">Esta página</span></td>
+            <td><span class="comp-dash">—</span></td>
+            <td><span class="comp-partial">Parcial</span></td>
           </tr>
         </tbody>
       </table>
