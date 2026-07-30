@@ -519,7 +519,7 @@ function toggleDrop(btn){
   const menu=btn.nextElementSibling;
   const open=menu.classList.toggle('open');
   btn.classList.toggle('open',open);
-  if(open){setTimeout(()=>document.addEventListener('click',function h(e){if(!btn.closest('.tn-drop').contains(e.target)){menu.classList.remove('open');btn.classList.remove('open');document.removeEventListener('click',h);}}),0);}
+  if(open){setTimeout(()=>document.addEventListener('click',function h(e){if(!btn.closest('.nav-drop').contains(e.target)){menu.classList.remove('open');btn.classList.remove('open');document.removeEventListener('click',h);}}),0);}
 }
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
