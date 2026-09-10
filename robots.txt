@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://rellav.com.br/sitemap.xml
+Sitemap: https://www.rellav.com.br/sitemap.xml
