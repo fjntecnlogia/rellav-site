@@ -12,6 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Mesma regra do index: sem height:auto o atributo height do HTML vira
+   altura fixa e a imagem estica. max-width:100% impede que ela ultrapasse
+   a coluna em telas estreitas. */
+img{max-width:100%;height:auto;display:block}
 :root{--g:#87BD24;--o:#EA533A;--t:#368499;--p:#E41D4A;--d:#3D3D3B;--gray:#666;--light:#f7f8fa;--border:#e8e8e8;--white:#fff}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);font-size:15px;line-height:1.7;overflow-x:hidden}
@@ -70,7 +74,10 @@ section{padding:80px 24px}
 .txt-center{text-align:center}.txt-center .section-sub{margin:0 auto 40px}
 
 /* DORES */
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+/* minmax(Npx,1fr) força a coluna a ter no mínimo Npx mesmo quando o
+   contêiner é menor — em 320px os cards estouravam a borda. min(Npx,100%)
+   deixa a coluna encolher até a largura disponível. */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:16px}
 .pain-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s}
 .pain-card:hover{border-color:var(--t);box-shadow:0 6px 24px rgba(54,132,153,.08)}
 .pain-icon{font-size:1.8rem;margin-bottom:12px}
@@ -99,7 +106,7 @@ section{padding:80px 24px}
 .feat-bullets li::before{content:'✓';color:var(--t);font-weight:900;font-size:.85rem;flex-shrink:0;margin-top:1px}
 
 /* MULTI EMPRESA */
-.multi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:32px}
+.multi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:14px;margin-top:32px}
 .multi-card{border:1.5px solid var(--border);border-radius:12px;padding:18px;text-align:center;transition:all .2s}
 .multi-card:hover{border-color:var(--t);background:rgba(54,132,153,.03)}
 .multi-num{font-size:1.8rem;font-weight:900;color:var(--t);line-height:1;margin-bottom:6px}
@@ -137,7 +144,7 @@ section{padding:80px 24px}
 .plan-btn.filled:hover{opacity:.88}
 
 /* DEPOIMENTOS */
-.depo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:40px}
+.depo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:20px;margin-top:40px}
 .depo-card{background:var(--light);border-radius:14px;padding:26px;border:1px solid var(--border)}
 .depo-stars{color:var(--t);font-size:1rem;margin-bottom:12px;letter-spacing:2px}
 .depo-text{font-size:.85rem;color:var(--d);line-height:1.85;margin-bottom:16px;font-style:italic}
@@ -173,7 +180,10 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
 .other-seg{background:var(--light);border:1.5px solid var(--border);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .other-seg p{font-size:.88rem;color:var(--gray);margin-top:4px}
 .other-seg h3{font-size:1.05rem;font-weight:800;color:var(--d)}
-.other-seg a{background:var(--d);color:#fff;font-size:.82rem;font-weight:800;padding:12px 22px;border-radius:10px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity .2s}
+.other-seg a{background:var(--d);color:#fff;font-size:.82rem;font-weight:800;padding:12px 22px;border-radius:10px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity .2s;max-width:100%}
+/* nowrap + flex-shrink:0 mantinham o botão em 290px dentro de um cartão de
+   272px em telas de 320px. Nessa faixa o texto pode quebrar em duas linhas. */
+@media(max-width:360px){.other-seg a{white-space:normal;text-align:center;padding:12px 16px}}
 .other-seg a:hover{opacity:.8}
 
 /* ── DROPDOWN SEGMENTOS (fix) ── */

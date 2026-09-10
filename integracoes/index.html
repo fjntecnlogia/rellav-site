@@ -14,6 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Mesma regra do index: sem height:auto o atributo height do HTML vira
+   altura fixa e a imagem estica. max-width:100% impede que ela ultrapasse
+   a coluna em telas estreitas. */
+img{max-width:100%;height:auto;display:block}
 :root{
   --g:#87BD24;--o:#EA533A;--t:#368499;--p:#E41D4A;--d:#3D3D3B;
   --gray:#666;--light:#f7f8fa;--border:#e8e8e8;--white:#fff;
@@ -24,7 +28,11 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 /* NAV */
 .topnav{background:var(--d);border-bottom:3px solid var(--g);position:sticky;top:0;z-index:200}
 .topnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.tn-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.tn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+/* O logo é width:auto dentro de um flex: em telas estreitas o flex o
+   encolhia enquanto a altura ficava travada em 28px, espremendo a marca
+   em ~28%. flex:none impede que ele seja comprimido. */
+.tn-brand img{flex:none}
 .tn-logo{width:32px;height:32px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:var(--d)}
 .tn-brand span{font-size:1rem;font-weight:900;color:#fff}
 .tn-links{display:flex;gap:20px}
@@ -84,7 +92,10 @@ section{padding:80px 24px}
 .section-sub{color:var(--gray);font-size:.95rem;line-height:1.8;max-width:600px;margin-bottom:40px}
 
 /* COMO FUNCIONA */
-.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
+/* minmax(Npx,1fr) força a coluna a ter no mínimo Npx mesmo quando o
+   contêiner é menor — em 320px os cards estouravam a borda. min(Npx,100%)
+   deixa a coluna encolher até a largura disponível. */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:0;border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
 .how-step{padding:32px 28px;position:relative}
 .how-step:not(:last-child){border-right:1px solid var(--border)}
 @media(max-width:768px){.how-grid{grid-template-columns:1fr}.how-step:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}}
@@ -98,7 +109,7 @@ section{padding:80px 24px}
 .how-step.highlight p{color:rgba(61,61,59,.7)}
 
 /* CARDS ERP */
-.erp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.erp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:20px}
 .erp-card{border:1.5px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;cursor:pointer}
 .erp-card:hover{border-color:var(--g);box-shadow:0 8px 32px rgba(135,189,36,.1);transform:translateY(-2px)}
 .erp-card-head{padding:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px}
@@ -130,7 +141,7 @@ section{padding:80px 24px}
 .tech-section .section-tag{color:var(--g)}
 .tech-section .section-title{color:#fff}
 .tech-section .section-sub{color:rgba(255,255,255,.5)}
-.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:20px}
 .tech-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px;transition:border-color .2s}
 .tech-card:hover{border-color:rgba(135,189,36,.3)}
 .tech-card-icon{font-size:1.8rem;margin-bottom:16px}
@@ -222,6 +233,12 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
 .pill.green{color:var(--g);border-color:rgba(135,189,36,.3);background:rgba(135,189,36,.06)}
 .pill.blue{color:var(--t);border-color:rgba(54,132,153,.3);background:rgba(54,132,153,.06)}
 .pill.orange{color:var(--o);border-color:rgba(234,83,58,.3);background:rgba(234,83,58,.06)}
+
+/* Tabela mais larga que a tela: sem wrapper o conteúdo à direita fica
+   inacessível no celular (o overflow-x:hidden do body esconde a barra de
+   rolagem, mas não devolve o conteúdo). Aqui a tabela rola sozinha. */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.table-scroll table{margin-bottom:0}
 </style>
   <meta name="theme-color" content="#3D3D3B">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -615,7 +632,7 @@ Content-Type: <span class="str">application/json</span>
     <p class="section-sub">Integração nativa com os principais ERPs do mercado, modo offline completo e suporte dedicado — tudo pronto para a sua operação de vendas.</p>
 
     <div class="feat-table-wrap fade-up">
-      <table class="feat-table">
+      <div class="table-scroll"><table class="feat-table">
         <thead>
           <tr>
             <th>Recurso de Integração</th>
@@ -680,7 +697,7 @@ Content-Type: <span class="str">application/json</span>
             <td><span class="comp-partial">Parcial</span></td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 </section>

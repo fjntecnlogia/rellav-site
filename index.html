@@ -20,7 +20,13 @@ h2{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;line-height:1.2}
 h3{font-size:1.2rem;font-weight:700}
 p{line-height:1.7;color:var(--text-light)}
 a{text-decoration:none}
-img{max-width:100%;display:block}
+/* height:auto é obrigatório aqui. Os <img> trazem width/height como atributo
+   para reservar espaço e evitar CLS — só que o atributo height vira ALTURA
+   FIXA em CSS (hint de apresentação). Com width:100% e sem height:auto, a
+   imagem do hero renderizava 250x2400: esticada 4,3x para baixo, empurrando
+   o texto do hero para fora da tela. Com height:auto o navegador volta a usar
+   os atributos como aspect-ratio, então o CLS continua protegido. */
+img{max-width:100%;height:auto;display:block}
 .container{max-width:1160px;margin:0 auto;padding:0 24px}
 .section{padding:88px 0}
 
@@ -93,17 +99,21 @@ img{max-width:100%;display:block}
 nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);height:68px}
 .nav-inner{max-width:1160px;margin:0 auto;padding:0 24px;height:100%;
   display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo span{font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-.5px}
-.nav-links{display:flex;gap:4px;list-style:none;align-items:center}
-.nav-links>li>a{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s;padding:6px 12px;border-radius:6px;display:block}
+.nav-logo{display:flex;align-items:center;gap:8px;flex:none}
+.nav-logo span{font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.5px;white-space:nowrap}
+.nav-links{display:flex;gap:1px;list-style:none;align-items:center;flex:0 1 auto;min-width:0}
+.nav-links>li>a{color:rgba(255,255,255,.65);font-weight:600;font-size:.85rem;transition:color .2s;padding:6px 8px;border-radius:6px;display:block;white-space:nowrap}
 .nav-links>li>a:hover{color:#fff}
-.nav-right{display:flex;align-items:center;gap:16px}
-.nav-login{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;transition:color .2s}
+.nav-right{display:flex;align-items:center;gap:12px;flex:none}
+/* "Entrar" aponta para app.rellav.com.br/login — exatamente o mesmo destino
+   do botão "Acessar plataforma" ao lado. Eram dois links para o mesmo lugar
+   disputando os últimos pixels do topo. Fica só o botão; a regra continua
+   aqui para reativar o link se um dia os destinos divergirem. */
+.nav-login{display:none;color:rgba(255,255,255,.65);font-weight:600;font-size:.85rem;transition:color .2s;white-space:nowrap}
 .nav-login:hover{color:#fff}
 /* DROPDOWN SEGMENTOS */
 .nav-drop{position:relative}
-.nav-drop-btn{color:rgba(255,255,255,.65);font-weight:600;font-size:.88rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;font-family:inherit;transition:color .2s}
+.nav-drop-btn{color:rgba(255,255,255,.65);font-weight:600;font-size:.85rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:4px;padding:6px 8px;border-radius:6px;font-family:inherit;transition:color .2s;white-space:nowrap}
 .nav-drop-btn:hover,.nav-drop-btn.open{color:#fff}
 .nav-drop-btn svg{transition:transform .2s}
 .nav-drop-btn.open svg{transform:rotate(180deg)}
@@ -121,12 +131,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
 /* O header é position:fixed, então o que vaza dele NÃO gera scroll horizontal
    na página — só some cortado na borda. Era o caso do logo e do botão em
    telas de até 430px. Aqui o conteúdo do topo encolhe por faixa de largura. */
+/* Com a Montserrat carregada o topo precisava de 1129px e só tinha 1112px —
+   por isso "E-commerce" e "Acessar plataforma" quebravam em duas linhas em
+   TODA largura de desktop. Nada mais quebra (white-space:nowrap) e o espaço
+   é liberado por faixa; abaixo de ~1040px o menu não cabe de jeito nenhum e
+   sai, como já acontecia no celular. */
+@media(max-width:1160px){
+  .nav-links>li>a,.nav-drop-btn{padding:6px 7px;font-size:.84rem}
+  .nav-right{gap:10px}
+}
+@media(max-width:1040px){
+  .nav-links{display:none}
+}
 @media(max-width:768px){
   .nav-links{display:none}
   .nav-inner{padding:0 16px;gap:10px}
   .nav-right{gap:10px}
-  /* "Entrar" aponta para a mesma URL do botão ao lado: no celular é só peso */
-  .nav-login{display:none}
 }
 @media(max-width:430px){
   .nav-logo span{display:none}
@@ -134,9 +154,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
   .lang-switch a{padding:4px 7px;font-size:.68rem}
   .nav-cta{padding:9px 14px;font-size:.78rem}
 }
-@media(max-width:340px){
-  .nav-cta{padding:8px 11px;font-size:.72rem}
-  .lang-switch a{padding:4px 6px;font-size:.65rem}
+/* 320px (iPhone SE 1ª geração e afins) é o piso real. O espanhol é o idioma
+   mais longo aqui, então é ele que define o aperto desta faixa. */
+@media(max-width:360px){
+  .nav-cta{padding:7px 10px;font-size:.7rem}
+  .lang-switch a{padding:4px 5px;font-size:.63rem}
+  .nav-logo img{height:26px}
+  .nav-inner{padding:0 12px}
 }
 
 /* ── HERO ── */
@@ -440,6 +464,12 @@ footer{background:#252523;padding:60px 0 28px}
 .shop-pill{font-size:.66rem;font-weight:800;padding:3px 11px;border-radius:100px}
 .shop-link{font-size:.78rem;color:var(--green);font-weight:700;margin-top:4px;display:inline-flex;align-items:center;gap:4px}
 @media(max-width:900px){.plat-grid,.shop-grid{grid-template-columns:1fr}}
+
+/* Tabela mais larga que a tela: sem wrapper o conteúdo à direita fica
+   inacessível no celular (o overflow-x:hidden do body esconde a barra de
+   rolagem, mas não devolve o conteúdo). Aqui a tabela rola sozinha. */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.table-scroll table{margin-bottom:0}
 </style>
 
   <!-- SEO & Open Graph -->
@@ -487,7 +517,7 @@ footer{background:#252523;padding:60px 0 28px}
   <link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es">
   <link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en">
   <link rel="alternate" hreflang="x-default" href="https://www.rellav.com.br/">
-<style>.lang-switch{display:inline-flex;gap:2px;flex:none;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style></head>
+<style>.lang-switch{display:inline-flex;gap:2px;flex:none;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 7px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style></head>
 <body>
 
 <!-- NAV -->
@@ -931,7 +961,7 @@ footer{background:#252523;padding:60px 0 28px}
       <p>Comparativo elaborado a partir das informações públicas de cada fornecedor, em setembro de 2026.</p>
     </div>
     <div class="table-wrap">
-      <table>
+      <div class="table-scroll"><table>
         <thead>
           <tr>
             <th>Funcionalidade</th>
@@ -957,7 +987,7 @@ footer{background:#252523;padding:60px 0 28px}
           <tr><td>Suporte via WhatsApp incluso</td><td class="hl"><span class="yes">✓</span></td><td>—</td><td>—</td></tr>
           
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 </section>

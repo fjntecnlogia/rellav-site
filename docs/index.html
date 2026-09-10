@@ -15,7 +15,11 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 /* NAV TOPO */
 .topnav{background:var(--d);border-bottom:3px solid var(--g);position:sticky;top:0;z-index:200}
 .topnav-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.tn-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.tn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+/* O logo é width:auto dentro de um flex: em telas estreitas o flex o
+   encolhia enquanto a altura ficava travada em 28px, espremendo a marca
+   em ~28%. flex:none impede que ele seja comprimido. */
+.tn-brand img{flex:none}
 .tn-brand span{font-size:1rem;font-weight:900;color:#fff}
 .tn-brand small{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:500;margin-left:6px}
 .tn-links{display:flex;gap:20px}
@@ -131,7 +135,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 .screenshot-row{display:flex;gap:20px;align-items:flex-start;margin:20px 0;flex-wrap:wrap}
 .ss-phone{background:#111;border-radius:28px;padding:7px;box-shadow:0 12px 32px rgba(0,0,0,.18);width:160px;flex-shrink:0}
 .ss-phone-screen{border-radius:22px;overflow:hidden}
-.ss-phone-screen img{width:100%;display:block}
+.ss-phone-screen img{width:100%;height:auto;display:block}
 .ss-caption{flex:1;min-width:200px}
 .ss-caption h4{font-size:.9rem;font-weight:800;color:var(--d);margin-bottom:8px}
 .ss-caption ul{list-style:none;display:flex;flex-direction:column;gap:6px}
