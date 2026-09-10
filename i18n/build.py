@@ -97,6 +97,11 @@ def canonical_e_hreflang(html, idioma, pagina):
     proprio = url(idioma)
     html = re.sub(r'<link rel="canonical" href="[^"]*">',
                   '<link rel="canonical" href="%s">' % proprio, html, count=1)
+    # O index.html em português JÁ traz o próprio bloco de alternates. Sem
+    # remover, a página gerada sai com DOIS conjuntos de hreflang — e hreflang
+    # duplicado ou conflitante é descartado pelo Google.
+    html = re.sub(r'\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*">', '', html)
+    html = re.sub(r'\n\s*<!-- hreflang recíproco:.*?-->', '', html, flags=re.S)
     alt = (
         '\n  <!-- hreflang recíproco: cada versão aponta para TODAS, inclusive para si.\n'
         '       Sem a auto-referência o Google descarta o conjunto. x-default vai para\n'
