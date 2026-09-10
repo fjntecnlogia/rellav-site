@@ -89,6 +89,43 @@ def traduzir_html(html, dic, cfg, pagina):
                   '<meta property="og:locale" content="%s">' % cfg['og'], html, count=1)
     return html, faltando
 
+def traduzir_jsonld(html, dic, cfg):
+    """
+    Traduz os blocos JSON-LD.
+
+    POR QUE PRECISA: a substituição de texto pula <script> de propósito (mexer
+    em JavaScript por regex quebra código). Só que o JSON-LD NÃO é código — é
+    conteúdo, e o Google exige que o dado estruturado corresponda ao que está
+    visível na página. Sem este passo, /es/ e /en/ saíam com FAQPage em
+    português: nenhum rich result, e divergência entre schema e página.
+    """
+    import json as _json
+
+    def anda(v):
+        if isinstance(v, str):
+            return dic.get(v, v)
+        if isinstance(v, list):
+            return [anda(x) for x in v]
+        if isinstance(v, dict):
+            return {k: (v[k] if k in ('@context', '@type', '@id', 'url', 'logo',
+                                      'telephone', 'operatingSystem')
+                        else anda(v[k])) for k in v}
+        return v
+
+    def troca_bloco(m):
+        try:
+            dado = _json.loads(m.group(1))
+        except ValueError:
+            return m.group(0)
+        dado = anda(dado)
+        if isinstance(dado, dict) and dado.get('@type') in ('SoftwareApplication', 'FAQPage'):
+            dado['inLanguage'] = cfg['lang']
+        return '<script type="application/ld+json">%s</script>' % _json.dumps(
+            dado, ensure_ascii=False, separators=(',', ':'))
+
+    return re.sub(r'<script type="application/ld\+json">(.*?)</script>',
+                  troca_bloco, html, flags=re.S)
+
 def canonical_e_hreflang(html, idioma, pagina):
     """Canonical do próprio idioma + hreflang recíproco entre as três versões."""
     slug = '' if pagina == 'index.html' else pagina.replace('/index.html', '')
@@ -177,6 +214,7 @@ def main():
             with io.open(origem, encoding='utf-8') as fh:
                 html = fh.read()
             saida_html, faltando = traduzir_html(html, dic, cfg, pagina)
+            saida_html = traduzir_jsonld(saida_html, dic, cfg)
             saida_html = canonical_e_hreflang(saida_html, idioma, pagina)
             saida_html = ajustar_links(saida_html, idioma)
             saida_html = seletor_idioma(saida_html, idioma)
