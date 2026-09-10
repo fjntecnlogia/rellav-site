@@ -41,6 +41,8 @@ NAO_TRADUZIR = {
     'width=device-width, initial-scale=1.0',
     # nomes próprios das lojas-exemplo e seus domínios
     'Vovó Crocante', 'Loja Vovó Crocante', 'Atacado Boa Praça', 'Nature Alimentos',
+    # rótulos do seletor de idioma: são códigos, iguais em qualquer idioma
+    'PT', 'ES', 'EN',
 }
 
 # Padrões que nunca são texto traduzível.
@@ -130,7 +132,11 @@ def canonical_e_hreflang(html, idioma, pagina):
     """Canonical do próprio idioma + hreflang recíproco entre as três versões."""
     slug = '' if pagina == 'index.html' else pagina.replace('/index.html', '')
     def url(pref):
-        return '%s%s/%s' % (BASE, ('/' + pref if pref else ''), slug)
+        # trailingSlash:false no vercel.json: a URL canônica NÃO tem barra final
+        # (exceto a raiz). Apontar para /es/ faria canonical e hreflang mirarem
+        # uma URL que redireciona — o mesmo erro que havia com o www.
+        caminho = ('/' + pref if pref else '') + ('/' + slug if slug else '')
+        return BASE + (caminho or '/')
     proprio = url(idioma)
     html = re.sub(r'<link rel="canonical" href="[^"]*">',
                   '<link rel="canonical" href="%s">' % proprio, html, count=1)
@@ -187,7 +193,7 @@ def ajustar_links(html, idioma):
 def seletor_idioma(html, idioma):
     """Troca de idioma no topo. Cada item é um link real e rastreável."""
     itens = []
-    for cod, rotulo, href in (('pt', 'PT', '/'), ('es', 'ES', '/es/'), ('en', 'EN', '/en/')):
+    for cod, rotulo, href in (('pt', 'PT', '/'), ('es', 'ES', '/es'), ('en', 'EN', '/en')):
         atual = ' aria-current="true"' if cod == idioma else ''
         itens.append('<a href="%s" hreflang="%s"%s>%s</a>' % (
             href, {'pt': 'pt-BR', 'es': 'es', 'en': 'en-US'}[cod], atual, rotulo))
@@ -201,7 +207,10 @@ def seletor_idioma(html, idioma):
            '.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}'
            '</style>')
     html = html.replace('</head>', css + '</head>', 1)
-    # entra logo antes do fim do menu principal
+    # O português já traz o seletor no fonte. Aqui ele é SUBSTITUÍDO (para o
+    # aria-current mudar de idioma), nunca duplicado.
+    if 'class="lang-switch"' in html:
+        return re.sub(r'<div class="lang-switch".*?</div>', bloco, html, count=1, flags=re.S)
     return html.replace('</ul>', '</ul>' + bloco, 1)
 
 def main():

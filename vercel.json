@@ -42,17 +42,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/es",
-      "destination": "/es/",
-      "permanent": true
-    },
-    {
-      "source": "/en",
-      "destination": "/en/",
-      "permanent": true
-    }
   ]
 }

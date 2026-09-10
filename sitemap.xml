@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://www.rellav.com.br/</loc><lastmod>2026-09-10</lastmod><priority>1.0</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/"/><xhtml:link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es/"/><xhtml:link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en/"/></url>
+  <url><loc>https://www.rellav.com.br/</loc><lastmod>2026-09-10</lastmod><priority>1.0</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/"/><xhtml:link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es"/><xhtml:link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en"/></url>
   <url><loc>https://www.rellav.com.br/industrias</loc><lastmod>2026-09-10</lastmod><priority>0.9</priority></url>
   <url><loc>https://www.rellav.com.br/distribuidoras</loc><lastmod>2026-09-10</lastmod><priority>0.9</priority></url>
   <url><loc>https://www.rellav.com.br/representantes</loc><lastmod>2026-09-10</lastmod><priority>0.9</priority></url>
@@ -9,6 +9,6 @@
   <url><loc>https://www.rellav.com.br/integracoes</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority></url>
   <url><loc>https://www.rellav.com.br/privacidade</loc><lastmod>2026-09-10</lastmod><priority>0.5</priority></url>
   <url><loc>https://www.rellav.com.br/termos</loc><lastmod>2026-09-10</lastmod><priority>0.5</priority></url>
-  <url><loc>https://www.rellav.com.br/es/</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/"/><xhtml:link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es/"/><xhtml:link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en/"/></url>
-  <url><loc>https://www.rellav.com.br/en/</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/"/><xhtml:link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es/"/><xhtml:link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en/"/></url>
+  <url><loc>https://www.rellav.com.br/es</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/"/><xhtml:link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es"/><xhtml:link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en"/></url>
+  <url><loc>https://www.rellav.com.br/en</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/"/><xhtml:link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es"/><xhtml:link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en"/></url>
 </urlset>
