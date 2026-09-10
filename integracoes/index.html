@@ -109,6 +109,11 @@ section{padding:80px 24px}
 .erp-status.live{background:rgba(135,189,36,.12);color:var(--g)}
 .erp-status.live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);display:inline-block}
 .erp-status.coming{background:rgba(54,132,153,.12);color:var(--t)}
+/* 'Sob demanda' = ainda não existe adapter; a integração é projeto de
+   implantação, com escopo e prazo. Distinto de 'Disponível', que só o
+   Sankhya é hoje. */
+.erp-status.ondemand{background:rgba(234,83,58,.10);color:#c1401f}
+.erp-status.ondemand::before{content:'';width:6px;height:6px;border-radius:50%;background:#EA533A;display:inline-block}
 .erp-status.coming::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--t);display:inline-block}
 .erp-card-body{padding:20px 24px}
 .erp-features{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
@@ -273,7 +278,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
 <!-- LOGOS ERP -->
 <div class="erp-logos">
   <div class="erp-logos-inner">
-    <p>Compatible com os principais sistemas do mercado</p>
+    <p>Compatível com os principais sistemas do mercado</p>
     <div class="erp-logos-row">
       <div class="erp-chip totvs"><span class="dot"></span>TOTVS / Protheus</div>
       <div class="erp-chip sankhya"><span class="dot"></span>Sankhya</div>
@@ -335,8 +340,8 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
     <p class="section-sub">Cada integração é desenvolvida e homologada com o fornecedor do ERP, garantindo estabilidade e conformidade com as regras de negócio de cada sistema.</p>
 
     <div class="pill-row">
-      <div class="pill green">✓ Ativas — prontas para uso</div>
-      <div class="pill blue">◷ Em desenvolvimento — previsão 2025</div>
+      <div class="pill green">✓ Disponível — integração pronta, em produção</div>
+      <div class="pill blue">◷ Sob demanda — projeto de implantação, com escopo e prazo definidos junto com você</div>
     </div>
 
     <div class="erp-cards">
@@ -348,7 +353,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
           <div class="erp-card-head-info">
             <h3>TOTVS Protheus</h3>
             <p>Maior ERP do Brasil — usado por indústrias, atacados e distribuidoras de médio e grande porte</p>
-            <span class="erp-status live">Disponível</span>
+            <span class="erp-status ondemand">Sob demanda</span>
           </div>
         </div>
         <div class="erp-card-body">
@@ -403,7 +408,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
           <div class="erp-card-head-info">
             <h3>Omie</h3>
             <p>ERP em nuvem muito usado por pequenas e médias empresas — integração via API pública</p>
-            <span class="erp-status live">Disponível</span>
+            <span class="erp-status ondemand">Sob demanda</span>
           </div>
         </div>
         <div class="erp-card-body">
@@ -430,7 +435,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
           <div class="erp-card-head-info">
             <h3>Bling ERP</h3>
             <p>Popular entre e-commerces e pequenas empresas — API OAuth 2.0 moderna e bem documentada</p>
-            <span class="erp-status live">Disponível</span>
+            <span class="erp-status ondemand">Sob demanda</span>
           </div>
         </div>
         <div class="erp-card-body">
@@ -457,7 +462,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
           <div class="erp-card-head-info">
             <h3>SAP Business One</h3>
             <p>ERP internacional muito usado por empresas de médio porte e multinacionais no Brasil</p>
-            <span class="erp-status coming">Em desenvolvimento</span>
+            <span class="erp-status ondemand">Sob demanda</span>
           </div>
         </div>
         <div class="erp-card-body">
@@ -484,7 +489,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.2)}
           <div class="erp-card-head-info">
             <h3>ERP Customizado</h3>
             <p>Tem um ERP próprio ou regional? Nossa equipe faz a integração personalizada para a sua empresa</p>
-            <span class="erp-status live">Sob consulta</span>
+            <span class="erp-status ondemand">Sob consulta</span>
           </div>
         </div>
         <div class="erp-card-body">
