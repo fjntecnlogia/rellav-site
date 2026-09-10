@@ -209,9 +209,19 @@ def seletor_idioma(html, idioma):
     html = html.replace('</head>', css + '</head>', 1)
     # O português já traz o seletor no fonte. Aqui ele é SUBSTITUÍDO (para o
     # aria-current mudar de idioma), nunca duplicado.
+    # São DOIS seletores: um no topo (.lang-switch) e um no rodapé (.lang-foot),
+    # este último sempre visível porque o do topo some abaixo de 1280px.
+    trocou = False
     if 'class="lang-switch"' in html:
-        return re.sub(r'<div class="lang-switch".*?</div>', bloco, html, count=1, flags=re.S)
-    return html.replace('</ul>', '</ul>' + bloco, 1)
+        html = re.sub(r'<div class="lang-switch".*?</div>', bloco, html, count=1, flags=re.S)
+        trocou = True
+    if 'class="lang-foot"' in html:
+        rodape = bloco.replace('class="lang-switch"', 'class="lang-foot"')
+        html = re.sub(r'<div class="lang-foot".*?</div>', rodape, html, count=1, flags=re.S)
+        trocou = True
+    if not trocou:
+        html = html.replace('</ul>', '</ul>' + bloco, 1)
+    return html
 
 def main():
     checar = '--check' in sys.argv
