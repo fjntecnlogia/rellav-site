@@ -20,7 +20,15 @@ h2{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;line-height:1.2}
 h3{font-size:1.2rem;font-weight:700}
 p{line-height:1.7;color:var(--text-light)}
 a{text-decoration:none}
-img{max-width:100%;display:block}
+/* height:auto é OBRIGATÓRIO junto dos atributos width/height do <img>.
+   Esses atributos viram presentational hints de CSS: o width:100% das
+   regras abaixo vence a largura, mas sem nenhuma regra de ALTURA o
+   height="2400" do atributo se aplica literalmente — e a imagem do celular
+   no hero ficou com 2400px de altura, empurrando a coluna de texto para
+   1059px abaixo do topo (o hero parecia vazio em produção, 10/09/2026).
+   Com height:auto a proporção volta a vir do aspect-ratio, que é justamente
+   o que evita o CLS. */
+img{max-width:100%;display:block;height:auto}
 .container{max-width:1160px;margin:0 auto;padding:0 24px}
 .section{padding:88px 0}
 

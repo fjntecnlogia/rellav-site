@@ -69,6 +69,17 @@ def main():
         if v.pilha:
             erros.append('não fechadas: %s' % ', '.join(t for t, _ in v.pilha[:5]))
 
+        # <img> com width/height precisa de height:auto no CSS.
+        # Sem isso os atributos viram presentational hints e a ALTURA do atributo
+        # vale, esticando a imagem: em 10/09/2026 o celular do hero ficou com
+        # 2400px e empurrou o texto para fora da tela.
+        if re.search(r'<img[^>]*\bwidth="\d+"[^>]*\bheight="\d+"', html):
+            css = ''.join(re.findall(r'<style[^>]*>(.*?)</style>', html, re.S))
+            base = re.search(r'(?<![\w.-])img\s*\{([^}]*)\}', css)
+            if css and not (base and 'height' in base.group(1)):
+                erros.append('há <img> com width/height mas a regra base img{} '
+                             'não define height — a imagem vai esticar')
+
         # canonical e title únicos
         for nome, padrao in (('canonical', r'rel="canonical"'), ('<title>', r'<title>')):
             n = len(re.findall(padrao, html))
