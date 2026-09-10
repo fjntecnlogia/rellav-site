@@ -464,16 +464,13 @@ footer{background:#252523;padding:60px 0 28px}
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
-<style>/* Seletor de idioma. O menu já ocupava quase todo o max-width:1160px do
-   .nav-inner (logo + 6 itens + Entrar + botão). Três botões de idioma
-   estouraram a linha e o menu quebrou. Solução: versão enxuta no topo,
-   e escondida abaixo de 1280px — aí quem manda é o seletor do RODAPÉ,
-   que está sempre presente e não disputa espaço com nada. */
-.lang-switch{display:inline-flex;gap:1px;flex:none;align-items:center}
-.lang-switch a{padding:3px 5px;font-size:.68rem;font-weight:700;letter-spacing:.03em;color:rgba(255,255,255,.4);text-decoration:none;line-height:1.3;border-radius:4px}
-.lang-switch a[aria-current]{background:rgba(135,189,36,.9);color:#fff}
-.lang-switch a:not([aria-current]):hover{color:#fff}
-@media(max-width:1279px){.nav-right .lang-switch{display:none}}
+<style>/* O seletor de idioma NÃO fica no menu. O .nav-inner tem max-width:1160px
+   FIXO — tela maior não lhe dá um pixel a mais — e ali já cabem, no limite,
+   o logo, seis itens, o "Entrar" e o botão. Qualquer acréscimo quebra a
+   linha, e foi o que aconteceu: "E-commerce" partia em duas. O seletor vive
+   no rodapé, onde não disputa espaço com nada. */
+/* Itens do menu nunca quebram no meio da palavra. */
+.nav-links a,.nav-drop-btn{white-space:nowrap}
 /* Seletor do rodapé: sempre visível, inclusive no celular. */
 .lang-foot{display:inline-flex;gap:8px;margin-left:10px}
 .lang-foot a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem;font-weight:700}
@@ -505,7 +502,7 @@ footer{background:#252523;padding:60px 0 28px}
       
     </ul>
     <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR">PT</a><a href="/es" hreflang="es" aria-current="true">ES</a><a href="/en" hreflang="en-US">EN</a></div>
+      
         <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Iniciar sesión</a>
       <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Acceder a la plataforma</a>
     </div>
