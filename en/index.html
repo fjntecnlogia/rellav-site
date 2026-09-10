@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en-US">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App de Força de Vendas Integrado ao ERP | Rellav</title>
+<title>ERP-Integrated Field Sales App | Rellav</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -397,22 +397,22 @@ footer{background:#252523;padding:60px 0 28px}
 </style>
 
   <!-- SEO & Open Graph -->
-  <meta name="description" content="App de força de vendas integrado ao seu ERP. Pedidos, catálogo e clientes no celular, funcionando offline. Orçamento aprovado pelo WhatsApp.">
-  <meta property="og:title" content="Rellav — Força de Vendas Integrada ao ERP">
-  <meta property="og:description" content="Pedidos e orçamentos com aprovação por WhatsApp, cupons, tabelas de preço por cliente, metas e comissões. Conecta sua equipe ao ERP, online e offline.">
+  <meta name="description" content="ERP-integrated field sales app. Orders, catalog, and customers on your phone, working offline. Quotes approved over WhatsApp.">
+  <meta property="og:title" content="Rellav — ERP-Integrated Field Sales">
+  <meta property="og:description" content="Orders and quotes approved over WhatsApp, coupons, per-customer price lists, targets, and commissions. Connects your team to your ERP, online and offline.">
   <meta property="og:image" content="https://www.rellav.com.br/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Rellav">
   <meta property="og:url" content="https://www.rellav.com.br/">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rellav — Força de Vendas Integrada ao ERP">
-  <meta name="twitter:description" content="Pedidos, clientes e comissões no celular, do campo ao ERP. Funciona offline.">
+  <meta name="twitter:title" content="Rellav — ERP-Integrated Field Sales">
+  <meta name="twitter:description" content="Orders, customers, and commissions on your phone, from the field to your ERP. Works offline.">
   <meta name="twitter:image" content="https://www.rellav.com.br/og-image.png">
   <meta name="theme-color" content="#3D3D3B">
-  <link rel="canonical" href="https://www.rellav.com.br/">
+  <link rel="canonical" href="https://www.rellav.com.br/en/">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-66PPCQVBCE"></script>
   <script>
@@ -441,7 +441,15 @@ footer{background:#252523;padding:60px 0 28px}
   <link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es/">
   <link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en/">
   <link rel="alternate" hreflang="x-default" href="https://www.rellav.com.br/">
-</head>
+
+  <!-- hreflang recíproco: cada versão aponta para TODAS, inclusive para si.
+       Sem a auto-referência o Google descarta o conjunto. x-default vai para
+       o português, que é o mercado principal. -->
+  <link rel="alternate" hreflang="pt-BR" href="https://www.rellav.com.br/">
+  <link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es/">
+  <link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.rellav.com.br/">
+<style>.lang-switch{display:inline-flex;gap:2px;margin-left:14px;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style></head>
 <body>
 
 <!-- NAV -->
@@ -452,35 +460,16 @@ footer{background:#252523;padding:60px 0 28px}
       <span>Rellav</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#funcionalidades">Funcionalidades</a></li>
-      <li><a href="#plataforma">Plataforma</a></li>
+      <li><a href="#funcionalidades">Features</a></li>
+      <li><a href="#plataforma">Platform</a></li>
       <li><a href="#ecommerce">E-commerce</a></li>
-      <li class="nav-drop">
-        <button class="nav-drop-btn" onclick="toggleDrop(this)">
-          Segmentos
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="nav-drop-menu">
-          <a href="/industrias" class="ndm-item">
-            <div class="ndm-icon ind">🏭</div>
-            <div><div class="ndm-title">Indústrias</div><div class="ndm-desc">Automatize vendas, conecte ao ERP e escale seu negócio com inteligência</div></div>
-          </a>
-          <a href="/distribuidoras" class="ndm-item">
-            <div class="ndm-icon dis">🏘️</div>
-            <div><div class="ndm-title">Distribuidoras</div><div class="ndm-desc">Gerencie clientes e pedidos, vendas automatizadas e integração total</div></div>
-          </a>
-          <a href="/representantes" class="ndm-item">
-            <div class="ndm-icon rep">💼</div>
-            <div><div class="ndm-title">Representantes</div><div class="ndm-desc">Crie e gerencie políticas comerciais para cada cliente e representada</div></div>
-          </a>
-        </div>
-      </li>
-      <li><a href="/integracoes">Integrações</a></li>
-      <li><a href="/docs">Docs</a></li>
-    </ul>
+      
+      
+      
+    </ul><div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR">PT</a><a href="/es/" hreflang="es">ES</a><a href="/en/" hreflang="en-US" aria-current="true">EN</a></div>
     <div class="nav-right">
-      <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Entrar</a>
-      <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Acessar plataforma</a>
+      <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Sign in</a>
+      <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Go to platform</a>
     </div>
   </div>
 </nav>
@@ -490,17 +479,17 @@ footer{background:#252523;padding:60px 0 28px}
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge"><span></span>PLATAFORMA DE FORÇA DE VENDAS B2B</div>
-        <h1>Sua equipe na rua.<br><em>Você no controle.</em></h1>
-        <p class="hero-sub">Rellav conecta seus vendedores ao ERP: clientes, catálogo, pedidos, <strong style="color:rgba(255,255,255,.85)">orçamento aprovado por WhatsApp</strong>, cupons, metas e comissões — em tempo real, online e offline.</p>
+        <div class="hero-badge"><span></span>B2B FIELD SALES PLATFORM</div>
+        <h1>Your team in the field.<br><em>You in control.</em></h1>
+        <p class="hero-sub">Rellav connects your reps to your ERP: customers, catalog, orders, <strong style="color:rgba(255,255,255,.85)">quotes approved over WhatsApp</strong>, coupons, targets, and commissions — in real time, online and offline.</p>
         <div class="hero-ctas">
-          <a href="https://wa.me/5565996952828?text=Quero%20come%C3%A7ar%20o%20Rellav" class="btn btn-primary pulse-hero" target="_blank">● Começar agora</a>
-          <a href="https://wa.me/5565996952828?text=Quero%20uma%20demo%20do%20Rellav" class="btn btn-ghost" target="_blank">▷ Ver uma demo</a>
+          <a href="https://wa.me/5565996952828?text=Quero%20come%C3%A7ar%20o%20Rellav" class="btn btn-primary pulse-hero" target="_blank">● Get started</a>
+          <a href="https://wa.me/5565996952828?text=Quero%20uma%20demo%20do%20Rellav" class="btn btn-ghost" target="_blank">▷ See a demo</a>
         </div>
         <div class="store-badges" style="margin-bottom:20px">
           <span class="store-badge store-badge-soon" aria-disabled="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            <div class="store-badge-txt"><span class="store-badge-sm">Em breve na</span><span class="store-badge-lg">App Store</span></div>
+            <div class="store-badge-txt"><span class="store-badge-sm">Coming soon to</span><span class="store-badge-lg">App Store</span></div>
           </span>
           <a href="https://play.google.com/store/apps/details?id=br.com.rellav.app" target="_blank" rel="noopener noreferrer" class="store-badge">
             <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#EA4335" d="M1.2 23.5l12.4-12.3L1.2.5C.5.9 0 1.7 0 2.6v18.8c0 .9.5 1.7 1.2 2.1z"/><path fill="#FBBC04" d="M20.1 10.5L16.8 8.8 13.6 12l3.2 3.2 3.3-1.7c.9-.5 1.4-1.3 1.4-2s-.5-1.5-1.4-2z"/><path fill="#4285F4" d="M1.2.5l12.4 11.5L16.8 8.8 4.2.2C3.5-.3 2.7-.2 2 .2L1.2.5z"/><path fill="#34A853" d="M1.2 23.5l.8.3c.7.4 1.5.5 2.2 0l12.6-7.6-3.2-3.2L1.2 23.5z"/></svg>
@@ -508,9 +497,9 @@ footer{background:#252523;padding:60px 0 28px}
           </a>
         </div>
         <div class="hero-trust">
-          <span class="trust-item"><span class="trust-dot"></span>Integração com seu ERP</span>
-          <span class="trust-item"><span class="trust-dot"></span>Suporte via WhatsApp</span>
-          <span class="trust-item"><span class="trust-dot"></span>Cancele quando quiser</span>
+          <span class="trust-item"><span class="trust-dot"></span>Integrates with your ERP</span>
+          <span class="trust-item"><span class="trust-dot"></span>Support over WhatsApp</span>
+          <span class="trust-item"><span class="trust-dot"></span>Cancel anytime</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -522,11 +511,11 @@ footer{background:#252523;padding:60px 0 28px}
           </div>
           <div class="float-card top">
             <div class="float-icon" style="background:rgba(135,189,36,.12)">✅</div>
-            <div><div class="float-label">Novo pedido</div><div class="float-value">R$ 4.820,00</div></div>
+            <div><div class="float-label">New order</div><div class="float-value">R$ 4,820.00</div></div>
           </div>
           <div class="float-card bot">
             <div class="float-icon" style="background:rgba(54,132,153,.12)">📍</div>
-            <div><div class="float-label">Em campo agora</div><div class="float-value">8 vendedores</div></div>
+            <div><div class="float-label">In the field now</div><div class="float-value">8 reps</div></div>
           </div>
         </div>
       </div>
@@ -537,7 +526,7 @@ footer{background:#252523;padding:60px 0 28px}
 <!-- ERP BAR -->
 <div class="erp-bar">
   <div class="container">
-    <p class="erp-bar-label">Integrado com os principais ERPs do Brasil</p>
+    <p class="erp-bar-label">Integrated with Brazil's leading ERPs</p>
   </div>
   <div class="erp-marquee">
     <div class="erp-track">
@@ -549,7 +538,7 @@ footer{background:#252523;padding:60px 0 28px}
         <span class="erp-item" style="--erp:#0077b8"><span class="erp-dot"></span>SAP Business One</span>
         <span class="erp-item" style="--erp:#00a651"><span class="erp-dot"></span>Tiny ERP</span>
         <span class="erp-item" style="--erp:#7b2d8b"><span class="erp-dot"></span>WinThor</span>
-        <span class="erp-item" style="--erp:#87bd24"><span class="erp-dot"></span>+ integração customizada</span>
+        <span class="erp-item" style="--erp:#87bd24"><span class="erp-dot"></span>+ custom integration</span>
       </div>
       <div class="erp-group" aria-hidden="true">
         <span class="erp-item" style="--erp:#d9251c"><span class="erp-dot"></span>TOTVS / Protheus</span>
@@ -559,7 +548,7 @@ footer{background:#252523;padding:60px 0 28px}
         <span class="erp-item" style="--erp:#0077b8"><span class="erp-dot"></span>SAP Business One</span>
         <span class="erp-item" style="--erp:#00a651"><span class="erp-dot"></span>Tiny ERP</span>
         <span class="erp-item" style="--erp:#7b2d8b"><span class="erp-dot"></span>WinThor</span>
-        <span class="erp-item" style="--erp:#87bd24"><span class="erp-dot"></span>+ integração customizada</span>
+        <span class="erp-item" style="--erp:#87bd24"><span class="erp-dot"></span>+ custom integration</span>
       </div>
     </div>
   </div>
@@ -569,28 +558,28 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:var(--bg)">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">O PROBLEMA</span>
-      <h2>Você reconhece alguma dessas situações?</h2>
-      <p>São os problemas mais comuns de quem tem equipe na rua. A maioria das empresas ainda convive com eles todo dia.</p>
+      <span class="tag">THE PROBLEM</span>
+      <h2>Do any of these sound familiar?</h2>
+      <p>These are the most common problems for companies with a field team. Most still live with them every single day.</p>
     </div>
     <div class="problem-grid">
       <div class="prob-card">
         <div class="prob-icon">📋</div>
-        <h3>"Meu vendedor ainda anota pedido no papel"</h3>
-        <p>Erros de digitação, retrabalho e informação que chega tarde. Um processo que custa dinheiro todo dia.</p>
-        <p class="prob-result">→ Erro humano · Retrabalho · Tempo perdido</p>
+        <h3>"My rep still writes orders on paper"</h3>
+        <p>Typos, rework, and information that arrives too late. A process that costs money every day.</p>
+        <p class="prob-result">→ Human error · Rework · Wasted time</p>
       </div>
       <div class="prob-card">
         <div class="prob-icon">📍</div>
-        <h3>"Não sei onde meus vendedores estão"</h3>
-        <p>Sem visibilidade de rota, sem registro de visitas, sem controle de quem foi atendido e quem ficou para trás.</p>
-        <p class="prob-result">→ Rota ineficiente · Sem visibilidade</p>
+        <h3>"I don't know where my reps are"</h3>
+        <p>No route visibility, no visit log, no control over who was served and who was left behind.</p>
+        <p class="prob-result">→ Inefficient routes · No visibility</p>
       </div>
       <div class="prob-card">
         <div class="prob-icon">💸</div>
-        <h3>"Só descubro o problema depois da venda"</h3>
-        <p>Produto sem estoque, preço errado, pedido cancelado. O cliente que paga a conta não pode ser o último a saber.</p>
-        <p class="prob-result">→ Cliente insatisfeito · Venda perdida</p>
+        <h3>"I only find out after the sale"</h3>
+        <p>Out of stock, wrong price, canceled order. The customer footing the bill can't be the last to know.</p>
+        <p class="prob-result">→ Unhappy customer · Lost sale</p>
       </div>
     </div>
   </div>
@@ -600,101 +589,101 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:#fff" id="funcionalidades">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">FUNCIONALIDADES</span>
-      <h2>Tudo que seu time precisa.<br>Em um único app.</h2>
-      <p>Do campo ao ERP, sem retrabalho, sem erro, sem perda de tempo.</p>
+      <span class="tag">FEATURES</span>
+      <h2>Everything your team needs.<br>In a single app.</h2>
+      <p>From the field to your ERP — no rework, no errors, no wasted time.</p>
     </div>
 
     <div class="feat-block">
       <div class="feat-content">
-        <span class="feat-tag">👥 Clientes</span>
-        <h2>Carteira organizada. Equipe focada nos clientes certos.</h2>
-        <p>Classifique sua carteira por <strong>Curva A, B e C</strong> e garanta que seu time priorize quem realmente importa.</p>
+        <span class="feat-tag">👥 Customers</span>
+        <h2>An organized book of business. A team focused on the right accounts.</h2>
+        <p>Segment your accounts by <strong>Curva A, B e C</strong> so your team prioritizes the accounts that actually matter.</p>
         <ul class="feat-list">
-          <li>Busca por nome, CNPJ ou telefone</li>
-          <li>Classificação Curva A/B/C com código de cor</li>
-          <li>Ligação, email e mapa direto da ficha do cliente</li>
-          <li>Histórico completo de atendimentos e pedidos</li>
-          <li>Dados de crédito e limite por cliente</li>
+          <li>Search by name, tax ID, or phone</li>
+          <li>A/B/C tiering with color coding</li>
+          <li>Call, email, and map right from the customer record</li>
+          <li>Full history of visits and orders</li>
+          <li>Credit data and limits per customer</li>
         </ul>
       </div>
       <div class="feat-visual">
         <div class="phone-sm"><div class="phone-sm-screen">
-          <img src="./telas/clientes.jpg" alt="Clientes" width="1080" height="2400" loading="lazy" decoding="async">
+          <img src="./telas/clientes.jpg" alt="Customers" width="1080" height="2400" loading="lazy" decoding="async">
         </div></div>
       </div>
     </div>
 
     <div class="feat-block rev">
       <div class="feat-content">
-        <span class="feat-tag">📦 Catálogo</span>
-        <h2>Catálogo atualizado. Sempre na mão do vendedor.</h2>
-        <p>Produtos com foto, preço e <strong>estoque em tempo real</strong>. Seu vendedor chega na visita preparado — sem surpresas.</p>
+        <span class="feat-tag">📦 Catalog</span>
+        <h2>An up-to-date catalog, always in your rep's hand.</h2>
+        <p>Products with photo, price, and <strong>real-time inventory</strong>. Your rep walks into the meeting prepared — no surprises.</p>
         <ul class="feat-list">
-          <li>Fotos, preços e disponibilidade em tempo real</li>
-          <li>Busca por nome, SKU ou código de barras</li>
-          <li>Leitor de código de barras integrado</li>
-          <li>Múltiplas tabelas de preço por cliente</li>
-          <li>Visualização em lista ou grade</li>
+          <li>Photos, prices, and availability in real time</li>
+          <li>Search by name, SKU, or barcode</li>
+          <li>Built-in barcode scanner</li>
+          <li>Multiple price lists per customer</li>
+          <li>List or grid view</li>
         </ul>
       </div>
       <div class="feat-visual">
         <div class="phone-sm"><div class="phone-sm-screen">
-          <img src="./telas/catalogo.jpg" alt="Catálogo" width="1080" height="2400" loading="lazy" decoding="async">
+          <img src="./telas/catalogo.jpg" alt="Catalog" width="1080" height="2400" loading="lazy" decoding="async">
         </div></div>
       </div>
     </div>
 
     <div class="feat-block">
       <div class="feat-content">
-        <span class="feat-tag">🛒 Pedidos & Orçamentos</span>
-        <h2>Pedido em 60 segundos. Orçamento aprovado pelo WhatsApp.</h2>
-        <p>Monte o pedido e envie o orçamento por <strong>WhatsApp</strong>. O cliente abre o link, confere os itens e <strong>aprova com um toque</strong> — sem instalar nada. O pedido confirmado cai direto no ERP.</p>
+        <span class="feat-tag">🛒 Orders & Quotes</span>
+        <h2>An order in 60 seconds. A quote approved over WhatsApp.</h2>
+        <p>Build the order and send the quote over <strong>WhatsApp</strong>. Your customer opens the link, reviews the items, and <strong>approves with one tap</strong> — with nothing to install. The confirmed order lands straight in your ERP.</p>
         <ul class="feat-list">
-          <li>Pedido em poucos toques, com preço puxado automaticamente</li>
-          <li>Envio do orçamento por WhatsApp em 1 toque</li>
-          <li>Cliente aprova ou recusa pelo link, sem login</li>
-          <li>Confirmação direto no ERP — zero redigitação</li>
-          <li>Status do pedido em tempo real</li>
+          <li>Order in a few taps, with pricing pulled automatically</li>
+          <li>Send the quote over WhatsApp in one tap</li>
+          <li>Customer approves or declines from the link — no login</li>
+          <li>Straight into the ERP — zero re-entry</li>
+          <li>Order status in real time</li>
         </ul>
       </div>
       <div class="feat-visual">
         <div class="phone-sm"><div class="phone-sm-screen">
-          <img src="./telas/pedidos.jpg" alt="Pedidos e orçamentos" width="1080" height="2400" loading="lazy" decoding="async">
+          <img src="./telas/pedidos.jpg" alt="Orders and quotes" width="1080" height="2400" loading="lazy" decoding="async">
         </div></div>
       </div>
     </div>
 
     <div class="feat-block rev">
       <div class="feat-content">
-        <span class="feat-tag">🏷️ Preços &amp; Cupons</span>
-        <h2>Preço certo por cliente. Cupons que aumentam o ticket.</h2>
-        <p>Cada cliente vê o preço da <strong>tabela dele</strong> — com atacado, vigência e desconto. E você cria <strong>cupons por regra</strong> (valor mínimo, validade, carteira) para impulsionar campanhas.</p>
+        <span class="feat-tag">🏷️ Pricing & Coupons</span>
+        <h2>The right price per customer. Coupons that lift the ticket.</h2>
+        <p>Each customer sees the price on <strong>their own list</strong> — with wholesale tiers, validity dates, and discounts. And you can create <strong>rule-based coupons</strong> (minimum value, expiry, account set) to drive campaigns.</p>
         <ul class="feat-list">
-          <li>Tabelas de preço por cliente e segmento, com vigência</li>
-          <li>Preço de atacado e desconto mín./máx. por produto</li>
-          <li>Cupons de desconto (% ou valor fixo) com regras</li>
-          <li>Aplicação automática no pedido, com recálculo do total</li>
-          <li>Limite de uso por cupom e por cliente</li>
+          <li>Price lists by customer and segment, with validity dates</li>
+          <li>Wholesale pricing and min/max discount per product</li>
+          <li>Discount coupons (% or fixed amount) with rules</li>
+          <li>Applied automatically to the order, with the total recalculated</li>
+          <li>Usage limits per coupon and per customer</li>
         </ul>
       </div>
       <div class="feat-visual">
         <div class="phone-sm"><div class="phone-sm-screen">
-          <img src="./telas/IMG_1739.JPG" alt="Preços por tabela" width="738" height="1600" loading="lazy" decoding="async">
+          <img src="./telas/IMG_1739.JPG" alt="List-based pricing" width="738" height="1600" loading="lazy" decoding="async">
         </div></div>
       </div>
     </div>
 
     <div class="feat-block">
       <div class="feat-content">
-        <span class="feat-tag">🗺️ Mapa ao vivo</span>
-        <h2>Veja onde sua equipe está e quem ainda não foi visitado.</h2>
-        <p>Vendedores e clientes no mapa em tempo real. Planeje rotas inteligentes e garanta que <strong>nenhum cliente estratégico</strong> fique sem atendimento.</p>
+        <span class="feat-tag">🗺️ Live map</span>
+        <h2>See where your team is and who hasn't been visited yet.</h2>
+        <p>Reps and customers on the map in real time. Plan smart routes and make sure <strong>no key account</strong> goes unattended.</p>
         <ul class="feat-list">
-          <li>Vendedores em campo plotados em tempo real</li>
-          <li>Clientes no mapa por localização</li>
-          <li>Planejamento de rota de visitas</li>
-          <li>Filtros por Curva, status e última visita</li>
+          <li>Field reps plotted in real time</li>
+          <li>Customers mapped by location</li>
+          <li>Visit route planning</li>
+          <li>Filters by tier, status, and last visit</li>
         </ul>
       </div>
       <div class="feat-visual">
@@ -706,7 +695,7 @@ footer{background:#252523;padding:60px 0 28px}
           <div style="position:absolute;top:310px;left:175px"><div style="width:18px;height:18px;border-radius:50%;background:#87BD24;border:3px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.25)"></div></div>
           <div style="position:absolute;bottom:16px;left:14px;right:14px;background:#fff;border-radius:12px;padding:11px 14px;box-shadow:0 8px 24px rgba(0,0,0,.15);display:flex;align-items:center;gap:10px">
             <span style="font-size:1.1rem">📍</span>
-            <div><div style="font-size:.62rem;color:#999;font-weight:600">Em campo agora</div><div style="font-size:.85rem;font-weight:800;color:#111">8 vendedores</div></div>
+            <div><div style="font-size:.62rem;color:#999;font-weight:600">In the field now</div><div style="font-size:.85rem;font-weight:800;color:#111">8 reps</div></div>
           </div>
         </div></div>
       </div>
@@ -714,20 +703,20 @@ footer{background:#252523;padding:60px 0 28px}
 
     <div class="feat-block rev">
       <div class="feat-content">
-        <span class="feat-tag">📈 Gestão &amp; Metas</span>
-        <h2>Metas, positivação e comissões — no painel e no bolso do vendedor.</h2>
-        <p>O gestor acompanha faturamento, curva ABC, positivação e metas por vendedor. O vendedor vê a própria comissão e quanto falta para a meta — <strong>transparência que motiva</strong>.</p>
+        <span class="feat-tag">📈 Management & Targets</span>
+        <h2>Targets, account coverage, and commissions — on the dashboard and in the rep's pocket.</h2>
+        <p>Managers track revenue, ABC tiering, coverage, and per-rep targets. Reps see their own commission and how far they are from target — <strong>transparency that motivates</strong>.</p>
         <ul class="feat-list">
-          <li>Vendas do mês, ticket médio, novos clientes e positivação</li>
-          <li>Metas por vendedor com % atingido e ranking da equipe</li>
-          <li>Curva ABC da carteira e saúde dos clientes</li>
-          <li>Comissão do vendedor em tempo real no celular</li>
-          <li>Tarefas, cargas em campo e painel web do gestor</li>
+          <li>Monthly sales, average ticket, new customers, and coverage</li>
+          <li>Per-rep targets with % attained and a team leaderboard</li>
+          <li>ABC tiering and account health</li>
+          <li>Rep commission in real time on their phone</li>
+          <li>Tasks, field loads, and a web dashboard for managers</li>
         </ul>
       </div>
       <div class="feat-visual">
         <div class="phone-sm"><div class="phone-sm-screen">
-          <img src="./telas/equipe.jpg" alt="Equipe, metas e positivação" width="1080" height="2400" loading="lazy" decoding="async">
+          <img src="./telas/equipe.jpg" alt="Team, targets, and coverage" width="1080" height="2400" loading="lazy" decoding="async">
         </div></div>
       </div>
     </div>
@@ -738,41 +727,41 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:var(--bg)" id="plataforma">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">PLATAFORMA COMPLETA</span>
-      <h2>Muito mais que um app.<br>Um ecossistema de vendas B2B.</h2>
-      <p>Do vendedor na rua ao cliente comprando sozinho — tudo conectado ao seu ERP, com inteligência artificial no meio do caminho.</p>
+      <span class="tag">THE FULL PLATFORM</span>
+      <h2>Much more than an app.<br>A B2B sales ecosystem.</h2>
+      <p>From the rep in the field to the customer buying on their own — all connected to your ERP, with AI along the way.</p>
     </div>
     <div class="plat-grid">
       <div class="plat-card">
         <div class="plat-ic" style="background:rgba(135,189,36,.12)">📱</div>
-        <h3>App de Força de Vendas</h3>
-        <p>Seu vendedor na rua com clientes, catálogo, pedidos e orçamento por WhatsApp — online e offline.</p>
+        <h3>Field Sales App</h3>
+        <p>Your rep in the field with customers, catalog, orders, and WhatsApp quotes — online and offline.</p>
       </div>
       <div class="plat-card">
         <div class="plat-ic" style="background:rgba(234,83,58,.12)">🛒</div>
-        <h3>Loja B2B Online</h3>
-        <p>Seu catálogo vira uma loja: o cliente faz o pedido sozinho, 24/7, já com o preço da tabela dele.</p>
+        <h3>Online B2B Store</h3>
+        <p>Your catalog becomes a store: customers order on their own, 24/7, already at their own list price.</p>
       </div>
       <div class="plat-card">
         <div class="plat-ic" style="background:rgba(54,132,153,.12)">💻</div>
-        <h3>Portal Web do Gestor</h3>
-        <p>Acompanhe pedidos, clientes, metas, comissões e cupons pelo navegador, em tempo real.</p>
+        <h3>Manager Web Portal</h3>
+        <p>Track orders, customers, targets, commissions, and coupons from the browser, in real time.</p>
       </div>
       <div class="plat-card">
         <div class="plat-ic" style="background:rgba(228,29,74,.1)">🛠️</div>
-        <h3>Painel Administrativo</h3>
-        <p>Licenças, usuários, tabelas de preço e integrações sob controle — configure tudo num lugar só.</p>
+        <h3>Admin Console</h3>
+        <p>Licenses, users, price lists, and integrations under control — configure everything in one place.</p>
       </div>
       <div class="plat-card">
         <div class="plat-ic" style="background:rgba(135,189,36,.12)">📦</div>
-        <h3>Cargas &amp; Lotes</h3>
-        <p>Pré-venda e carga organizadas, com controle de lote e acerto — do carregamento à entrega.</p>
+        <h3>Loads & Batches</h3>
+        <p>Pre-sales and van loads organized, with batch control and settlement — from loading to delivery.</p>
       </div>
       <div class="plat-card ai">
         <div class="plat-ic" style="background:rgba(135,189,36,.2)">🤖</div>
-        <h3>Inteligência Artificial</h3>
-        <p>Assistente que ajuda o cliente e sugere ao vendedor a próxima melhor ação: reposição na hora certa e alerta de churn.</p>
-        <span class="plat-tag" style="background:rgba(135,189,36,.22);color:var(--green)">✦ IA integrada</span>
+        <h3>Artificial Intelligence</h3>
+        <p>An assistant that helps the customer and suggests the rep's next best action: timely restocking and churn alerts.</p>
+        <span class="plat-tag" style="background:rgba(135,189,36,.22);color:var(--green)">✦ AI built in</span>
       </div>
     </div>
   </div>
@@ -782,9 +771,9 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:#fff" id="ecommerce">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">E-COMMERCE B2B</span>
-      <h2>Seu catálogo vira uma loja online.<br>O cliente compra sozinho.</h2>
-      <p>Cada cliente entra, vê o <strong>preço da tabela dele</strong>, aplica cupom e fecha o pedido — que segue o mesmo fluxo do ERP. Veja lojas reais no ar:</p>
+      <span class="tag">B2B E-COMMERCE</span>
+      <h2>Your catalog becomes an online store.<br>Your customer buys on their own.</h2>
+      <p>Each customer signs in, sees their <strong>own list price</strong>, applies a coupon, and places the order — which follows the same ERP flow. See real stores live:</p>
     </div>
     <div class="shop-grid">
       <a href="https://vovo-crocante.vercel.app" target="_blank" rel="noopener" class="shop-card card-hover">
@@ -792,27 +781,27 @@ footer{background:#252523;padding:60px 0 28px}
           <div class="browser-bar"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">vovo-crocante.vercel.app</div></div>
           <img src="./telas/loja-vovo.jpg" alt="Loja Vovó Crocante" loading="lazy" width="2049" height="1290">
         </div>
-        <div class="shop-meta"><span class="shop-name">Vovó Crocante</span><span class="shop-pill" style="background:rgba(234,83,58,.1);color:var(--orange)">Cupons</span></div>
-        <span class="shop-link">Ver loja ao vivo →</span>
+        <div class="shop-meta"><span class="shop-name">Vovó Crocante</span><span class="shop-pill" style="background:rgba(234,83,58,.1);color:var(--orange)">Coupons</span></div>
+        <span class="shop-link">View live store →</span>
       </a>
       <a href="https://atacado-boapraca.vercel.app" target="_blank" rel="noopener" class="shop-card card-hover">
         <div class="browser-frame">
           <div class="browser-bar"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">atacado-boapraca.vercel.app</div></div>
           <img src="./telas/loja-boapraca.jpg" alt="Atacado Boa Praça" loading="lazy" width="2049" height="1290">
         </div>
-        <div class="shop-meta"><span class="shop-name">Atacado Boa Praça</span><span class="shop-pill" style="background:rgba(54,132,153,.1);color:var(--teal)">Preço por cliente</span></div>
-        <span class="shop-link">Ver loja ao vivo →</span>
+        <div class="shop-meta"><span class="shop-name">Atacado Boa Praça</span><span class="shop-pill" style="background:rgba(54,132,153,.1);color:var(--teal)">Price per customer</span></div>
+        <span class="shop-link">View live store →</span>
       </a>
       <a href="https://nature-alimentos.vercel.app" target="_blank" rel="noopener" class="shop-card card-hover">
         <div class="browser-frame">
           <div class="browser-bar"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">nature-alimentos.vercel.app</div></div>
           <img src="./telas/loja-nature.jpg" alt="Nature Alimentos" loading="lazy" width="2049" height="1290">
         </div>
-        <div class="shop-meta"><span class="shop-name">Nature Alimentos</span><span class="shop-pill" style="background:rgba(135,189,36,.12);color:var(--green)">Tabela de preço</span></div>
-        <span class="shop-link">Ver loja ao vivo →</span>
+        <div class="shop-meta"><span class="shop-name">Nature Alimentos</span><span class="shop-pill" style="background:rgba(135,189,36,.12);color:var(--green)">Price list</span></div>
+        <span class="shop-link">View live store →</span>
       </a>
     </div>
-    <p class="int-note" style="margin-top:36px">Quer uma loja assim com a sua marca? <a href="#precos">Fale com a gente</a> — montamos a partir do seu catálogo.</p>
+    <p class="int-note" style="margin-top:36px">Want a store like this with your brand? <a href="#precos">Talk to us</a> — we build it from your catalog.</p>
   </div>
 </section>
 
@@ -820,25 +809,25 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:var(--bg)">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">COMO FUNCIONA</span>
-      <h2>Comece a vender mais em 3 passos</h2>
-      <p>Sem semanas de implantação. Sem precisar de TI. Sem complicação.</p>
+      <span class="tag">HOW IT WORKS</span>
+      <h2>Start selling more in 3 steps</h2>
+      <p>No weeks of implementation. No IT required. No hassle.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Cadastre</h3>
-        <p>Crie sua conta em minutos. Sem burocracia. Acesso imediato à plataforma completa.</p>
+        <h3>Sign up</h3>
+        <p>Create your account in minutes. No red tape. Immediate access to the full platform.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Configure</h3>
-        <p>Importe seus clientes e produtos. Conecte seu ERP com suporte técnico incluso. Pronto em menos de 1 dia.</p>
+        <h3>Set up</h3>
+        <p>Import your customers and products. Connect your ERP with technical support included. Ready in under a day.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Venda mais</h3>
-        <p>Seu time usa o app na rua. Você acompanha tudo no painel em tempo real. Mais controle, mais vendas.</p>
+        <h3>Sell more</h3>
+        <p>Your team uses the app in the field. You track everything on the dashboard in real time. More control, more sales.</p>
       </div>
     </div>
   </div>
@@ -847,14 +836,14 @@ footer{background:#252523;padding:60px 0 28px}
 <!-- LOJAS -->
 <section class="section" style="background:var(--dark);padding:72px 0">
   <div class="container" style="text-align:center">
-    <span class="tag" style="background:rgba(135,189,36,.15)">BAIXE O APP</span>
-    <h2 style="color:#fff;margin:14px 0 12px">Baixe o Rellav.<br><span style="color:var(--green)">Disponível nas lojas.</span></h2>
-    <p style="color:rgba(255,255,255,.45);max-width:440px;margin:0 auto 36px;font-size:1rem">Disponível no Google Play. Versão para iPhone em breve.</p>
+    <span class="tag" style="background:rgba(135,189,36,.15)">GET THE APP</span>
+    <h2 style="color:#fff;margin:14px 0 12px">Get Rellav.<br><span style="color:var(--green)">Available in the stores.</span></h2>
+    <p style="color:rgba(255,255,255,.45);max-width:440px;margin:0 auto 36px;font-size:1rem">Available on Google Play. iPhone version coming soon.</p>
     <div class="store-badges" style="justify-content:center;margin-bottom:24px">
       <span class="store-badge store-badge-soon" aria-disabled="true" style="padding:14px 24px;min-width:180px">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <div class="store-badge-txt">
-          <span class="store-badge-sm">Em breve na</span>
+          <span class="store-badge-sm">Coming soon to</span>
           <span class="store-badge-lg" style="font-size:1.15rem">App Store</span>
         </div>
       </span>
@@ -867,10 +856,10 @@ footer{background:#252523;padding:60px 0 28px}
       </a>
     </div>
     <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
-      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Download gratuito</span>
-      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Sem anúncios</span>
-      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span><a href="/privacidade" style="color:rgba(255,255,255,.35);text-decoration:none">Dados protegidos pela LGPD</a></span>
-      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Atualização automática</span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Free download</span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>No ads</span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span><a href="/privacidade" hreflang="pt-BR" lang="pt-BR" style="color:rgba(255,255,255,.35);text-decoration:none">Data protected under Brazil's LGPD</a></span>
+      <span style="color:rgba(255,255,255,.3);font-size:.8rem;display:flex;align-items:center;gap:6px"><span style="color:var(--green)">✓</span>Automatic updates</span>
     </div>
   </div>
 </section>
@@ -879,35 +868,35 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:#fff">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">COMPARATIVO</span>
-      <h2>Por que empresas estão migrando para o Rellav</h2>
-      <p>Comparativo elaborado a partir das informações públicas de cada fornecedor, em setembro de 2026.</p>
+      <span class="tag">COMPARISON</span>
+      <h2>Why companies are moving to Rellav</h2>
+      <p>Comparison based on each vendor's publicly available information, as of September 2026.</p>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Funcionalidade</th>
+            <th>Feature</th>
             <th class="hl">Rellav ✦</th>
-            <th>Concorrente A</th>
-            <th>Concorrente B</th>
+            <th>Competitor A</th>
+            <th>Competitor B</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Catálogo digital com fotos</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Gestão de pedidos</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Mapa de clientes</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Classificação Curva A/B/C</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
-          <tr><td>Comissões para o vendedor</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Orçamento aprovado por WhatsApp</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
-          <tr><td>Cupons de desconto por regra</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
-          <tr><td>Metas e positivação da equipe</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Loja B2B online (e-commerce)</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Inteligência artificial integrada</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Leitor de código de barras</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
-          <tr><td>Múltiplas tabelas de preço</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-          <tr><td>Integrações ERP</td><td class="hl hl-val">Sankhya nativo</td><td>Ampla</td><td>Ampla</td></tr>
-          <tr><td>Suporte via WhatsApp incluso</td><td class="hl"><span class="yes">✓</span></td><td>—</td><td>—</td></tr>
+          <tr><td>Digital catalog with photos</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Order management</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Customer map</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>A/B/C tiering</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Rep-facing commissions</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Quotes approved over WhatsApp</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Rule-based discount coupons</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Team targets and coverage</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Online B2B store (e-commerce)</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Built-in artificial intelligence</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>Barcode scanner</td><td class="hl"><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
+          <tr><td>Multiple price lists</td><td class="hl"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td>ERP integrations</td><td class="hl hl-val">Native Sankhya</td><td>Broad</td><td>Broad</td></tr>
+          <tr><td>WhatsApp support included</td><td class="hl"><span class="yes">✓</span></td><td>—</td><td>—</td></tr>
           
         </tbody>
       </table>
@@ -925,24 +914,24 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:var(--bg)">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">NA PRÁTICA</span>
-      <h2>O que muda na operação</h2>
-      <p>As três situações do começo desta página, resolvidas — e como.</p>
+      <span class="tag">IN PRACTICE</span>
+      <h2>What changes in your operation</h2>
+      <p>The three situations from the top of this page, solved — and how.</p>
     </div>
     <div class="metrics">
-      <div class="metric"><div class="metric-num">Offline</div><div class="metric-lbl">o pedido é montado sem sinal e sincroniza sozinho quando a conexão volta</div></div>
-      <div class="metric"><div class="metric-num">1 toque</div><div class="metric-lbl">o cliente aprova o orçamento pelo link do WhatsApp, sem instalar nada</div></div>
-      <div class="metric"><div class="metric-num">Zero</div><div class="metric-lbl">redigitação: o pedido confirmado entra no ERP pelo caminho automático</div></div>
+      <div class="metric"><div class="metric-num">Offline</div><div class="metric-lbl">the order is built with no signal and syncs on its own when the connection returns</div></div>
+      <div class="metric"><div class="metric-num">One tap</div><div class="metric-lbl">your customer approves the quote from the WhatsApp link, with nothing to install</div></div>
+      <div class="metric"><div class="metric-num">Zero</div><div class="metric-lbl">re-entry: the confirmed order reaches the ERP automatically</div></div>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <p class="testi-text"><strong>"Meu vendedor ainda anota pedido no papel."</strong><br><br>O pedido é montado no app, com o preço da tabela do cliente puxado automaticamente. Confirmado, ele segue para o ERP sem ninguém redigitar — que é onde nasce o erro.</p>
+        <p class="testi-text"><strong>"My rep still writes orders on paper."</strong><br><br>The order is built in the app, with the customer's list price pulled automatically. Once confirmed, it goes to the ERP with nobody re-typing it — which is where errors start.</p>
       </div>
       <div class="testi-card">
-        <p class="testi-text"><strong>"Não sei onde meus vendedores estão."</strong><br><br>Equipe e clientes no mapa em tempo real, com registro de visita. Dá para ver quem foi atendido, quem ficou para trás e planejar a rota do dia.</p>
+        <p class="testi-text"><strong>"I don't know where my reps are."</strong><br><br>Team and customers on the map in real time, with a visit log. You can see who was served, who was missed, and plan the day's route.</p>
       </div>
       <div class="testi-card">
-        <p class="testi-text"><strong>"Só descubro o problema depois da venda."</strong><br><br>Preço, estoque e limite de crédito aparecem na hora da venda, não depois. O vendedor chega na visita sabendo o que pode vender e por quanto.</p>
+        <p class="testi-text"><strong>"I only find out after the sale."</strong><br><br>Price, stock, and credit limit show up at the moment of sale, not after. Your rep arrives knowing what they can sell and at what price.</p>
       </div>
     </div>
   </div>
@@ -952,17 +941,17 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:#fff" id="integracoes">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">INTEGRAÇÕES</span>
-      <h2>Conectado com o ERP que você já usa</h2>
-      <p>Não precisa trocar de sistema. A integração com o Sankhya já está em produção; os demais entram como projeto de implantação, com escopo e prazo definidos.</p>
+      <span class="tag">INTEGRATIONS</span>
+      <h2>Connected to the ERP you already use</h2>
+      <p>No need to switch systems. The Sankhya integration is already in production; the others come in as implementation projects, with defined scope and timeline.</p>
     </div>
     <div class="int-grid">
-      <div class="int-card"><div class="int-icon">🔵</div><div class="int-name">TOTVS</div><div class="int-type">ERP Corporativo</div></div>
-      <div class="int-card"><div class="int-icon">🟠</div><div class="int-name">SANKHYA</div><div class="int-type">ERP Gestão</div></div>
-      <div class="int-card"><div class="int-icon">🟢</div><div class="int-name">OMIE</div><div class="int-type">ERP Cloud</div></div>
-      <div class="int-card"><div class="int-icon">🔴</div><div class="int-name">BLING</div><div class="int-type">Gestão Empresarial</div></div>
+      <div class="int-card"><div class="int-icon">🔵</div><div class="int-name">TOTVS</div><div class="int-type">Enterprise ERP</div></div>
+      <div class="int-card"><div class="int-icon">🟠</div><div class="int-name">SANKHYA</div><div class="int-type">Management ERP</div></div>
+      <div class="int-card"><div class="int-icon">🟢</div><div class="int-name">OMIE</div><div class="int-type">Cloud ERP</div></div>
+      <div class="int-card"><div class="int-icon">🔴</div><div class="int-name">BLING</div><div class="int-type">Business management</div></div>
     </div>
-    <p class="int-note">Não vê seu ERP aqui? <a href="https://wa.me/5565996952828?text=Quero%20integrar%20meu%20ERP%20ao%20Rellav" target="_blank">Fale com a gente</a> — integramos por demanda e nosso time técnico cuida de tudo.</p>
+    <p class="int-note">Don't see your ERP here? <a href="https://wa.me/5565996952828?text=Quero%20integrar%20meu%20ERP%20ao%20Rellav" target="_blank">Talk to us</a> — we integrate on demand and our technical team handles everything.</p>
   </div>
 </section>
 
@@ -970,60 +959,60 @@ footer{background:#252523;padding:60px 0 28px}
 <section class="section" style="background:var(--bg)" id="precos">
   <div class="container">
     <div class="sec-head">
-      <span class="tag">PLANOS</span>
-      <h2>Planos que cabem no seu time</h2>
-      <p>O valor depende do tamanho da equipe e do que você vai usar. Marcamos uma apresentação, entendemos a sua operação e você recebe a proposta fechada.</p>
+      <span class="tag">PLANS</span>
+      <h2>Plans that fit your team</h2>
+      <p>Pricing depends on team size and what you'll use. We schedule a walkthrough, learn your operation, and send you a firm proposal.</p>
     </div>
     <div class="price-grid">
       <div class="price-card">
         <div class="plan-name">Starter</div>
-        <div class="plan-price"><div class="plan-num">Sob consulta</div><div class="plan-per">por vendedor/mês</div></div>
+        <div class="plan-price"><div class="plan-num">On request</div><div class="plan-per">per rep, per month</div></div>
         <div class="plan-div"></div>
         <ul class="plan-feats">
-          <li>Gestão de Clientes</li>
-          <li>Catálogo Digital</li>
-          <li>Pedidos e Orçamentos</li>
-          <li>Orçamento por WhatsApp</li>
-          <li>1 Integração ERP</li>
-          <li>Suporte via WhatsApp</li>
+          <li>Customer management</li>
+          <li>Digital catalog</li>
+          <li>Orders and quotes</li>
+          <li>Quotes over WhatsApp</li>
+          <li>1 ERP integration</li>
+          <li>Support over WhatsApp</li>
         </ul>
-        <a href="https://wa.me/5565996952828?text=Quero%20uma%20apresenta%C3%A7%C3%A3o%20do%20Rellav%20-%20plano%20Starter" class="btn btn-outline plan-btn" target="_blank" rel="noopener">Agendar apresentação</a>
+        <a href="https://wa.me/5565996952828?text=Quero%20uma%20apresenta%C3%A7%C3%A3o%20do%20Rellav%20-%20plano%20Starter" class="btn btn-outline plan-btn" target="_blank" rel="noopener">Book a walkthrough</a>
       </div>
       <div class="price-card pop">
-        <div class="pop-badge">✨ MAIS POPULAR</div>
-        <div class="plan-name">Profissional</div>
-        <div class="plan-price"><div class="plan-num">Sob consulta</div><div class="plan-per">por vendedor/mês</div></div>
+        <div class="pop-badge">✨ MOST POPULAR</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-price"><div class="plan-num">On request</div><div class="plan-per">per rep, per month</div></div>
         <div class="plan-div"></div>
         <ul class="plan-feats">
-          <li>Tudo do Starter +</li>
-          <li>Mapa ao vivo e rotas</li>
-          <li>Cupons de desconto</li>
-          <li>Tabelas de preço por cliente</li>
-          <li>Metas, positivação e comissões</li>
-          <li>Tarefas e cargas em campo</li>
-          <li>ERPs ilimitados · Painel web do gestor</li>
+          <li>Everything in Starter, plus</li>
+          <li>Live map and routes</li>
+          <li>Discount coupons</li>
+          <li>Price lists per customer</li>
+          <li>Targets, coverage, and commissions</li>
+          <li>Field tasks and loads</li>
+          <li>Unlimited ERPs · Manager web portal</li>
         </ul>
-        <a href="https://wa.me/5565996952828?text=Quero%20uma%20apresenta%C3%A7%C3%A3o%20do%20Rellav%20-%20plano%20Profissional" class="btn btn-primary plan-btn" target="_blank" rel="noopener">Agendar apresentação</a>
+        <a href="https://wa.me/5565996952828?text=Quero%20uma%20apresenta%C3%A7%C3%A3o%20do%20Rellav%20-%20plano%20Profissional" class="btn btn-primary plan-btn" target="_blank" rel="noopener">Book a walkthrough</a>
       </div>
       <div class="price-card">
         <div class="plan-name">Enterprise</div>
-        <div class="plan-price"><div class="plan-num">Sob medida</div><div class="plan-per">para operações maiores</div></div>
+        <div class="plan-price"><div class="plan-num">Custom</div><div class="plan-per">for larger operations</div></div>
         <div class="plan-div"></div>
         <ul class="plan-feats">
-          <li>Tudo do Profissional +</li>
-          <li>Vendedores ilimitados</li>
-          <li>API aberta</li>
-          <li>SLA garantido</li>
-          <li>Suporte dedicado</li>
-          <li>Implantação assistida</li>
+          <li>Everything in Professional, plus</li>
+          <li>Unlimited reps</li>
+          <li>Open API</li>
+          <li>Guaranteed SLA</li>
+          <li>Dedicated support</li>
+          <li>Assisted onboarding</li>
         </ul>
-        <a href="https://wa.me/5565996952828?text=Quero%20uma%20apresenta%C3%A7%C3%A3o%20do%20Rellav%20-%20plano%20Enterprise" class="btn btn-outline plan-btn" target="_blank" rel="noopener">Falar com um consultor</a>
+        <a href="https://wa.me/5565996952828?text=Quero%20uma%20apresenta%C3%A7%C3%A3o%20do%20Rellav%20-%20plano%20Enterprise" class="btn btn-outline plan-btn" target="_blank" rel="noopener">Talk to a consultant</a>
       </div>
     </div>
     <div class="price-footer">
-      <span>✅ Cancele quando quiser</span>
-      <span>✅ Sem contrato de fidelidade</span>
-      <span>✅ Suporte WhatsApp incluso</span>
+      <span>✅ Cancel anytime</span>
+      <span>✅ No lock-in contract</span>
+      <span>✅ WhatsApp support included</span>
     </div>
   </div>
 </section>
@@ -1033,32 +1022,32 @@ footer{background:#252523;padding:60px 0 28px}
   <div class="container">
     <div class="sec-head">
       <span class="tag">FAQ</span>
-      <h2>Perguntas frequentes</h2>
+      <h2>Frequently asked questions</h2>
     </div>
     <div class="faq-wrap">
       <details open>
-        <summary>Quanto tempo leva para configurar?</summary>
-        <p>A maioria das empresas está operando em menos de 24 horas. Nosso suporte técnico acompanha todo o processo — importação de clientes, produtos e integração com ERP.</p>
+        <summary>How long does setup take?</summary>
+        <p>Most companies are up and running in under 24 hours. Our technical support walks you through the whole process — importing customers and products, and connecting your ERP.</p>
       </details>
       <details>
-        <summary>O app funciona sem internet?</summary>
-        <p>Sim. O Rellav é <strong>offline-first</strong>: o vendedor consulta clientes, catálogo e preços e monta pedidos mesmo sem sinal. Tudo é salvo no aparelho e <strong>sincroniza automaticamente</strong> assim que a conexão volta — nenhum pedido se perde no caminho.</p>
+        <summary>Does the app work without internet?</summary>
+        <p>Yes. Rellav is <strong>offline-first</strong>: your rep looks up customers, catalog, and prices and builds orders even with no signal. Everything is saved on the device and <strong>syncs automatically</strong> as soon as the connection returns — no order gets lost along the way.</p>
       </details>
       <details>
-        <summary>Como funciona a integração com meu ERP?</summary>
-        <p>Via API ou arquivo de importação padronizado. Nosso time técnico configura junto com você — sem custo adicional, em qualquer plano.</p>
+        <summary>How does the ERP integration work?</summary>
+        <p>Via API or a standardized import file. Our technical team configures it with you — at no extra cost, on any plan.</p>
       </details>
       <details>
-        <summary>Posso ver a plataforma antes de contratar?</summary>
-        <p>Sim. Agendamos uma demonstração guiada com o seu time, usando o cenário real da sua operação. Fale com a gente pelo WhatsApp e marcamos um horário.</p>
+        <summary>Can I see the platform before signing up?</summary>
+        <p>Yes. We run a guided demo with your team, using your operation's real scenario. Message us on WhatsApp and we'll set a time.</p>
       </details>
       <details>
-        <summary>E se eu precisar de mais vendedores?</summary>
-        <p>É só nos chamar. Adaptamos o plano sem complicação, sem contratos longos e sem multas.</p>
+        <summary>What if I need more reps?</summary>
+        <p>Just reach out. We adjust the plan with no hassle, no long contracts, and no penalties.</p>
       </details>
       <details>
-        <summary>O suporte é em português?</summary>
-        <p>Sim. Suporte via WhatsApp, em português, incluso em todos os planos. Você fala com uma pessoa real — sem chatbot.</p>
+        <summary>Is support available in English?</summary>
+        <p>Yes. WhatsApp support, in English, included in every plan. You talk to a real person — no chatbot.</p>
       </details>
     </div>
   </div>
@@ -1067,20 +1056,20 @@ footer{background:#252523;padding:60px 0 28px}
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="container">
-    <span class="tag" style="background:rgba(135,189,36,.15)">COMECE AGORA</span>
-    <h2>Sua equipe pronta para vender mais.<br>Você pronto para ver tudo.</h2>
-    <p>Comece hoje. Configuração rápida e suporte via WhatsApp desde o primeiro dia.</p>
+    <span class="tag" style="background:rgba(135,189,36,.15)">GET STARTED</span>
+    <h2>Your team ready to sell more.<br>You ready to see it all.</h2>
+    <p>Start today. Fast setup and WhatsApp support from day one.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/5565996952828?text=Quero%20come%C3%A7ar%20o%20Rellav" class="btn btn-primary" style="padding:17px 34px;font-size:1rem" target="_blank">● Criar minha conta</a>
-      <a href="https://wa.me/5565996952828?text=Quero%20agendar%20uma%20demo%20do%20Rellav" class="btn btn-ghost" style="padding:17px 34px;font-size:1rem" target="_blank">▷ Agendar uma demo</a>
+      <a href="https://wa.me/5565996952828?text=Quero%20come%C3%A7ar%20o%20Rellav" class="btn btn-primary" style="padding:17px 34px;font-size:1rem" target="_blank">● Create my account</a>
+      <a href="https://wa.me/5565996952828?text=Quero%20agendar%20uma%20demo%20do%20Rellav" class="btn btn-ghost" style="padding:17px 34px;font-size:1rem" target="_blank">▷ Book a demo</a>
     </div>
-    <p class="cta-micro" style="margin-bottom:28px">Configuração rápida · Integração com seu ERP · Suporte via WhatsApp incluído</p>
+    <p class="cta-micro" style="margin-bottom:28px">Fast setup · Integrates with your ERP · WhatsApp support included</p>
     <div style="display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap">
-      <span style="color:rgba(255,255,255,.25);font-size:.78rem;font-weight:600">Disponível em:</span>
+      <span style="color:rgba(255,255,255,.25);font-size:.78rem;font-weight:600">Available on:</span>
       <div class="store-badges">
         <span class="store-badge store-badge-soon" aria-disabled="true" style="padding:9px 16px;min-width:130px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <div class="store-badge-txt"><span class="store-badge-sm">Em breve na</span><span class="store-badge-lg" style="font-size:.88rem">App Store</span></div>
+          <div class="store-badge-txt"><span class="store-badge-sm">Coming soon to</span><span class="store-badge-lg" style="font-size:.88rem">App Store</span></div>
         </span>
         <a href="https://play.google.com/store/apps/details?id=br.com.rellav.app" target="_blank" rel="noopener noreferrer" class="store-badge" style="padding:9px 16px;min-width:130px">
           <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M1.2 23.5l12.4-12.3L1.2.5C.5.9 0 1.7 0 2.6v18.8c0 .9.5 1.7 1.2 2.1z"/><path fill="#FBBC04" d="M20.1 10.5L16.8 8.8 13.6 12l3.2 3.2 3.3-1.7c.9-.5 1.4-1.3 1.4-2s-.5-1.5-1.4-2z"/><path fill="#4285F4" d="M1.2.5l12.4 11.5L16.8 8.8 4.2.2C3.5-.3 2.7-.2 2 .2L1.2.5z"/><path fill="#34A853" d="M1.2 23.5l.8.3c.7.4 1.5.5 2.2 0l12.6-7.6-3.2-3.2L1.2 23.5z"/></svg>
@@ -1100,49 +1089,44 @@ footer{background:#252523;padding:60px 0 28px}
           <img src="/brand/marca-color.png" alt="Rellav" style="height:28px;width:auto">
           <span>Rellav</span>
         </div>
-        <p>O app de força de vendas que conecta sua equipe ao ERP. Para indústrias, comércios e atacados que querem vender mais e controlar melhor.</p>
+        <p>The field sales app that connects your team to your ERP. For manufacturers, retailers, and wholesalers who want to sell more and stay in control.</p>
       </div>
       <div class="foot-col">
-        <h4>Segmentos</h4>
+        <h4>Industries</h4>
         <ul>
-          <li><a href="/industrias">🏭 Indústrias</a></li>
-          <li><a href="/distribuidoras">🏘️ Distribuidoras</a></li>
-          <li><a href="/representantes">💼 Representantes</a></li>
-          <li><a href="/integracoes">Integrações ERP</a></li>
+          
+          
+          
+          
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Empresa</h4>
+        <h4>Company</h4>
         <ul>
-          <li><a href="mailto:contato@rellav.com.br">Contato</a></li>
+          <li><a href="mailto:contato@rellav.com.br">Contact</a></li>
           <li><a href="https://wa.me/5565996952828" target="_blank">WhatsApp</a></li>
-          <li><a href="/privacidade">Política de Privacidade</a></li>
-          <li><a href="/termos">Termos de Uso</a></li>
-          <li><a href="/excluir-conta">Excluir conta</a></li>
+          <li><a href="/privacidade" hreflang="pt-BR" lang="pt-BR">Privacy Policy</a></li>
+          <li><a href="/termos" hreflang="pt-BR" lang="pt-BR">Terms of Use</a></li>
+          <li><a href="/excluir-conta" hreflang="pt-BR" lang="pt-BR">Delete account</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Suporte</h4>
+        <h4>Support</h4>
         <ul>
-          <li><a href="/docs">Central de Ajuda</a></li>
+          
           <li><a href="/docs#faq">FAQ</a></li>
-          <li><a href="https://wa.me/5565996952828" target="_blank">Suporte via WhatsApp</a></li>
+          <li><a href="https://wa.me/5565996952828" target="_blank">Support over WhatsApp</a></li>
           <li><a href="mailto:contato@rellav.com.br">contato@rellav.com.br</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 Rellav. Todos os direitos reservados. ·
-        <a href="/industrias" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Indústrias</a> ·
-        <a href="/distribuidoras" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Distribuidoras</a> ·
-        <a href="/representantes" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Representantes</a> ·
-        <a href="/docs" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Docs</a> ·
-        <a href="/integracoes" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Integrações</a> ·
-        <a href="/privacidade" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Privacidade</a> ·
-        <a href="/termos" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Termos de Uso</a>
+      <p>© 2026 Rellav. All rights reserved. ·
+        <a href="/privacidade" hreflang="pt-BR" lang="pt-BR" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Privacy</a> ·
+        <a href="/termos" hreflang="pt-BR" lang="pt-BR" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Terms of Use</a>
       </p>
       <div class="foot-badges" style="gap:12px;align-items:center">
-        <a href="/privacidade" class="foot-badge" style="text-decoration:none;color:rgba(255,255,255,.3)">🔒 LGPD</a>
+        <a href="/privacidade" hreflang="pt-BR" lang="pt-BR" class="foot-badge" style="text-decoration:none;color:rgba(255,255,255,.3)">🔒 LGPD</a>
         <span class="store-badge store-badge-soon" aria-disabled="true" style="padding:5px 11px;min-width:0;border-color:rgba(255,255,255,.1)">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <span class="store-badge-lg" style="font-size:.72rem">App Store</span>
