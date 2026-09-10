@@ -465,7 +465,7 @@ footer{background:#252523;padding:60px 0 28px}
   <link rel="alternate" hreflang="es" href="https://www.rellav.com.br/es">
   <link rel="alternate" hreflang="en-US" href="https://www.rellav.com.br/en">
   <link rel="alternate" hreflang="x-default" href="https://www.rellav.com.br/">
-<style>.lang-switch{display:inline-flex;gap:2px;margin-left:14px;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style></head>
+<style>.lang-switch{display:inline-flex;gap:2px;flex:none;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style></head>
 <body>
 
 <!-- NAV -->
@@ -501,9 +501,10 @@ footer{background:#252523;padding:60px 0 28px}
       </li>
       <li><a href="/integracoes">Integrações</a></li>
       <li><a href="/docs">Docs</a></li>
-    </ul><div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR" aria-current="true">PT</a><a href="/es" hreflang="es">ES</a><a href="/en" hreflang="en-US">EN</a></div>
+    </ul>
     <div class="nav-right">
-      <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Entrar</a>
+      <div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR" aria-current="true">PT</a><a href="/es" hreflang="es">ES</a><a href="/en" hreflang="en-US">EN</a></div>
+        <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Entrar</a>
       <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Acessar plataforma</a>
     </div>
   </div>

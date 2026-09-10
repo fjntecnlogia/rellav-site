@@ -456,7 +456,7 @@ footer{background:#252523;padding:60px 0 28px}
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
-<style>.lang-switch{display:inline-flex;gap:2px;margin-left:14px;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style>
+<style>.lang-switch{display:inline-flex;gap:2px;flex:none;border:1px solid rgba(0,0,0,.12);border-radius:6px;overflow:hidden}.lang-switch a{padding:4px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#666;text-decoration:none;line-height:1.4}.lang-switch a[aria-current]{background:#87BD24;color:#fff}.lang-switch a:not([aria-current]):hover{background:rgba(0,0,0,.05);color:#111}</style>
   <!-- hreflang recíproco: cada versão aponta para TODAS, inclusive para si.
        Sem a auto-referência o Google descarta o conjunto. x-default vai para
        o português, que é o mercado principal. -->
@@ -481,9 +481,10 @@ footer{background:#252523;padding:60px 0 28px}
       
       
       
-    </ul><div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR">PT</a><a href="/es" hreflang="es" aria-current="true">ES</a><a href="/en" hreflang="en-US">EN</a></div>
+    </ul>
     <div class="nav-right">
-      <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Iniciar sesión</a>
+      <div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR">PT</a><a href="/es" hreflang="es" aria-current="true">ES</a><a href="/en" hreflang="en-US">EN</a></div>
+        <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Iniciar sesión</a>
       <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Acceder a la plataforma</a>
     </div>
   </div>
