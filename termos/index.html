@@ -81,6 +81,12 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 .footer-links{display:flex;justify-content:center;gap:20px;margin-top:10px;flex-wrap:wrap}
 .footer-links a{font-size:.75rem;color:var(--g);text-decoration:none;font-weight:600}
 @media(max-width:620px){.toc-list,.plan-grid{grid-template-columns:1fr}.hero h1{font-size:1.5rem}}
+
+/* Tabelas mais largas que a tela faziam a PÁGINA INTEIRA rolar de lado no
+   celular — o texto saía da área visível. O wrapper isola a rolagem na
+   tabela: ela desliza sozinha, o resto da página fica parado. */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.table-scroll table{margin-bottom:0}
 </style>
   <meta name="theme-color" content="#3D3D3B">
   <link rel="canonical" href="https://www.rellav.com.br/termos">
@@ -363,14 +369,14 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 <div class="sec" id="s10">
   <div class="sec-num">Cláusula 10</div>
   <h2>Disponibilidade, Manutenção e SLA</h2>
-  <table class="table">
+  <div class="table-scroll"><table class="table">
     <thead><tr><th>Plano</th><th>SLA de Disponibilidade</th><th>Suporte</th><th>Manutenção programada</th></tr></thead>
     <tbody>
       <tr><td>Starter</td><td>99% ao mês</td><td>WhatsApp (horário comercial)</td><td>Com aviso prévio de 24h</td></tr>
       <tr><td>Profissional</td><td>99,5% ao mês</td><td>WhatsApp + E-mail prioritário</td><td>Com aviso prévio de 12h</td></tr>
       <tr><td>Enterprise</td><td>99,9% ao mês</td><td>Canal dedicado + Telefone</td><td>Com aviso prévio de 48h</td></tr>
     </tbody>
-  </table>
+  </table></div>
   <p>O Rellav envidará os melhores esforços para manter o serviço disponível 24 horas por dia, 7 dias por semana. Porém, reserva-se o direito de realizar manutenções programadas, que serão comunicadas com antecedência. Eventos de força maior, falhas de infraestrutura de terceiros (AWS, Google Cloud, etc.) ou ataques externos podem afetar a disponibilidade sem constituir responsabilidade do Rellav.</p>
 </div>
 
@@ -447,14 +453,14 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <a href="https://rellav.com.br" class="contact-link secondary">🌐 rellav.com.br</a>
     </div>
   </div>
-  <table class="table" style="margin-top:16px">
+  <div class="table-scroll"><table class="table" style="margin-top:16px">
     <tbody>
       <tr><td>Empresa</td><td>FJN Tecnologia</td></tr>
       <tr><td>E-mail</td><td><a href="mailto:contato@rellav.com.br" style="color:var(--g)">contato@rellav.com.br</a></td></tr>
       <tr><td>Site</td><td><a href="https://rellav.com.br" style="color:var(--g)">rellav.com.br</a></td></tr>
       <tr><td>Versão dos Termos</td><td>1.0 — 22 de maio de 2026</td></tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- AVISO FINAL -->

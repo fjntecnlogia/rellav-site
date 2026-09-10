@@ -218,6 +218,12 @@ body{
 @media print{
   .header,.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+/* Tabelas mais largas que a tela faziam a PÁGINA INTEIRA rolar de lado no
+   celular — o texto saía da área visível. O wrapper isola a rolagem na
+   tabela: ela desliza sozinha, o resto da página fica parado. */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.table-scroll table{margin-bottom:0}
 </style>
   <meta name="theme-color" content="#3D3D3B">
   <link rel="canonical" href="https://www.rellav.com.br/privacidade">
@@ -293,7 +299,7 @@ body{
 <div class="policy-section" id="s2">
   <div class="section-num">Seção 02</div>
   <h2>Quem Somos — Controlador dos Dados</h2>
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <tbody>
       <tr><td>Empresa</td><td>FJN Tecnologia</td></tr>
       <tr><td>Produto</td><td>Rellav — App de Força de Vendas</td></tr>
@@ -303,7 +309,7 @@ body{
       <tr><td>Papel na LGPD</td><td>Controlador de Dados Pessoais</td></tr>
       <tr><td>Plataformas</td><td>Google Play Store (Android) · Apple App Store (iOS)</td></tr>
     </tbody>
-  </table>
+  </table></div>
   <p>A empresa cliente que contrata o Rellav (indústria, atacadista, distribuidora, etc.) atua como <strong>Co-controladora dos dados</strong> referentes aos seus clientes, vendedores e pedidos cadastrados na plataforma.</p>
 </div>
 
@@ -314,7 +320,7 @@ body{
   <p>Coletamos apenas os dados estritamente necessários para fornecer, operar e melhorar o serviço Rellav. Abaixo está a descrição completa de cada categoria:</p>
 
   <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.1 Dados do Usuário (Vendedor / Gestor)</h3>
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr><th>Dado</th><th>Finalidade</th><th>Obrigatório?</th></tr>
     </thead>
@@ -326,11 +332,11 @@ body{
       <tr><td>Cargo / função</td><td>Controle de permissões no sistema</td><td>✅ Sim</td></tr>
       <tr><td>Empresa vinculada</td><td>Identificação da conta da empresa</td><td>✅ Sim</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.2 Dados de Clientes da Empresa</h3>
   <p style="font-size:.85rem;color:#888;margin-bottom:10px">Estes dados são inseridos pela empresa contratante (B2B) e referem-se aos clientes dela:</p>
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr><th>Dado</th><th>Finalidade</th></tr>
     </thead>
@@ -343,10 +349,10 @@ body{
       <tr><td>Classificação (Curva A/B/C)</td><td>Priorização de atendimento</td></tr>
       <tr><td>Histórico de pedidos</td><td>Consulta e contexto de atendimento</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.3 Dados de Uso e Técnicos</h3>
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr><th>Dado</th><th>Finalidade</th></tr>
     </thead>
@@ -358,7 +364,7 @@ body{
       <tr><td>Logs de acesso e uso</td><td>Monitoramento de erros e performance</td></tr>
       <tr><td>Dados de crash / falhas</td><td>Melhoria de qualidade do app</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.4 Localização Geográfica</h3>
   <div class="highlight orange">
@@ -481,7 +487,7 @@ body{
   <h2>Compartilhamento de Dados</h2>
   <p>A Rellav <strong>não vende, não aluga e não comercializa</strong> dados pessoais. O compartilhamento de dados ocorre apenas nas seguintes hipóteses:</p>
 
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr><th>Com quem</th><th>Por quê</th><th>Proteção</th></tr>
     </thead>
@@ -512,7 +518,7 @@ body{
         <td>Somente mediante requisição formal e fundamento legal</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="highlight blue">
     <span class="highlight-icon">🌎</span>
@@ -570,7 +576,7 @@ body{
 <div class="policy-section" id="s8">
   <div class="section-num">Seção 08</div>
   <h2>Retenção e Exclusão de Dados</h2>
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr><th>Tipo de dado</th><th>Período de retenção</th><th>Motivo</th></tr>
     </thead>
@@ -583,7 +589,7 @@ body{
       <tr><td>Dados de crash / erros</td><td>30 dias (anonimizados)</td><td>Diagnóstico técnico</td></tr>
       <tr><td>Dados após solicitação de exclusão</td><td>Até 30 dias para exclusão completa</td><td>Processamento técnico da solicitação</td></tr>
     </tbody>
-  </table>
+  </table></div>
   <p>Após o término dos prazos de retenção, os dados são permanentemente excluídos ou anonimizados, de forma que não seja possível identificar o titular.</p>
 </div>
 
@@ -668,7 +674,7 @@ body{
   <div class="section-num">Seção 11</div>
   <h2>Integrações com Serviços de Terceiros</h2>
   <p>O Rellav pode integrar-se a ERPs e sistemas terceiros conforme configuração da empresa contratante. Cada integração está sujeita também às políticas de privacidade dos respectivos sistemas:</p>
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr><th>Sistema</th><th>Dados trocados</th><th>Política de privacidade</th></tr>
     </thead>
@@ -680,7 +686,7 @@ body{
       <tr><td>Google Play Services</td><td>ID do dispositivo para distribuição do app</td><td>policies.google.com/privacy</td></tr>
       <tr><td>Apple App Store</td><td>ID do dispositivo para distribuição do app</td><td>apple.com/br/legal/privacy</td></tr>
     </tbody>
-  </table>
+  </table></div>
   <p>A Rellav não se responsabiliza pelas práticas de privacidade dos sistemas de terceiros integrados. Recomendamos a leitura das políticas de privacidade de cada sistema utilizado.</p>
 </div>
 
@@ -721,14 +727,14 @@ body{
     </div>
   </div>
 
-  <table class="data-table" style="margin-top:16px">
+  <div class="table-scroll"><table class="data-table" style="margin-top:16px">
     <tbody>
       <tr><td>Encarregado (DPO)</td><td>FJN Tecnologia — Equipe de Privacidade</td></tr>
       <tr><td>E-mail do DPO</td><td><a href="mailto:contato@rellav.com.br" style="color:var(--g)">contato@rellav.com.br</a></td></tr>
       <tr><td>Autoridade supervisora</td><td>Autoridade Nacional de Proteção de Dados (ANPD) — <a href="https://www.gov.br/anpd" style="color:var(--g)">gov.br/anpd</a></td></tr>
       <tr><td>Jurisdição aplicável</td><td>República Federativa do Brasil — Foro da Comarca de [Cidade], Estado de [Estado]</td></tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- AVISO FINAL -->

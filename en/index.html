@@ -117,7 +117,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
 .ndm-icon.rep{background:rgba(54,132,153,.1)}
 .ndm-title{font-size:.85rem;font-weight:800;color:#3D3D3B;line-height:1.2}
 .ndm-desc{font-size:.72rem;color:#666;line-height:1.4;margin-top:2px}
-@media(max-width:768px){.nav-links{display:none}}
+.nav-cta{padding:10px 22px;font-size:.85rem;white-space:nowrap}
+/* O header é position:fixed, então o que vaza dele NÃO gera scroll horizontal
+   na página — só some cortado na borda. Era o caso do logo e do botão em
+   telas de até 430px. Aqui o conteúdo do topo encolhe por faixa de largura. */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-inner{padding:0 16px;gap:10px}
+  .nav-right{gap:10px}
+  /* "Entrar" aponta para a mesma URL do botão ao lado: no celular é só peso */
+  .nav-login{display:none}
+}
+@media(max-width:430px){
+  .nav-logo span{display:none}
+  .nav-logo img{height:30px}
+  .lang-switch a{padding:4px 7px;font-size:.68rem}
+  .nav-cta{padding:9px 14px;font-size:.78rem}
+}
+@media(max-width:340px){
+  .nav-cta{padding:8px 11px;font-size:.72rem}
+  .lang-switch a{padding:4px 6px;font-size:.65rem}
+}
 
 /* ── HERO ── */
 .hero{background:var(--dark);min-height:100vh;display:flex;align-items:center;
@@ -176,6 +196,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
 .lead-msg{margin:0;font-size:.88rem;min-height:1.2em;text-align:center}
 .lead-msg.ok{color:var(--green)}
 .lead-msg.erro{color:#ff9b86}
+.lead-wa{display:inline-block;margin-top:6px;color:#fff;background:#25D366;padding:8px 16px;border-radius:8px;font-weight:800;font-size:.85rem;text-decoration:none;white-space:nowrap}
+.lead-wa:hover{filter:brightness(1.08)}
 .lead-privacy{margin:0;font-size:.74rem;color:rgba(255,255,255,.4);text-align:center;line-height:1.5}
 .lead-privacy a{color:rgba(255,255,255,.6)}
 /* Armadilha: fora da tela, sem display:none — robô que respeita display ainda cai. */
@@ -485,7 +507,7 @@ footer{background:#252523;padding:60px 0 28px}
     <div class="nav-right">
       <div class="lang-switch" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR">PT</a><a href="/es" hreflang="es">ES</a><a href="/en" hreflang="en-US" aria-current="true">EN</a></div>
         <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Sign in</a>
-      <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Go to platform</a>
+      <a href="https://app.rellav.com.br/login" class="btn btn-primary nav-cta" target="_blank">Go to platform</a>
     </div>
   </div>
 </nav>
@@ -1270,15 +1292,41 @@ document.querySelectorAll('.section').forEach((el, i) => {
 
   var TXT = {
     'pt-BR': { enviando: 'Enviando…', ok: 'Recebido! A gente entra em contato em breve.',
-               erro: 'Não conseguimos enviar agora. Tente pelo WhatsApp acima.',
+               erro: 'Não conseguimos enviar agora — mas o que você escreveu não se perdeu:',
+               wa: 'Mandar pelo WhatsApp →',
                faltando: 'Preencha nome e um e-mail válido.' },
     'es':    { enviando: 'Enviando…', ok: '¡Recibido! Nos pondremos en contacto pronto.',
-               erro: 'No pudimos enviar ahora. Prueba por WhatsApp arriba.',
+               erro: 'No pudimos enviar ahora, pero lo que escribiste no se perdió:',
+               wa: 'Enviar por WhatsApp →',
                faltando: 'Completa tu nombre y un correo válido.' },
     'en-US': { enviando: 'Sending…', ok: 'Got it! We\'ll be in touch shortly.',
-               erro: "We couldn't send that right now. Try WhatsApp above.",
+               erro: "We couldn't send that right now — but what you wrote isn't lost:",
+               wa: 'Send via WhatsApp →',
                faltando: 'Please enter your name and a valid email.' }
   };
+
+  /* Saída de emergência do formulário.
+     POR QUE EXISTE: se o POST falha (rede, CORS, endpoint fora do ar), a
+     pessoa que já digitou tudo ficava com uma frase e nenhum caminho — lead
+     perdido. Aqui o que ela escreveu vira uma mensagem de WhatsApp pronta.
+     O link é montado com DOM, nunca com innerHTML: o texto é do visitante. */
+  var WHATS = '5565996952828';
+  var ROTULOS = {
+    'pt-BR': { ola: 'Olá! Vim pelo site da Rellav.', name: 'Nome', email: 'E-mail',
+               phone: 'WhatsApp', company: 'Empresa', segment: 'Segmento', message: 'Operação' },
+    'es':    { ola: '¡Hola! Vengo del sitio de Rellav.', name: 'Nombre', email: 'Correo',
+               phone: 'WhatsApp', company: 'Empresa', segment: 'Segmento', message: 'Operación' },
+    'en-US': { ola: 'Hi! I came from the Rellav website.', name: 'Name', email: 'Email',
+               phone: 'WhatsApp', company: 'Company', segment: 'Segment', message: 'Operation' }
+  };
+  function linkWhatsApp(c) {
+    var r = ROTULOS[lang] || ROTULOS['pt-BR'];
+    var l = [r.ola, '', r.name + ': ' + c.name, r.email + ': ' + c.email];
+    ['phone', 'company', 'segment', 'message'].forEach(function (k) {
+      if (c[k]) l.push(r[k] + ': ' + c[k]);
+    });
+    return 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(l.join('\n'));
+  }
   var lang = document.documentElement.lang || 'pt-BR';
   var t = TXT[lang] || TXT['pt-BR'];
 
@@ -1323,9 +1371,20 @@ document.querySelectorAll('.section').forEach((el, i) => {
       form.reset();
       if (window.gtag) window.gtag('event', 'generate_lead', { locale: lang });
     }).catch(function () {
-      /* Falha de rede ou CORS: o visitante não pode ficar sem saída, então o
-         texto manda para o WhatsApp, que está logo acima e sempre funciona. */
-      msg.textContent = t.erro; msg.className = 'lead-msg erro';
+      /* Falha de rede, CORS ou endpoint indisponível: o visitante não pode
+         ficar sem saída. Em vez de só avisar, entregamos o WhatsApp já com os
+         dados dele preenchidos — um toque e a conversa começa. */
+      msg.textContent = '';
+      msg.className = 'lead-msg erro';
+      msg.appendChild(document.createTextNode(t.erro + ' '));
+      var a = document.createElement('a');
+      a.href = linkWhatsApp(corpo);
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'lead-wa';
+      a.textContent = t.wa;
+      msg.appendChild(a);
+      if (window.gtag) window.gtag('event', 'lead_fallback_whatsapp', { locale: lang });
     }).then(function () {
       btn.disabled = false; btn.textContent = textoBtn;
     });

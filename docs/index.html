@@ -148,6 +148,26 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 .cta-btn.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.12)}
 
 @media(max-width:900px){.docs-sidebar{display:none}.docs-main{padding:24px 20px}.feat-grid{grid-template-columns:1fr}}
+/* O topo cabia numa linha só até ~768px; abaixo disso os links saíam cortados
+   na borda. Em vez de escondê-los (a navegação da doc some junto), a barra
+   passa a ocupar duas linhas: marca + botão em cima, links embaixo. */
+@media(max-width:768px){
+  .topnav-inner{height:auto;padding:10px 16px;flex-wrap:wrap;gap:10px}
+  .tn-links{order:3;width:100%;gap:16px;overflow-x:auto;scrollbar-width:none}
+  .tn-links::-webkit-scrollbar{display:none}
+  .tn-links a{white-space:nowrap}
+  .tn-cta{padding:8px 14px;font-size:.74rem}
+}
+@media(max-width:430px){
+  .tn-brand small{display:none}
+  .tn-brand img{height:24px}
+}
+
+/* Tabelas mais largas que a tela faziam a PÁGINA INTEIRA rolar de lado no
+   celular — o texto saía da área visível. O wrapper isola a rolagem na
+   tabela: ela desliza sozinha, o resto da página fica parado. */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.table-scroll table{margin-bottom:0}
 </style>
   <meta name="theme-color" content="#3D3D3B">
   <link rel="canonical" href="https://www.rellav.com.br/docs">
@@ -278,7 +298,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
   </div>
 
   <h3>Permissões solicitadas</h3>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr></thead>
     <tbody>
       <tr><td>📍 Localização</td><td>Mapa de clientes e planejamento de rota</td><td>Não — só para a tela de Mapa</td></tr>
@@ -286,7 +306,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <tr><td>🔔 Notificações</td><td>Alertas de pedidos confirmados e tarefas</td><td>Não — recomendado</td></tr>
       <tr><td>💾 Armazenamento</td><td>Cache local para uso offline</td><td>Sim — necessário para o app funcionar</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="info-box note">
     <span class="ib-icon">ℹ️</span>
@@ -320,7 +340,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 
   <h3>Ações rápidas na ficha do cliente</h3>
   <p>Ao abrir a ficha de um cliente, você tem acesso imediato a:</p>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Ação</th><th>O que faz</th></tr></thead>
     <tbody>
       <tr><td>📞 Ligar</td><td>Abre o discador com o telefone principal do cliente</td></tr>
@@ -329,18 +349,18 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <tr><td>🛒 Novo Pedido</td><td>Inicia um pedido diretamente para este cliente (Passo 1 já preenchido)</td></tr>
       <tr><td>📋 Novo Atendimento</td><td>Registra um atendimento para este cliente</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Classificação por Curva A, B e C</h3>
   <p>A Curva ABC classifica automaticamente os clientes com base no volume de compras:</p>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Curva</th><th>Cor</th><th>Critério</th><th>Frequência de visita</th></tr></thead>
     <tbody>
       <tr><td>🟢 Curva A</td><td>Verde</td><td>Clientes de maior valor — top 20%</td><td>Semanal</td></tr>
       <tr><td>🟡 Curva B</td><td>Amarelo</td><td>Clientes de valor médio — 30%</td><td>Quinzenal</td></tr>
       <tr><td>🔴 Curva C</td><td>Vermelho</td><td>Clientes de menor volume — 50%</td><td>Mensal</td></tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <div class="doc-divider"></div>
@@ -413,7 +433,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
   <p>Repita para todos os produtos. O total acumulado fica visível no rodapé da tela.</p>
 
   <h3>Passo 3 — Condições Comerciais</h3>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Campo</th><th>Descrição</th><th>Obrigatório?</th></tr></thead>
     <tbody>
       <tr><td>Tipo de pedido</td><td>Venda, Devolução, Troca ou Amostra</td><td>✅ Sim</td></tr>
@@ -424,7 +444,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <tr><td>Desconto global (%)</td><td>Desconto aplicado a todos os itens</td><td>Não</td></tr>
       <tr><td>Observações</td><td>Notas internas ou instruções especiais</td><td>Não</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Passo 4 — Revisão do Pedido</h3>
   <p>Confira todos os itens, condições e o total. Você pode:</p>
@@ -478,7 +498,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
     <li>📹 Videoconferência</li>
   </ul>
   <h3>Campos do Atendimento</h3>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
     <tbody>
       <tr><td>Cliente</td><td>Cliente atendido (selecionado da carteira)</td></tr>
@@ -487,7 +507,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <tr><td>Resultado</td><td>Venda, Orçamento, Agendamento, Sem interesse, Outro</td></tr>
       <tr><td>Próxima ação</td><td>Data e descrição do que fazer a seguir</td></tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <div class="doc-divider"></div>
@@ -559,7 +579,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
   <div class="doc-tag">Configurações</div>
   <h2>Sincronização</h2>
   <p>O Rellav sincroniza dados com o ERP automaticamente. Veja a frequência de cada dado:</p>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Dado</th><th>Frequência automática</th><th>Sync manual</th></tr></thead>
     <tbody>
       <tr><td>Produtos e preços</td><td>A cada 4 horas</td><td>✅ Disponível</td></tr>
@@ -568,7 +588,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <tr><td>Pedidos → ERP</td><td>Imediato (tempo real)</td><td>✅ Disponível</td></tr>
       <tr><td>Comissões</td><td>Diariamente</td><td>✅ Disponível</td></tr>
     </tbody>
-  </table>
+  </table></div>
   <p>Para forçar uma sincronização, acesse <strong>Mais → Configurações → Sincronizar agora</strong>.</p>
 </div>
 
@@ -578,7 +598,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
 <div class="doc-article" id="planos">
   <div class="doc-tag">Referência</div>
   <h2>Planos e Limites</h2>
-  <table class="doc-table">
+  <div class="table-scroll"><table class="doc-table">
     <thead><tr><th>Funcionalidade</th><th><span class="tag-plan tp-start">Starter</span></th><th><span class="tag-plan tp-pro">Profissional</span></th><th><span class="tag-plan tp-ent">Enterprise</span></th></tr></thead>
     <tbody>
       <tr><td>Gestão de clientes</td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td><td><span class="tag-yes">✓</span></td></tr>
@@ -591,7 +611,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--d);background:var(--white);
       <tr><td>Vendedores</td><td>Até 5</td><td>Até 20</td><td>Ilimitados</td></tr>
       <tr><td>Suporte</td><td>WhatsApp</td><td>WhatsApp + E-mail</td><td>Dedicado + SLA</td></tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <div class="doc-divider"></div>
