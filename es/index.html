@@ -156,6 +156,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
 .float-value{font-size:.9rem;font-weight:800;color:#111}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
+
+/* ── FORMULÁRIO DE LEAD ── */
+.lead-form{max-width:560px;margin:8px auto 30px;text-align:left;display:flex;flex-direction:column;gap:10px}
+.lead-form-title{color:#fff;font-weight:700;font-size:1rem;margin:0 0 4px;text-align:center}
+.lead-row{display:flex;gap:10px;flex-wrap:wrap}
+.lead-row>*{flex:1 1 200px;min-width:0}
+.lead-form input,.lead-form select,.lead-form textarea{
+  width:100%;padding:12px 14px;border-radius:8px;font:inherit;font-size:.92rem;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff}
+.lead-form input::placeholder,.lead-form textarea::placeholder{color:rgba(255,255,255,.45)}
+.lead-form select{color:rgba(255,255,255,.7)}
+.lead-form select option{color:#111;background:#fff}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{
+  outline:2px solid var(--green);outline-offset:1px;border-color:transparent}
+.lead-form textarea{resize:vertical}
+.lead-submit{width:100%;padding:15px;font-size:1rem;cursor:pointer;border:0}
+.lead-submit[disabled]{opacity:.6;cursor:progress}
+.lead-msg{margin:0;font-size:.88rem;min-height:1.2em;text-align:center}
+.lead-msg.ok{color:var(--green)}
+.lead-msg.erro{color:#ff9b86}
+.lead-privacy{margin:0;font-size:.74rem;color:rgba(255,255,255,.4);text-align:center;line-height:1.5}
+.lead-privacy a{color:rgba(255,255,255,.6)}
+/* Armadilha: fora da tela, sem display:none — robô que respeita display ainda cai. */
+.lead-trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 /* ── ERP BAR (carrossel) ── */
 .erp-bar{background:#fff;padding:28px 0;border-bottom:1px solid #eee;overflow:hidden}
 .erp-bar-label{text-align:center;font-size:.72rem;font-weight:800;color:#ccc;
@@ -1054,6 +1078,41 @@ footer{background:#252523;padding:60px 0 28px}
       <a href="https://wa.me/5565996952828?text=Quero%20come%C3%A7ar%20o%20Rellav" class="btn btn-primary" style="padding:17px 34px;font-size:1rem" target="_blank">● Crear mi cuenta</a>
       <a href="https://wa.me/5565996952828?text=Quero%20agendar%20uma%20demo%20do%20Rellav" class="btn btn-ghost" style="padding:17px 34px;font-size:1rem" target="_blank">▷ Agendar una demo</a>
     </div>
+
+    <!-- FORMULÁRIO DE CONTATO
+         Posta em POST https://api.rellav.com.br/api/leads e o contato cai no
+         funil do painel admin (aba "Leads do site"). O WhatsApp continua ali em
+         cima para quem prefere falar na hora — o formulário atende quem não
+         quer puxar conversa, que é boa parte de quem está só avaliando.
+         O campo "website" é armadilha para robô: escondido por CSS, ninguém
+         consegue preenchê-lo. -->
+    <form id="lead-form" class="lead-form" novalidate>
+      <p class="lead-form-title">¿Prefieres que te contactemos?</p>
+      <div class="lead-row">
+        <input type="text"  name="name"    required maxlength="120" placeholder="Tu nombre" autocomplete="name">
+        <input type="email" name="email"   required maxlength="160" placeholder="Correo corporativo" autocomplete="email">
+      </div>
+      <div class="lead-row">
+        <input type="tel"   name="phone"   maxlength="40"  placeholder="WhatsApp (opcional)" autocomplete="tel">
+        <input type="text"  name="company" maxlength="160" placeholder="Empresa" autocomplete="organization">
+      </div>
+      <select name="segment" aria-label="Segmento">
+        <option value="">¿Cuál es tu segmento?</option>
+        <option value="industria">Industria</option>
+        <option value="distribuidora">Distribuidora</option>
+        <option value="representante">Representante comercial</option>
+        <option value="outro">Otro</option>
+      </select>
+      <textarea name="message" rows="3" maxlength="2000" placeholder="Cuéntanos rápidamente sobre tu operación: cuántos vendedores, qué ERP…"></textarea>
+      <div class="lead-trap" aria-hidden="true">
+        <label>No completes este campo
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary lead-submit">Quiero una presentación</button>
+      <p class="lead-msg" role="status" aria-live="polite"></p>
+      <p class="lead-privacy">Al enviar, aceptas que Rellav te contacte. Tus datos no se comparten. Consulta la <a href="/privacidade" hreflang="pt-BR" lang="pt-BR">Política de privacidad</a>.</p>
+    </form>
     <p class="cta-micro" style="margin-bottom:28px">Configuración rápida · Integración con tu ERP · Soporte por WhatsApp incluido</p>
     <div style="display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap">
       <span style="color:rgba(255,255,255,.25);font-size:.78rem;font-weight:600">Disponible en:</span>
@@ -1193,6 +1252,84 @@ document.querySelectorAll('.prob-card, .testi-card, .int-card, .price-card, .pla
 document.querySelectorAll('.section').forEach((el, i) => {
   if (i > 0) { el.classList.add('reveal'); revealObs.observe(el); }
 });
+</script>
+
+<script>
+/* Envio do formulário de lead.
+   Sem dependência: o site é HTML estático e não vale carregar biblioteca para
+   um POST. A origem (idioma, página, utm, referrer) vai junto — é o que responde
+   depois se as versões em espanhol e inglês estão trazendo contato de verdade. */
+(function () {
+  var form = document.getElementById('lead-form');
+  if (!form) return;
+  var API = 'https://api.rellav.com.br/api/leads';
+  var msg = form.querySelector('.lead-msg');
+  var btn = form.querySelector('.lead-submit');
+  var textoBtn = btn.textContent;
+
+  var TXT = {
+    'pt-BR': { enviando: 'Enviando…', ok: 'Recebido! A gente entra em contato em breve.',
+               erro: 'Não conseguimos enviar agora. Tente pelo WhatsApp acima.',
+               faltando: 'Preencha nome e um e-mail válido.' },
+    'es':    { enviando: 'Enviando…', ok: '¡Recibido! Nos pondremos en contacto pronto.',
+               erro: 'No pudimos enviar ahora. Prueba por WhatsApp arriba.',
+               faltando: 'Completa tu nombre y un correo válido.' },
+    'en-US': { enviando: 'Sending…', ok: 'Got it! We\'ll be in touch shortly.',
+               erro: "We couldn't send that right now. Try WhatsApp above.",
+               faltando: 'Please enter your name and a valid email.' }
+  };
+  var lang = document.documentElement.lang || 'pt-BR';
+  var t = TXT[lang] || TXT['pt-BR'];
+
+  function param(nome) {
+    return new URLSearchParams(location.search).get(nome) || undefined;
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = new FormData(form);
+    var nome = (d.get('name') || '').trim();
+    var email = (d.get('email') || '').trim();
+    if (nome.length < 2 || email.indexOf('@') < 1) {
+      msg.textContent = t.faltando; msg.className = 'lead-msg erro'; return;
+    }
+
+    var corpo = {
+      name: nome, email: email,
+      phone: (d.get('phone') || '').trim() || undefined,
+      company: (d.get('company') || '').trim() || undefined,
+      segment: d.get('segment') || undefined,
+      message: (d.get('message') || '').trim() || undefined,
+      website: d.get('website') || undefined,
+      locale: lang,
+      page: location.pathname,
+      utmSource: param('utm_source'), utmMedium: param('utm_medium'),
+      utmCampaign: param('utm_campaign'),
+      referrer: document.referrer || undefined
+    };
+    Object.keys(corpo).forEach(function (k) { if (corpo[k] === undefined) delete corpo[k]; });
+
+    btn.disabled = true; btn.textContent = t.enviando;
+    msg.textContent = ''; msg.className = 'lead-msg';
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(corpo)
+    }).then(function (r) {
+      if (!r.ok) throw new Error(String(r.status));
+      msg.textContent = t.ok; msg.className = 'lead-msg ok';
+      form.reset();
+      if (window.gtag) window.gtag('event', 'generate_lead', { locale: lang });
+    }).catch(function () {
+      /* Falha de rede ou CORS: o visitante não pode ficar sem saída, então o
+         texto manda para o WhatsApp, que está logo acima e sempre funciona. */
+      msg.textContent = t.erro; msg.className = 'lead-msg erro';
+    }).then(function () {
+      btn.disabled = false; btn.textContent = textoBtn;
+    });
+  });
+})();
 </script>
 </body>
 </html>
