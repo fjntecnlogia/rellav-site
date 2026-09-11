@@ -469,6 +469,13 @@ footer{background:#252523;padding:60px 0 28px}
    o logo, seis itens, o "Entrar" e o botão. Qualquer acréscimo quebra a
    linha, e foi o que aconteceu: "E-commerce" partia em duas. O seletor vive
    no rodapé, onde não disputa espaço com nada. */
+/* Botão do menu em destaque: é a única chamada de ação ali em cima desde
+   que o "Entrar" saiu (apontava para a MESMA URL — era duplicata). Um pouco
+   maior que o padrão do menu e com sombra, para puxar o olho. */
+.nav-cta{padding:12px 26px;font-size:.9rem;box-shadow:0 4px 14px rgba(135,189,36,.35);
+  transition:transform .18s ease,box-shadow .18s ease}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(135,189,36,.5)}
+@media(prefers-reduced-motion:reduce){.nav-cta{transition:none}.nav-cta:hover{transform:none}}
 /* Itens do menu nunca quebram no meio da palavra. */
 .nav-links a,.nav-drop-btn{white-space:nowrap}
 /* Seletor do rodapé: sempre visível, inclusive no celular. */
@@ -503,8 +510,8 @@ footer{background:#252523;padding:60px 0 28px}
     </ul>
     <div class="nav-right">
       
-        <a href="https://app.rellav.com.br/login" class="nav-login" target="_blank">Iniciar sesión</a>
-      <a href="https://app.rellav.com.br/login" class="btn btn-primary" style="padding:10px 22px;font-size:.85rem" target="_blank">Acceder a la plataforma</a>
+        
+      <a href="https://app.rellav.com.br/login" class="btn btn-primary nav-cta" target="_blank">Acceder a la plataforma</a>
     </div>
   </div>
 </nav>
