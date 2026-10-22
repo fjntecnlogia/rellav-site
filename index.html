@@ -128,11 +128,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
 @media(max-width:768px){.nav-links{display:none}}
 
 /* ── HERO ── */
-.hero{background:var(--dark);min-height:100vh;display:flex;align-items:center;
+/* Gradiente nas cores da marca (--dark → --teal → --green) no lugar do
+   fundo escuro chapado — mesma energia de capa que o Fundador pediu pra
+   replicar (19/10/2026), sem copiar a foto de outro site: aqui quem
+   preenche o espaço é o próprio produto (mockup do celular), não uma
+   pessoa genérica. */
+.hero{background:linear-gradient(135deg,#1b2a1a 0%,#1f4a4a 32%,#2f6b3a 64%,var(--green) 100%);
+  min-height:100vh;display:flex;align-items:center;
   padding-top:68px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;
   width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(135,189,36,.07),transparent 70%);pointer-events:none}
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:72px 0}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;
   background:rgba(135,189,36,.12);border:1px solid rgba(135,189,36,.3);
@@ -385,7 +391,11 @@ footer{background:#252523;padding:60px 0 28px}
 /* RESPONSIVE */
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;text-align:center}
-  .hero-visual{display:none}
+  /* Antes disto o mockup do celular (a única imagem do produto no hero)
+     sumia inteiro abaixo de 1024px — exatamente a faixa de quem abre o
+     site pelo link do WhatsApp no celular (reportado 19/10/2026). Agora
+     ele desce pra debaixo do texto em vez de desaparecer. */
+  .hero-visual{margin-top:48px}
   .hero-ctas,.hero-trust{justify-content:center}
   .feat-block,.feat-block.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
   .feat-visual{order:-1}
@@ -399,6 +409,18 @@ footer{background:#252523;padding:60px 0 28px}
   .nav-links{display:none}
   .foot-grid{grid-template-columns:1fr}
   .foot-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  /* Os cartões flutuantes usam offset negativo (right:-50px / left:-60px)
+     pensado pra sobrar espaço ao lado do celular no desktop — numa tela de
+     360–390px eles vazavam pra fora da viewport e cortavam. Encolhe o
+     celular e traz os cartões pra dentro. */
+  .phone{width:210px}
+  .float-card{padding:9px 12px;right:0;left:0}
+  .float-card.top{top:10px;right:4px}
+  .float-card.bot{bottom:20px;left:4px}
+  .float-label{font-size:.62rem}
+  .float-value{font-size:.78rem}
 }
 
 /* ── BROWSER FRAME (e-commerce) ── */
