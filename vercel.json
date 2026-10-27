@@ -2,6 +2,19 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "agro.rellav.com.br"
+        }
+      ],
+      "destination": "https://www.rellav.com.br/agro",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

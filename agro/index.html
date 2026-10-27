@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rellav Agro — gestão de lavoura para revendas e técnicos agrícolas</title>
+<meta name="description" content="App para técnicos agrônomos e revendas de insumos: acompanhe a lavoura etapa por etapa, registre aplicações, controle o custo por hectare e mostre o resultado ao produtor.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rellav Agro — gestão de lavoura para revendas e técnicos agrícolas">
+<meta property="og:description" content="Acompanhe a lavoura etapa por etapa, registre aplicações de insumo, controle o custo por hectare e mostre o resultado ao produtor — mesmo sem sinal.">
+<meta property="og:url" content="https://www.rellav.com.br/agro">
+<meta property="og:image" content="https://www.rellav.com.br/og-image.png">
+<link rel="canonical" href="https://www.rellav.com.br/agro">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--wheat:#F5C451;--soil:#8A5A2B;--earth:#3B2412;--forest:#1F7A3D;--d:#3D3D3B;--gray:#666;--light:#f7f8fa;--border:#e8e8e8;--sand:#F5E6D0;--ink:#26180D}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--d);background:#fff;font-size:15px;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none}
+img{max-width:100%;display:block;height:auto}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* ─── NAV ─── */
+.topnav{background:var(--d);border-bottom:3px solid var(--wheat);position:sticky;top:0;z-index:200}
+.topnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tn-brand{display:flex;align-items:center}
+.tn-links{display:flex;gap:4px;align-items:center}
+.tn-links>a,.tn-drop-btn{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.55);padding:6px 12px;border-radius:6px;transition:color .15s;background:none;border:none;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:5px}
+.tn-links>a:hover,.tn-drop-btn:hover,.tn-drop-btn.open{color:#fff}
+.tn-links>a.active{color:#fff;background:#4A4A47;font-weight:700}
+.nav-novo{background:var(--wheat);color:var(--ink);font-size:.55rem;font-weight:800;letter-spacing:.8px;padding:2px 6px;border-radius:999px;margin-left:4px;vertical-align:middle}
+.tn-drop{position:relative}
+.tn-menu{position:absolute;top:calc(100% + 12px);left:0;background:#fff;border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,.18);padding:8px;min-width:280px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:300}
+.tn-menu.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+.ndm-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;transition:background .15s}
+.ndm-item:hover{background:#f5f5f5}
+.ndm-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.ndm-icon.ind{background:rgba(135,189,36,.1)}.ndm-icon.dis{background:rgba(234,83,58,.1)}.ndm-icon.rep{background:rgba(54,132,153,.1)}
+.ndm-title{font-size:.85rem;font-weight:800;color:#3D3D3B;line-height:1.2}
+.ndm-desc{font-size:.72rem;color:#666;line-height:1.4;margin-top:2px}
+.tn-cta{background:var(--wheat);color:var(--ink);font-size:.78rem;font-weight:800;padding:8px 18px;border-radius:8px;white-space:nowrap;transition:opacity .2s}
+.tn-cta:hover{opacity:.85}
+@media(max-width:820px){.tn-links{display:none}}
+
+/* ─── BOTÕES ─── */
+.btn-main{background:var(--wheat);color:var(--ink);font-size:.88rem;font-weight:800;padding:14px 26px;border-radius:10px;display:inline-block;transition:all .2s;text-align:center}
+.btn-main:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ghost{color:rgba(255,255,255,.8);font-size:.88rem;font-weight:700;padding:13px 26px;border-radius:10px;border:1.5px solid rgba(255,255,255,.28);display:inline-block;transition:all .2s;text-align:center}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6);color:#fff}
+
+/* ─── HERO ─── */
+.hero{background:linear-gradient(135deg,#3B2412 0%,#3D3D3B 55%,#1F1209 100%);padding:90px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 15% 50%,rgba(245,196,81,.08),transparent)}
+.hero-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.hero-seg{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--wheat);background:rgba(245,196,81,.1);border:1px solid rgba(245,196,81,.28);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.hero h1{font-size:clamp(2.2rem,4.4vw,3rem);font-weight:900;color:#fff;line-height:1.16;margin-bottom:16px}
+.hero h1 em{color:var(--wheat);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.62);font-size:.98rem;line-height:1.8;margin-bottom:30px;max-width:490px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hero-stats{display:flex;gap:22px;flex-wrap:nowrap}
+.hero-stat{flex:1;min-width:0}
+.hero-stat strong{font-size:1.6rem;font-weight:900;color:var(--wheat);line-height:1.2;display:block}
+.hero-stat span{font-size:.72rem;color:rgba(255,255,255,.45);font-weight:600;display:block;line-height:1.4}
+.hero-visual{display:flex;flex-direction:column;gap:14px}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px}
+.hero-card.hot{background:rgba(245,196,81,.08);border-color:rgba(245,196,81,.3)}
+.hero-card strong{display:block;color:#fff;font-size:.95rem;font-weight:800}
+.hero-card span{display:block;color:rgba(255,255,255,.5);font-size:.8rem;margin-top:4px;line-height:1.5}
+.ilustrativo{font-size:.66rem;font-weight:600;color:rgba(255,255,255,.35);margin-top:2px}
+@media(max-width:900px){.hero{padding:56px 0 48px}.hero-inner{grid-template-columns:1fr;gap:36px}.hero-stats{flex-wrap:wrap}.hero-stat{flex:0 0 auto;max-width:150px}}
+
+/* ─── SEÇÕES ─── */
+.section{padding:90px 0}
+.eyebrow{font-size:.68rem;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--soil);margin-bottom:12px}
+.sec-head{text-align:center;max-width:700px;margin:0 auto 44px}
+.sec-head h2,.split h2{font-size:clamp(1.6rem,3.4vw,2.1rem);font-weight:900;color:var(--d);line-height:1.2}
+.sec-head p{color:var(--gray);margin-top:12px;font-size:.98rem}
+@media(max-width:900px){.section{padding:56px 0}}
+
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.perfil{background:var(--light);border:1px solid var(--border);border-radius:18px;padding:28px 26px}
+.perfil .ic{width:52px;height:52px;border-radius:14px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px}
+.perfil h3{font-size:1.18rem;font-weight:800;color:var(--d)}
+.perfil .sub{font-size:.82rem;font-weight:700;color:var(--soil);margin:2px 0 12px}
+.perfil ul{list-style:none;display:grid;gap:9px}
+.perfil li{font-size:.86rem;color:#444;display:flex;gap:10px;line-height:1.5}
+.perfil li::before{content:'✓';color:var(--forest);font-weight:900}
+@media(max-width:900px){.cards3{grid-template-columns:1fr}}
+
+.etapas{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.etapa{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 10px;text-align:center}
+.etapa .n{width:30px;height:30px;border-radius:50%;background:var(--sand);color:var(--soil);font-weight:900;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.etapa strong{display:block;font-size:.84rem;font-weight:800;color:var(--d);line-height:1.3}
+.etapa span{display:block;font-size:.68rem;font-weight:600;color:#8a8a88;margin-top:4px}
+.etapa.on{background:var(--soil);border-color:var(--soil)}
+.etapa.on .n{background:var(--wheat);color:var(--ink)}
+.etapa.on strong{color:#fff}.etapa.on span{color:var(--sand)}
+.nota{font-size:.7rem;color:#8a8a88;margin-top:18px}
+@media(max-width:900px){.etapas{grid-template-columns:1fr}.etapa{display:flex;align-items:center;gap:12px;text-align:left;padding:14px 16px}.etapa .n{margin:0}.etapa span{margin:0 0 0 auto}}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.split p.lead{color:var(--gray);margin:16px 0 18px;font-size:.98rem}
+.pontos{list-style:none;display:grid;gap:12px}
+.pontos li{display:flex;gap:10px;font-size:.9rem;color:#444;line-height:1.55}
+.pontos li::before{content:'✓';color:var(--forest);font-weight:900}
+.quadro{background:var(--earth);border-radius:20px;padding:28px}
+.quadro .tag{font-size:.7rem;font-weight:800;letter-spacing:1.5px;color:var(--wheat);text-transform:uppercase;margin-bottom:14px}
+.linha{display:flex;justify-content:space-between;align-items:center;background:#4A3321;border-radius:12px;padding:16px 18px;margin-bottom:12px;gap:12px}
+.linha b{display:block;color:#fff;font-size:.88rem;font-weight:800}
+.linha small{display:block;font-size:.72rem;font-weight:600;color:#C9B79F}
+.linha small.bom{color:#8CD18A}
+.linha .v{color:var(--wheat);font-weight:900;font-size:1.05rem;white-space:nowrap}
+.quadro .ilustrativo{color:#8A7A66;margin-top:6px}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}}
+
+.dark{background:var(--d)}
+.dark .eyebrow{color:var(--wheat)}
+.dark .sec-head h2{color:#fff}
+.campo{background:#4A4A47;border:1px solid #5E5E5B;border-radius:16px;padding:26px 24px}
+.campo h3{color:#fff;font-size:1.05rem;font-weight:800;margin-bottom:8px}
+.campo p{color:#B5B5B2;font-size:.86rem;line-height:1.6}
+
+.faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.faq div{background:var(--light);border:1px solid var(--border);border-radius:14px;padding:20px 24px}
+.faq h3{font-size:.98rem;font-weight:800;color:var(--d);margin-bottom:6px}
+.faq p{font-size:.88rem;color:var(--gray);line-height:1.65}
+
+.cta-final{background:var(--earth);text-align:center;padding:80px 24px}
+.cta-final h2{color:#fff;font-size:clamp(1.6rem,3.6vw,2.1rem);font-weight:900;margin-bottom:14px}
+.cta-final p{color:#C9B79F;max-width:620px;margin:0 auto 26px;font-size:.98rem}
+.cta-final .btn-main{font-size:.95rem;padding:16px 32px}
+
+footer{background:#2A2A28;padding:32px 24px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+.footer-links{display:flex;gap:6px 22px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:.78rem;font-weight:600;color:#B5B5B2}
+.footer-links a:hover{color:#fff}
+footer p{font-size:.74rem;color:#8a8a88}
+</style>
+<meta name="theme-color" content="#3D3D3B">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-66PPCQVBCE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-66PPCQVBCE');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O Rellav Agro funciona sem internet?","acceptedAnswer":{"@type":"Answer","text":"Sim. O técnico registra visitas e aplicações no campo, e tudo sobe sozinho quando o aparelho volta a ter sinal."}},{"@type":"Question","name":"Preciso de um app diferente para o técnico e para o produtor?","acceptedAnswer":{"@type":"Answer","text":"Não. É o mesmo app. O gestor define o perfil de cada pessoa, e o produtor entra com o celular, pelo convite do técnico."}},{"@type":"Question","name":"O produtor vê tudo o que o técnico anota?","acceptedAnswer":{"@type":"Answer","text":"Não. O produtor vê só o relatório que o técnico liberar. Rascunhos e anotações internas ficam só com a revenda."}},{"@type":"Question","name":"Vale só para algodão?","acceptedAnswer":{"@type":"Answer","text":"O acompanhamento por etapas funciona para qualquer cultura cadastrada. O algodão é o foco do produto."}},{"@type":"Question","name":"Quanto custa e como contratar?","acceptedAnswer":{"@type":"Answer","text":"Falamos com cada revenda para entender a carteira e propor o plano. O primeiro passo é uma demonstração."}}]}</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="tn-brand">
+      <img src="/brand/logo-white.png" alt="Rellav" style="height:28px;width:auto">
+    </a>
+    <div class="tn-links">
+      <a href="/">Início</a>
+      <div class="tn-drop">
+        <button class="tn-drop-btn" onclick="toggleDrop(this)">
+          Segmentos
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tn-menu">
+          <a href="/industrias" class="ndm-item">
+            <div class="ndm-icon ind">🏭</div>
+            <div><div class="ndm-title">Indústrias</div><div class="ndm-desc">Automatize vendas, conecte ao ERP e gerencie equipes de campo</div></div>
+          </a>
+          <a href="/distribuidoras" class="ndm-item">
+            <div class="ndm-icon dis">🏘️</div>
+            <div><div class="ndm-title">Distribuidoras</div><div class="ndm-desc">Gerencie clientes e pedidos, vendas automatizadas e integração total</div></div>
+          </a>
+          <a href="/representantes" class="ndm-item">
+            <div class="ndm-icon rep">💼</div>
+            <div><div class="ndm-title">Representantes</div><div class="ndm-desc">Crie e gerencie políticas comerciais para cada cliente e representada</div></div>
+          </a>
+        </div>
+      </div>
+      <a href="/integracoes">Integrações</a>
+      <a href="/docs">Docs</a>
+      <a href="/agro" class="active">Agro <span class="nav-novo">NOVO</span></a>
+    </div>
+    <a href="https://wa.me/5565996952828?text=Ol%C3%A1!%20Quero%20conhecer%20o%20Rellav%20Agro." class="tn-cta" target="_blank" rel="noopener" data-lead="nav">Falar com Consultor</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-seg">🌾 Rellav Agro · Novo</div>
+      <h1>Gerencie a lavoura <em>de qualquer lugar.</em></h1>
+      <p class="hero-sub">O Rellav Agro leva o técnico, a revenda e o produtor para o mesmo app: etapas da lavoura, visitas, insumos e custo por hectare — mesmo sem sinal.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5565996952828?text=Ol%C3%A1!%20Vi%20o%20Rellav%20Agro%20e%20quero%20uma%20demonstra%C3%A7%C3%A3o%20para%20minha%20revenda." class="btn-main" target="_blank" rel="noopener" data-lead="hero">Quero ver uma demonstração</a>
+        <a href="#etapas" class="btn-ghost">Como funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>Offline</strong><span>Registre no campo; sobe quando volta o sinal</span></div>
+        <div class="hero-stat"><strong>6 etapas</strong><span>Do planejamento à pós-colheita, em cada talhão</span></div>
+        <div class="hero-stat"><strong>R$/ha</strong><span>Custo de insumos por talhão e por safra</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card hot"><strong>Algodão · Talhão Pivô Sul</strong><span>Etapa: Manejo há 18 dias · colheita prevista em 62 dias</span></div>
+      <div class="hero-card"><strong>Custo de insumos: R$ 1.842/ha</strong><span>Comparado só com talhões de algodão na mesma etapa</span></div>
+      <div class="hero-card"><strong>Visita técnica registrada sem sinal</strong><span>Fotos e recomendação ficam no aparelho e sobem sozinhas</span></div>
+      <div class="ilustrativo">Exemplo ilustrativo</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIS -->
+<section class="section" id="perfis">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Um app, três jeitos de usar</div>
+      <h2>Cada pessoa abre o que é dela</h2>
+      <p>O gestor define o perfil de cada usuário no painel. O app mostra só as abas que fazem sentido para quem está usando.</p>
+    </div>
+    <div class="cards3">
+      <div class="perfil">
+        <div class="ic">🌿</div>
+        <h3>Técnico agrônomo</h3>
+        <div class="sub">Cuida da lavoura pelo agricultor</div>
+        <ul><li>Painel da lavoura e alertas de atenção</li><li>Visitas, agenda e recomendações</li><li>Insumos e custo por hectare</li></ul>
+      </div>
+      <div class="perfil">
+        <div class="ic">🏪</div>
+        <h3>Revenda e fornecedor</h3>
+        <div class="sub">Vende insumo e acompanha a carteira</div>
+        <ul><li>Carteira e funil de produtores</li><li>Catálogo, orçamentos e pedidos</li><li>Metas e indicadores de venda</li></ul>
+      </div>
+      <div class="perfil">
+        <div class="ic">🧑‍🌾</div>
+        <h3>Agricultor</h3>
+        <div class="sub">Acompanha a própria lavoura</div>
+        <ul><li>Etapas da safra de cada talhão</li><li>Relatórios que o técnico liberar</li><li>Pede o produto recomendado</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETAPAS -->
+<section class="section" id="etapas" style="background:var(--light)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Rastreie o algodão</div>
+      <h2>Cada talhão, etapa por etapa</h2>
+      <p>Do planejamento à pós-colheita, o técnico move a safra de etapa e o app mostra há quantos dias ela está parada e quando chega a colheita.</p>
+    </div>
+    <div class="etapas">
+      <div class="etapa"><div class="n">1</div><strong>Planejamento</strong><span>concluída</span></div>
+      <div class="etapa"><div class="n">2</div><strong>Preparo do solo</strong><span>concluída</span></div>
+      <div class="etapa"><div class="n">3</div><strong>Plantio</strong><span>concluída</span></div>
+      <div class="etapa on"><div class="n">4</div><strong>Manejo</strong><span>etapa atual (exemplo)</span></div>
+      <div class="etapa"><div class="n">5</div><strong>Colheita</strong><span>a seguir</span></div>
+      <div class="etapa"><div class="n">6</div><strong>Pós-colheita</strong><span>a seguir</span></div>
+    </div>
+    <p class="nota">Exemplo ilustrativo de acompanhamento. Os números reais vêm da carteira de cada revenda.</p>
+  </div>
+</section>
+
+<!-- CUSTO -->
+<section class="section" id="custo">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Otimize o custo com insumos</div>
+      <h2>Saiba quanto cada talhão custou por hectare</h2>
+      <p class="lead">O técnico registra a aplicação (produto, dose, área e custo) na hora, no campo. O app calcula o R$/ha de cada talhão e compara com outros talhões da mesma cultura e da mesma etapa — sem comparar o que não é comparável.</p>
+      <ul class="pontos">
+        <li>Custo gravado no dia: corrigir um preço depois não reescreve o passado</li>
+        <li>Aplicação sem custo informado fica no histórico, mas fora da média</li>
+        <li>Funciona sem sinal e sincroniza sozinho</li>
+      </ul>
+    </div>
+    <div class="quadro">
+      <div class="tag">Algodão · Manejo</div>
+      <div class="linha"><div><b>Talhão Pivô Sul</b><small class="bom">12% abaixo da média</small></div><div class="v">R$ 1.842/ha</div></div>
+      <div class="linha"><div><b>Talhão Baixada</b><small>4% acima da média</small></div><div class="v">R$ 2.130/ha</div></div>
+      <div class="linha"><div><b>Talhão Sede</b><small>na média</small></div><div class="v">R$ 2.015/ha</div></div>
+      <div class="ilustrativo">Exemplo ilustrativo</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPO -->
+<section class="section dark" id="campo" style="padding:80px 0">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:40px;max-width:900px">
+      <div class="eyebrow">No campo, sem depender de sinal</div>
+      <h2>O histórico agronômico fica organizado</h2>
+    </div>
+    <div class="cards3">
+      <div class="campo"><h3>Visita técnica completa</h3><p>Fotos, observações, recomendação e data de retorno, registradas na hora.</p></div>
+      <div class="campo"><h3>Linha do tempo do talhão</h3><p>Mudanças de etapa, visitas e aplicações de insumo em ordem, por safra.</p></div>
+      <div class="campo"><h3>Relatório para o produtor</h3><p>O técnico escolhe o que liberar. Rascunho e anotação interna nunca saem.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>O que a revenda costuma perguntar</h2>
+    </div>
+    <div class="faq">
+      <div><h3>O Rellav Agro funciona sem internet?</h3><p>Sim. O técnico registra visitas e aplicações no campo, e tudo sobe sozinho quando o aparelho volta a ter sinal.</p></div>
+      <div><h3>Preciso de um app diferente para o técnico e para o produtor?</h3><p>Não. É o mesmo app. O gestor define o perfil de cada pessoa, e o produtor entra com o celular, pelo convite do técnico.</p></div>
+      <div><h3>O produtor vê tudo o que o técnico anota?</h3><p>Não. O produtor vê só o relatório que o técnico liberar. Rascunhos e anotações internas ficam só com a revenda.</p></div>
+      <div><h3>Vale só para algodão?</h3><p>O acompanhamento por etapas funciona para qualquer cultura cadastrada. O algodão é o foco do produto.</p></div>
+      <div><h3>Quanto custa e como contratar?</h3><p>Falamos com cada revenda para entender a carteira e propor o plano. O primeiro passo é uma demonstração.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Quer ver o Rellav Agro na sua revenda?</h2>
+  <p>Conversamos pelo WhatsApp e mostramos o app com a carteira de uma revenda de exemplo.</p>
+  <a href="https://wa.me/5565996952828?text=Ol%C3%A1!%20Vi%20o%20Rellav%20Agro%20e%20quero%20uma%20demonstra%C3%A7%C3%A3o%20para%20minha%20revenda." class="btn-main" target="_blank" rel="noopener" data-lead="final">Quero ver uma demonstração</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Início</a>
+      <a href="/industrias">Indústrias</a>
+      <a href="/distribuidoras">Distribuidoras</a>
+      <a href="/representantes">Representantes</a>
+      <a href="/agro">Agro</a>
+      <a href="/integracoes">Integrações</a>
+      <a href="/docs">Documentação</a>
+      <a href="/privacidade">Privacidade</a>
+      <a href="/termos">Termos</a>
+      <a href="/excluir-conta">Excluir conta</a>
+    </div>
+    <p>&copy; 2026 Rellav — Força de Vendas. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+function toggleDrop(btn){
+  const menu=btn.nextElementSibling;
+  const open=menu.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  if(open){
+    setTimeout(()=>document.addEventListener('click',function h(e){
+      if(!btn.closest('.tn-drop').contains(e.target)){
+        menu.classList.remove('open');btn.classList.remove('open');
+        document.removeEventListener('click',h);
+      }
+    }),0);
+  }
+}
+document.querySelectorAll('[data-lead]').forEach(function(a){
+  a.addEventListener('click',function(){ if(window.gtag) window.gtag('event','generate_lead',{page:'agro',position:a.getAttribute('data-lead')}); });
+});
+</script>
+</body>
+</html>
