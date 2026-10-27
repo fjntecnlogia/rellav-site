@@ -132,8 +132,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--dark);heigh
   padding-top:68px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;
   width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(135,189,36,.07),transparent 70%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:72px 0}
+  background:radial-gradient(circle,rgba(135,189,36,.07),transparent 70%);pointer-events:none;z-index:1}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;animation:heroBgFade 18s infinite}
+.hero-bg-img:nth-child(1){animation-delay:0s}
+.hero-bg-img:nth-child(2){animation-delay:6s}
+.hero-bg-img:nth-child(3){animation-delay:12s}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(29,29,27,.92) 0%,rgba(29,29,27,.82) 38%,rgba(29,29,27,.55) 68%,rgba(29,29,27,.3) 100%)}
+@keyframes heroBgFade{0%,100%{opacity:0}5%,28%{opacity:1}33%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-bg-img{animation:none;opacity:0}.hero-bg-img:first-child{opacity:1}}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:72px 0;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;
   background:rgba(135,189,36,.12);border:1px solid rgba(135,189,36,.3);
   color:var(--green);padding:6px 16px;border-radius:100px;
@@ -506,7 +516,7 @@ footer{background:#252523;padding:60px 0 28px}
       <li><a href="#ecommerce">E-commerce</a></li>
       
       
-      
+      <li><a href="/agro">Agro <span style="background:#F5C451;color:#26180D;font-size:.55rem;font-weight:800;letter-spacing:.8px;padding:2px 6px;border-radius:999px;margin-left:4px;vertical-align:middle">NUEVO</span></a></li>
     </ul>
     <div class="nav-right">
       
@@ -518,6 +528,11 @@ footer{background:#252523;padding:60px 0 28px}
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-img" style="background-image:url(banners/banner-vendedor.webp)"></div>
+    <div class="hero-bg-img" style="background-image:url(banners/banner-gestores.webp)"></div>
+    <div class="hero-bg-img" style="background-image:url(banners/banner-telas.webp)"></div>
+  </div>
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -595,6 +610,23 @@ footer{background:#252523;padding:60px 0 28px}
     </div>
   </div>
 </div>
+
+<!-- NOVO: RELLAV AGRO -->
+<section style="background:#fff;padding:36px 0 0">
+  <div class="container">
+    <a href="/agro" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(135deg,#3B2412 0%,#3D3D3B 100%);border:1px solid #7A5A22;border-radius:18px;padding:26px 30px">
+      <div style="display:flex;align-items:center;gap:18px;min-width:0">
+        <div style="font-size:2rem;line-height:1">🌾</div>
+        <div>
+          <div style="font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#F5C451;margin-bottom:4px">Nuevo</div>
+          <div style="font-size:1.15rem;font-weight:800;color:#fff;line-height:1.3">Rellav Agro — gestión de cultivos para técnicos, distribuidores y productores</div>
+          <div style="font-size:.85rem;color:rgba(255,255,255,.6);margin-top:4px">Etapas del cultivo, visitas y costo de insumos por hectárea, incluso sin señal.</div>
+        </div>
+      </div>
+      <span style="background:#F5C451;color:#26180D;font-size:.85rem;font-weight:800;padding:12px 22px;border-radius:10px;white-space:nowrap">Conocer Rellav Agro →</span>
+    </a>
+  </div>
+</section>
 
 <!-- PROBLEMA -->
 <section class="section" style="background:var(--bg)">
@@ -1174,6 +1206,7 @@ footer{background:#252523;padding:60px 0 28px}
           
           
           
+          <li><a href="/agro">🌾 Agro</a></li>
           
         </ul>
       </div>
@@ -1200,6 +1233,7 @@ footer{background:#252523;padding:60px 0 28px}
     <div class="foot-bottom">
         <div class="lang-foot" role="group" aria-label="Idioma"><a href="/" hreflang="pt-BR">PT</a><a href="/es" hreflang="es" aria-current="true">ES</a><a href="/en" hreflang="en-US">EN</a></div>
         <p>© 2026 Rellav. Todos los derechos reservados. ·
+        <a href="/agro" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Agro</a> ·
         <a href="/privacidade" hreflang="pt-BR" lang="pt-BR" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Privacidad</a> ·
         <a href="/termos" hreflang="pt-BR" lang="pt-BR" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem">Términos de uso</a>
       </p>
