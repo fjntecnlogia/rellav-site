@@ -51,8 +51,16 @@ img{max-width:100%;display:block;height:auto}
 
 /* ─── HERO ─── */
 .hero{background:linear-gradient(135deg,#3B2412 0%,#3D3D3B 55%,#1F1209 100%);padding:90px 0 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 15% 50%,rgba(245,196,81,.08),transparent)}
-.hero-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 15% 50%,rgba(245,196,81,.08),transparent);z-index:1;pointer-events:none}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:heroBgFade 18s infinite}
+.hero-bg-img:nth-child(1){animation-delay:0s}
+.hero-bg-img:nth-child(2){animation-delay:6s}
+.hero-bg-img:nth-child(3){animation-delay:12s}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(38,22,10,.9) 0%,rgba(38,22,10,.72) 42%,rgba(38,22,10,.4) 72%,rgba(38,22,10,.2) 100%)}
+@keyframes heroBgFade{0%,100%{opacity:0}5%,28%{opacity:1}33%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-bg-img{animation:none;opacity:0}.hero-bg-img:first-child{opacity:1}}
+.hero-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
 .hero-seg{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--wheat);background:rgba(245,196,81,.1);border:1px solid rgba(245,196,81,.28);padding:6px 14px;border-radius:100px;margin-bottom:18px}
 .hero h1{font-size:clamp(2.2rem,4.4vw,3rem);font-weight:900;color:#fff;line-height:1.16;margin-bottom:16px}
 .hero h1 em{color:var(--wheat);font-style:normal}
@@ -63,10 +71,10 @@ img{max-width:100%;display:block;height:auto}
 .hero-stat strong{font-size:1.6rem;font-weight:900;color:var(--wheat);line-height:1.2;display:block}
 .hero-stat span{font-size:.72rem;color:rgba(255,255,255,.45);font-weight:600;display:block;line-height:1.4}
 .hero-visual{display:flex;flex-direction:column;gap:14px}
-.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px}
-.hero-card.hot{background:rgba(245,196,81,.08);border-color:rgba(245,196,81,.3)}
+.hero-card{background:rgba(38,22,10,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px}
+.hero-card.hot{background:rgba(74,51,33,.72);border-color:rgba(245,196,81,.4)}
 .hero-card strong{display:block;color:#fff;font-size:.95rem;font-weight:800}
-.hero-card span{display:block;color:rgba(255,255,255,.5);font-size:.8rem;margin-top:4px;line-height:1.5}
+.hero-card span{display:block;color:rgba(255,255,255,.68);font-size:.8rem;margin-top:4px;line-height:1.5}
 .ilustrativo{font-size:.66rem;font-weight:600;color:rgba(255,255,255,.35);margin-top:2px}
 @media(max-width:900px){.hero{padding:56px 0 48px}.hero-inner{grid-template-columns:1fr;gap:36px}.hero-stats{flex-wrap:wrap}.hero-stat{flex:0 0 auto;max-width:150px}}
 
@@ -192,6 +200,11 @@ footer p{font-size:.74rem;color:#8a8a88}
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-img" style="background-image:url(/banners/agro-soja-aerea.webp)"></div>
+    <div class="hero-bg-img" style="background-image:url(/banners/agro-soja-caminhao.webp)"></div>
+    <div class="hero-bg-img" style="background-image:url(/banners/agro-soja-colheitadeira.webp)"></div>
+  </div>
   <div class="hero-inner">
     <div>
       <div class="hero-seg">🌾 Rellav Agro · Novo</div>
@@ -344,6 +357,7 @@ footer p{font-size:.74rem;color:#8a8a88}
       <a href="/excluir-conta">Excluir conta</a>
     </div>
     <p>&copy; 2026 Rellav — Força de Vendas. Todos os direitos reservados.</p>
+    <p>Fotos do topo: Melquizedeque Almeida, via <a href="https://www.pexels.com/@melquizedeque/" target="_blank" rel="noopener" style="color:#B5B5B2;text-decoration:underline">Pexels</a>.</p>
   </div>
 </footer>
 
