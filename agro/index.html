@@ -122,6 +122,16 @@ img{max-width:100%;display:block;height:auto}
 .quadro .ilustrativo{color:#8A7A66;margin-top:6px}
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}}
 
+.photo{border-radius:20px;overflow:hidden;box-shadow:0 18px 50px rgba(40,22,8,.25);background:#e9e4da}
+.photo img{width:100%;display:block}
+.band{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.band h2{font-size:clamp(1.6rem,3.4vw,2.1rem);font-weight:900;color:var(--d);line-height:1.2}
+.band p.lead{color:var(--gray);margin:16px 0 18px;font-size:.98rem}
+.campo-split{display:grid;grid-template-columns:440px 1fr;gap:32px;align-items:stretch}
+.campo-split .photo{box-shadow:none;border:1px solid #5E5E5B}
+.campo-split .photo img{height:100%;object-fit:cover}
+.campo-col{display:grid;gap:16px;align-content:center}
+@media(max-width:900px){.band{grid-template-columns:1fr;gap:32px}.campo-split{grid-template-columns:1fr}}
 .dark{background:var(--d)}
 .dark .eyebrow{color:var(--wheat)}
 .dark .sec-head h2{color:#fff}
@@ -310,10 +320,34 @@ footer p{font-size:.74rem;color:#8a8a88}
       <div class="eyebrow">No campo, sem depender de sinal</div>
       <h2>O histórico agronômico fica organizado</h2>
     </div>
-    <div class="cards3">
-      <div class="campo"><h3>Visita técnica completa</h3><p>Fotos, observações, recomendação e data de retorno, registradas na hora.</p></div>
-      <div class="campo"><h3>Linha do tempo do talhão</h3><p>Mudanças de etapa, visitas e aplicações de insumo em ordem, por safra.</p></div>
-      <div class="campo"><h3>Relatório para o produtor</h3><p>O técnico escolhe o que liberar. Rascunho e anotação interna nunca saem.</p></div>
+    <div class="campo-split">
+      <div class="photo"><img src="/banners/agro-tecnico-campo.webp" alt="Técnico agrícola examinando uma planta de milho com o notebook na mão, no meio da lavoura" loading="lazy" width="740" height="494"></div>
+      <div class="campo-col">
+        <div class="campo"><h3>Visita técnica completa</h3><p>Fotos, observações, recomendação e data de retorno, registradas na hora.</p></div>
+        <div class="campo"><h3>Linha do tempo do talhão</h3><p>Mudanças de etapa, visitas e aplicações de insumo em ordem, por safra.</p></div>
+        <div class="campo"><h3>Relatório para o produtor</h3><p>O técnico escolhe o que liberar. Rascunho e anotação interna nunca saem.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NO BOLSO DO TECNICO -->
+<section class="section" id="bolso" style="background:var(--light)">
+  <div class="wrap band">
+    <div>
+      <div class="photo"><img src="/banners/agro-tecnico-app.webp" alt="Técnico agrícola sorrindo, no meio da lavoura de milho, mostrando o Rellav Agro na tela do celular" loading="lazy" width="1480" height="988"></div>
+      <p class="nota" style="margin-top:10px">Tela do app: desenho com dados fictícios.</p>
+    </div>
+    <div>
+      <div class="eyebrow">No bolso do técnico</div>
+      <h2>O técnico leva a lavoura no bolso</h2>
+      <p class="lead">Abre o app no meio do talhão, vê o que precisa de atenção e registra a visita ali mesmo, sem voltar ao escritório.</p>
+      <ul class="pontos">
+        <li>O painel da lavoura é a primeira tela</li>
+        <li>Visita, foto e aplicação de insumo registradas na hora, mesmo sem sinal</li>
+        <li>O produtor recebe só o relatório que o técnico liberar</li>
+      </ul>
+      <p style="margin-top:26px"><a href="https://wa.me/5565996952828?text=Ol%C3%A1!%20Vi%20o%20Rellav%20Agro%20e%20quero%20uma%20demonstra%C3%A7%C3%A3o%20para%20minha%20revenda." class="btn-main" target="_blank" rel="noopener" data-lead="bolso">Quero ver uma demonstração</a></p>
     </div>
   </div>
 </section>
@@ -357,7 +391,7 @@ footer p{font-size:.74rem;color:#8a8a88}
       <a href="/excluir-conta">Excluir conta</a>
     </div>
     <p>&copy; 2026 Rellav — Força de Vendas. Todos os direitos reservados.</p>
-    <p>Fotos do topo: Melquizedeque Almeida, via <a href="https://www.pexels.com/@melquizedeque/" target="_blank" rel="noopener" style="color:#B5B5B2;text-decoration:underline">Pexels</a>.</p>
+    <p>Fotos de campo: Melquizedeque Almeida, via <a href="https://www.pexels.com/@melquizedeque/" target="_blank" rel="noopener" style="color:#B5B5B2;text-decoration:underline">Pexels</a>, e Freepik.</p>
   </div>
 </footer>
 
