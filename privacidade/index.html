@@ -109,6 +109,7 @@ body{
 .data-table tr:nth-child(even) td{background:var(--light)}
 .data-table tr:last-child td{border-bottom:none}
 .data-table td:first-child{font-weight:600;color:var(--d);white-space:nowrap}
+.data-table.wrap td:first-child{white-space:normal}
 
 /* ── CARDS ── */
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
@@ -244,12 +245,12 @@ body{
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Documento Legal · Versão 1.0</div>
+  <div class="hero-tag">Documento Legal · Versão 1.1</div>
   <h1>Política de <em>Privacidade</em></h1>
   <div class="hero-meta">
-    <span><strong>Vigência:</strong> 19 de maio de 2026</span>
-    <span><strong>Última atualização:</strong> 19 de maio de 2026</span>
-    <span><strong>Aplicável a:</strong> App Rellav (iOS e Android)</span>
+    <span><strong>Vigência desta versão:</strong> 30 de outubro de 2026</span>
+    <span><strong>Última atualização:</strong> 30 de outubro de 2026</span>
+    <span><strong>Aplicável a:</strong> Apps Rellav e Rellav Agro (iOS e Android)</span>
   </div>
 </div>
 
@@ -263,6 +264,7 @@ body{
     <li><a href="#s1"><span class="toc-num">1</span> Sobre esta Política</a></li>
     <li><a href="#s2"><span class="toc-num">2</span> Quem somos</a></li>
     <li><a href="#s3"><span class="toc-num">3</span> Dados coletados</a></li>
+    <li><a href="#s3a"><span class="toc-num">3A</span> Rellav Agro</a></li>
     <li><a href="#s4"><span class="toc-num">4</span> Como usamos seus dados</a></li>
     <li><a href="#s5"><span class="toc-num">5</span> Base legal (LGPD)</a></li>
     <li><a href="#s6"><span class="toc-num">6</span> Compartilhamento</a></li>
@@ -296,7 +298,7 @@ body{
   <table class="data-table">
     <tbody>
       <tr><td>Empresa</td><td>FJN Tecnologia</td></tr>
-      <tr><td>Produto</td><td>Rellav — App de Força de Vendas</td></tr>
+      <tr><td>Produto</td><td>Rellav — App de Força de Vendas · Rellav Agro</td></tr>
       <tr><td>Site</td><td><a href="https://rellav.com.br" style="color:var(--g)">rellav.com.br</a></td></tr>
       <tr><td>E-mail</td><td><a href="mailto:contato@rellav.com.br" style="color:var(--g)">contato@rellav.com.br</a></td></tr>
       <tr><td>Contato geral</td><td><a href="mailto:contato@rellav.com.br" style="color:var(--g)">contato@rellav.com.br</a></td></tr>
@@ -364,7 +366,7 @@ body{
   <div class="highlight orange">
     <span class="highlight-icon">📍</span>
     <div class="highlight-text">
-      <strong>Acesso à localização:</strong> O aplicativo solicita permissão de acesso à localização do dispositivo exclusivamente para a funcionalidade de <strong>Mapa de Clientes</strong> — que exibe a posição geográfica dos clientes próximos ao vendedor e auxilia no planejamento de rotas de visita. A localização <strong>não é coletada em segundo plano</strong> e é utilizada apenas quando o usuário está com o app aberto e utilizando o mapa.
+      <strong>Acesso à localização:</strong> O aplicativo solicita permissão de localização para o <strong>Mapa de Clientes</strong> e para o planejamento de rotas de visita, e só a usa <strong>com o app aberto</strong>: não coleta localização em segundo plano. Nas empresas que usam o acompanhamento da equipe em campo (<strong>Mapa ao Vivo</strong>), o app envia a posição do usuário ao servidor a cada cerca de 60 segundos enquanto está aberto, e as visitas registram as coordenadas de entrada e saída. Os prazos de guarda estão na Seção 8. Se a permissão for negada, o app continua funcionando e a posição não é enviada.
     </div>
   </div>
 
@@ -372,9 +374,93 @@ body{
   <div class="highlight blue">
     <span class="highlight-icon">📷</span>
     <div class="highlight-text">
-      <strong>Acesso à câmera:</strong> O aplicativo solicita permissão de câmera exclusivamente para a funcionalidade de <strong>Leitor de Código de Barras</strong> do catálogo de produtos. A câmera é ativada somente quando o usuário toca no ícone de scanner. <strong>Nenhuma imagem ou vídeo é armazenado</strong> — apenas o código lido é processado.
+      <strong>Acesso à câmera (Rellav):</strong> No app Rellav, a câmera é usada para ler códigos de barras do catálogo e fotografar o pedido escrito. A câmera só é ativada quando o usuário toca na função, e <strong>nenhuma imagem é armazenada</strong> no Rellav. <strong>No Rellav Agro é diferente:</strong> as fotos da visita técnica são guardadas, como descrito na Seção 3A.5.
     </div>
   </div>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3.6 Microfone e Bluetooth</h3>
+  <div class="highlight blue">
+    <span class="highlight-icon">🎙️</span>
+    <div class="highlight-text">
+      <strong>Microfone:</strong> usado somente quando o usuário toca para falar (pedido por voz, resumo de visita por voz e Copiloto). O reconhecimento de fala é feito pelo serviço de voz do próprio aparelho (Google, no Android), sujeito à política desse serviço; <strong>a Rellav não grava o áudio</strong>. O texto reconhecido só é enviado ao servidor quando o usuário decide enviá-lo, e, nas empresas que habilitam recursos de inteligência artificial, é interpretado por serviço de IA contratado pela Rellav.<br><br>
+      <strong>Bluetooth:</strong> usado apenas para conectar a impressora térmica (boleto e nota). A Rellav não coleta dados do Bluetooth.
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 3A -->
+<div class="policy-section" id="s3a">
+  <div class="section-num">Seção 3A</div>
+  <h2>Rellav Agro</h2>
+  <p>Esta seção vale para o aplicativo <strong>Rellav Agro</strong> e complementa o restante da política. Onde houver diferença entre esta seção e as demais, vale esta, para o Rellav Agro.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.1 O que é e quem usa</h3>
+  <p>O Rellav Agro é a versão do Rellav voltada à lavoura. É usado por três tipos de pessoa: o <strong>técnico agrônomo</strong> e o <strong>fornecedor</strong> (distribuidora ou revenda), que entram com e-mail e senha criados pela empresa contratante, e o <strong>produtor rural</strong>, que entra com o número de celular, por convite do técnico.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.2 Papéis na LGPD</h3>
+  <p>Para os dados de lavoura e de relacionamento com os produtores, a <strong>empresa contratante (revenda)</strong> é a controladora, e a <strong>FJN Tecnologia</strong> trata esses dados em nome dela, como operadora. Para os dados de conta, segurança e funcionamento do aplicativo, a FJN Tecnologia é a controladora.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.3 Quais dados o Rellav Agro trata</h3>
+  <table class="data-table wrap">
+    <thead><tr><th>Dado</th><th>Quem informa</th><th>Para quê</th></tr></thead>
+    <tbody>
+      <tr><td>Nome, e-mail, função e perfil no app (Técnico, Comercial ou os dois)</td><td>A revenda</td><td>Acesso e escolha das abas do app</td></tr>
+      <tr><td>Produtor: nome, CPF ou CNPJ, celular e cidade</td><td>O técnico, pela revenda</td><td>Cadastro, convite e acesso ao portal</td></tr>
+      <tr><td>Senha do produtor</td><td>O produtor</td><td>Entrar no app. Guardada apenas como hash, nunca em texto</td></tr>
+      <tr><td>Propriedades, talhões e safras: nome, cidade, coordenadas (quando informadas), área, cultura, etapa e datas</td><td>O técnico</td><td>Acompanhar a lavoura</td></tr>
+      <tr><td>Visita técnica: observações, recomendação, data de retorno e as coordenadas do momento em que a visita é salva</td><td>O técnico</td><td>Histórico agronômico e relatório ao produtor</td></tr>
+      <tr><td>Fotos da visita</td><td>O técnico, pela câmera</td><td>Ilustrar o relatório da visita</td></tr>
+      <tr><td>Aplicações de insumo: produto, dose, área e custo</td><td>O técnico</td><td>Custo por hectare</td></tr>
+      <tr><td>Funil comercial: estágio e anotações do técnico sobre o produtor</td><td>O técnico</td><td>Atendimento da revenda. O produtor não vê</td></tr>
+      <tr><td>Orçamentos pedidos pelo produtor ("Quero este produto")</td><td>O produtor</td><td>A revenda confirmar preço e prazo</td></tr>
+      <tr><td>Posição do técnico (latitude e longitude)</td><td>Automático, pelo aparelho</td><td>Acompanhamento da equipe em campo (3A.4)</td></tr>
+      <tr><td>Token de notificações (quando habilitadas), endereço IP e logs de acesso</td><td>Automático</td><td>Avisos, segurança e suporte</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.4 Posição do técnico</h3>
+  <div class="highlight orange">
+    <span class="highlight-icon">📍</span>
+    <div class="highlight-text">Com o app aberto e a sessão ativa, o Rellav Agro envia a posição do técnico ao servidor a cada cerca de 60 segundos, para o gestor da revenda acompanhar a equipe em campo (Mapa ao Vivo). <strong>Com o app fechado, a posição não é coletada.</strong> A última posição fica guardada até ser substituída e o histórico é apagado após 30 dias. Se o técnico negar a permissão de localização no aparelho, o app continua funcionando e a posição não é enviada. A revenda é responsável por informar seus colaboradores sobre esse acompanhamento.</div>
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.5 Câmera e fotos</h3>
+  <p>O app usa a câmera para fotografar a lavoura na visita técnica e para ler códigos de barras no catálogo. <strong>No Rellav Agro, as fotos da visita são guardadas no servidor</strong>, ligadas à visita, e podem aparecer no relatório que o técnico liberar ao produtor. Pedimos ao técnico que evite fotografar pessoas.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.6 O que o produtor vê e o que não vê</h3>
+  <p>O produtor vê apenas o que é dele: suas propriedades e talhões, as etapas das safras e os relatórios de visita que o técnico liberar para ele, depois de concluídos. <strong>Rascunhos, anotações internas do técnico e o funil comercial nunca aparecem para o produtor.</strong></p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.7 Finalidades e bases legais</h3>
+  <table class="data-table wrap">
+    <thead><tr><th>Finalidade</th><th>Base legal</th></tr></thead>
+    <tbody>
+      <tr><td>Operar o app e prestar o serviço contratado pela revenda</td><td>Execução de contrato (LGPD, art. 7º, V)</td></tr>
+      <tr><td>Uso dos dados de lavoura do produtor pela revenda para atendê-lo</td><td>Consentimento do produtor, dado no convite (art. 7º, I)</td></tr>
+      <tr><td>Segurança, prevenção a fraude e logs</td><td>Legítimo interesse (art. 7º, IX) e obrigação legal (Marco Civil, art. 15)</td></tr>
+      <tr><td>Acompanhamento da equipe em campo (posição)</td><td>Legítimo interesse da revenda (art. 7º, IX)</td></tr>
+      <tr><td>Notificações no aparelho</td><td>Permissão dada no próprio aparelho, revogável a qualquer momento</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.8 Compartilhamento</h3>
+  <p>A Rellav não vende dados e não os usa para publicidade. Os dados são visíveis à revenda contratante e tratados pelos provedores que sustentam o serviço: servidor próprio (VPS), Cloudflare (DNS), Vercel (site e portal web) e Google (notificações, quando habilitadas). Parte desses provedores pode processar dados fora do Brasil, com as salvaguardas do art. 33 da LGPD.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.9 Retenção</h3>
+  <table class="data-table wrap">
+    <thead><tr><th>Dado</th><th>Retenção</th></tr></thead>
+    <tbody>
+      <tr><td>Acesso do produtor ao app</td><td>Até ele excluir a conta ou a revenda revogar o acesso</td></tr>
+      <tr><td>Cadastro do produtor, propriedades, safras, visitas, fotos e aplicações</td><td>Enquanto durar o contrato com a revenda e por até 5 anos depois</td></tr>
+      <tr><td>Histórico de posição do técnico</td><td>30 dias. A última posição fica até ser substituída</td></tr>
+      <tr><td>Logs de acesso</td><td>6 meses (Marco Civil, art. 15)</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.10 Excluir a conta e exercer direitos</h3>
+  <p>O produtor pode excluir a própria conta no app, em <strong>Conta → Excluir minha conta</strong>, confirmando com a senha. O acesso é encerrado na hora: a senha deixa de valer, as sessões são derrubadas, convites pendentes são cancelados e o técnico é avisado. <strong>Esse botão não apaga o cadastro do produtor na revenda</strong> (propriedades, safras, visitas, fotos e pedidos), que é registro comercial da revenda. Para pedir a eliminação desses dados, o produtor procura a revenda ou escreve para <a href="mailto:contato@rellav.com.br" style="color:var(--g);font-weight:600">contato@rellav.com.br</a>, e a Rellav encaminha o pedido à revenda. Técnicos e fornecedores excluem a conta em <strong>Mais → Meu Perfil → Excluir minha conta</strong>. Os demais direitos do art. 18 da LGPD seguem a Seção 9. Veja também a página <a href="/excluir-conta" style="color:var(--g);font-weight:600">Excluir conta</a>.</p>
+
+  <h3 style="font-size:.95rem;font-weight:800;color:var(--d);margin:20px 0 12px">3A.11 Permissões do aplicativo</h3>
+  <p>Câmera (fotos da visita e leitura de código de barras), localização (com o app aberto), notificações, microfone (voz) e Bluetooth (impressora), conforme as Seções 3.4 a 3.6. Todas podem ser negadas ou revogadas nas configurações do aparelho.</p>
 </div>
 
 <!-- SEÇÃO 4 -->
@@ -497,9 +583,9 @@ body{
         <td>Conexão autenticada e criptografada (HTTPS/TLS)</td>
       </tr>
       <tr>
-        <td>Provedores de infraestrutura em nuvem</td>
-        <td>Hospedagem dos servidores e banco de dados (AWS, Google Cloud ou equivalente)</td>
-        <td>Contratos de processamento de dados (DPA) e certificações SOC 2 / ISO 27001</td>
+        <td>Provedores de infraestrutura</td>
+        <td>Servidor próprio (VPS) onde rodam a API e o banco de dados; Cloudflare (DNS); Vercel (site e painel web)</td>
+        <td>Conexão criptografada (HTTPS/TLS) e acesso restrito</td>
       </tr>
       <tr>
         <td>Provedores de monitoramento de erros</td>
@@ -579,7 +665,7 @@ body{
       <tr><td>Dados de clientes da empresa</td><td>Duração do contrato + 5 anos</td><td>Obrigações fiscais e legais</td></tr>
       <tr><td>Pedidos e histórico de vendas</td><td>5 anos após a transação</td><td>Obrigação fiscal (legislação tributária brasileira)</td></tr>
       <tr><td>Logs de acesso e segurança</td><td>6 meses (Art. 15 do Marco Civil da Internet)</td><td>Obrigação legal — Lei 12.965/2014</td></tr>
-      <tr><td>Dados de localização</td><td>Não armazenados permanentemente</td><td>Usado apenas em tempo real para o mapa</td></tr>
+      <tr><td>Dados de localização</td><td>Histórico de 30 dias; a última posição fica até ser substituída</td><td>Mapa e acompanhamento da equipe em campo</td></tr>
       <tr><td>Dados de crash / erros</td><td>30 dias (anonimizados)</td><td>Diagnóstico técnico</td></tr>
       <tr><td>Dados após solicitação de exclusão</td><td>Até 30 dias para exclusão completa</td><td>Processamento técnico da solicitação</td></tr>
     </tbody>
@@ -699,6 +785,10 @@ body{
 
   <h3 style="font-size:.88rem;font-weight:800;color:var(--d);margin:20px 0 12px">Histórico de Versões</h3>
   <ul class="update-log">
+<li>
+<span class="update-date">30/10/2026</span>
+<span class="update-desc">Versão 1.1 — Inclusão do aplicativo Rellav Agro (Seção 3A), descrição do microfone e do Bluetooth (3.6), do acompanhamento da posição (3.4), das fotos da visita (3.5) e atualização dos provedores de infraestrutura e da retenção de localização.</span>
+</li>
     <li>
       <span class="update-date">19/05/2026</span>
       <span class="update-desc">Versão 1.0 — Publicação inicial da Política de Privacidade para lançamento do app nas lojas Google Play e App Store. Conformidade com LGPD.</span>
@@ -734,7 +824,7 @@ body{
 <!-- AVISO FINAL -->
 <div style="background:var(--light);border-radius:14px;padding:24px;margin-top:12px;text-align:center;border:1px solid var(--border)">
   <p style="font-size:.85rem;color:#888;margin:0">
-    Esta Política de Privacidade foi elaborada em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD) — Lei nº 13.709/2018</strong>, o Marco Civil da Internet (Lei nº 12.965/2014) e os requisitos de privacidade do <strong>Google Play Store</strong> e <strong>Apple App Store</strong>. Data de vigência: <strong>19 de maio de 2026</strong>.
+    Esta Política de Privacidade foi elaborada em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD) — Lei nº 13.709/2018</strong>, o Marco Civil da Internet (Lei nº 12.965/2014) e os requisitos de privacidade do <strong>Google Play Store</strong> e <strong>Apple App Store</strong>. Data de vigência desta versão: <strong>30 de outubro de 2026</strong>.
   </p>
 </div>
 
@@ -747,7 +837,7 @@ body{
       <img src="/brand/logo-white.png" alt="Rellav" style="height:28px;width:auto">
     </div>
     <p>© 2026 FJN Tecnologia · rellav.com.br</p>
-    <p>Política de Privacidade · Versão 1.0 · 19 de maio de 2026</p>
+    <p>Política de Privacidade · Versão 1.1 · 30 de outubro de 2026</p>
     <p style="margin-top:8px">
       <a href="https://rellav.com.br" style="color:var(--g);text-decoration:none;font-size:.75rem;font-weight:600">Site Rellav</a>
       &nbsp;·&nbsp;
